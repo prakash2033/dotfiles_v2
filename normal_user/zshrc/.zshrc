@@ -3,7 +3,7 @@
 #|_  / __| '_ \| '__/ __|
 # / /\__ \ | | | | | (__ 
 #/___|___/_| |_|_|  \___|
-# gotbletu (@gmail|twitter|youtube|github|lbry)
+# prakash2033 (@gmail|twitter|youtube|github|lbry)
 
 #-------- Prompt {{{
 #------------------------------------------------------
@@ -178,7 +178,7 @@ alias -s txt=$EDITOR
 alias -s epub="background $EBOOKER"
 alias -s {cbr,cbz}="background $COMICER"
 # might conflict with emacs org mode
-alias -s {at,ch,com,de,net,org}="background $BROWSER"
+alias -s {at,ch,com,de,se,net,org}="background $BROWSER"
 
 # archive extractor
 alias -s ace="unace l"
@@ -289,7 +289,7 @@ alias -g Sn='| sort -n'
 alias -g Snr='| sort -nr'
 
 #}}}
-#-------- Source External Files {{{
+#---- Source External Files {{{
 #------------------------------------------------------
 # source all files in function directory
 if [ -d "$HOME/.config/function" ]; then
@@ -707,3 +707,11 @@ vvv() {
   file="$(fasd -Rfl "$1" | fzf -1 -0 --no-sort +m)" && vi "${file}" || return 1
 }
 
+# Set up Node Version Manager
+source /usr/share/nvm/init-nvm.sh
+
+unsetopt nomatch
+
+# ----- Zsh Autosuggestions
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#708289"

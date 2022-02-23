@@ -34,8 +34,6 @@ export LESS=$LESS" -S"
 ##### SYSTEM #######
 ####################
 
-
-
 #-------- Exports {{{
 #------------------------------------------------------
 # set display
@@ -280,6 +278,13 @@ export PATH="$PATH:$GOPATH/bin"
 # NPM NodeJS Packages
 if [ -d "$HOME/node_modules/.bin" ] ; then
     export PATH="$HOME/node_modules/.bin:$PATH"
+fi
+
+# Dotnet
+export DOTNET_ROOT="$HOME/.dotnet"
+export DOTNET_CLI_TELEMETRY_OPTOUT="true"
+if [ -d "$HOME/.dotnet" ] ; then
+    export PATH="$HOME/.dotnet:$PATH"
 fi
 
 # User Scripts
@@ -844,7 +849,36 @@ export FFF_CD_FILE=/tmp/.fff_d
 ff() { fff "$@"; cd "$(< $FFF_CD_FILE)"; }
 
 # }}}
+# -------- Git {{{
+alias glNoGraph='git log --color=always \
+--format="%C(cyan)%h%Creset %C(blue)%ar%Creset%C(auto)%d%Creset \
+%C(yellow)%s%+b %C(black)%ae%Creset" "$@"'
 
+_gitLogLineToHash="echo {} |
+grep -o '[a-f0-9]\{7\}' |
+head -1"
+
+_viewGitLogLine="$_gitLogLineToHash | 
+xargs -I % sh -c 'git show --color=always % | 
+diff-so-fancy'"
+
+gcop() {  # search for commit with preview and copy hash
+  glNoGraph |
+      fzf -i -e --no-sort --reverse \
+          --tiebreak=index --no-multi \
+          --ansi --preview="$_viewGitLogLine" \
+          --header "enter: view, M-y: copy hash" \
+          --bind "enter:execute:$_viewGitLogLine   |
+          less -R" \
+          --bind "alt-y:execute:$_gitLogLineToHash |
+          xclip -r -selection clipboard"
+}
+# }}}
+#-------- Functions {{{
+se(){
+  find . | fzf -i | xargs -r xdg-open
+}
+# }}}
 
 ####################
 ##### GRAPHICS #####
