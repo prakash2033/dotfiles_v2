@@ -462,12 +462,13 @@ bindkey "^f" sudo_
 #hw() { zle -I; echo hello world; }; zle -N hw; bindkey '^[[4~' hw
 #bindkey -s '^[[4~' 'echo hello\n'
 
-
-# bindkey -s '^O' "fzf-dmenu\n"
-
 bindkey -s '^O' "fzf-dmenu\n"
 
-
+fzf-dmenu() { 
+        # note: xdg-open has a bug with .desktop files, so we cant use that shit
+        selected="$(ls /usr/share/applications | fzf -e)"
+        nohup `grep '^Exec' "/usr/share/applications/$selected" | tail -1 | sed 's/^Exec=//' | sed 's/%.//'` >/dev/null 2>&1&
+}
 
 # disable zsh autocorrect
 # https://coderwall.com/p/jaoypq
