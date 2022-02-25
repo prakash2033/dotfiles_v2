@@ -858,6 +858,7 @@ alias gD='git branch -D $(git branch | fzf)'
 alias gd='git diff --color=always | diff-so-fancy'
 alias gds='git diff --staged --color=always | diff-so-fancy'
 alias gs='git status'
+alias gps='git push'
 alias glNoGraph='git log --color=always \
 --format="%C(cyan)%h%Creset %C(blue)%ar%Creset%C(auto)%d%Creset \
 %C(yellow)%s%+b %C(black)%ae%Creset" "$@"'
