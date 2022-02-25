@@ -487,6 +487,25 @@ alias ytv='youtube-viewer -C -7 --results=6 --video-player=mpv --append-arg="--o
 alias yt='ytfzf -t -l'
 alias visudo='sudo EDITOR="$EDITOR" visudo'
 
+alias h='cd $HOME && la'
+alias dox='cd ~/Documents'
+alias dl='cd ~/Downloads'
+alias px='cd ~/Pictures'
+alias mu='cd ~/Music'
+alias vv='cd ~/Videos'
+alias sc='cd ~/.scripts'
+
+alias dot='cd ~/Public/gitrepo/dotfiles_v2'
+alias notes='cd ~/Public/gitrepo/shownotes'
+
+alias dev='cd /media/prakash/dev'
+alias code='cd /media/prakash/code'
+alias tos='cd /media/prakash/dev/tote-tocc-tos'
+alias label='cd /media/prakash/dev/tote-tocc-labelservice'
+alias software='cd /media/prakash/dev/tote-tocc-softwareservice'
+alias service='cd /media/prakash/dev/tote-tocc-services-ui'
+alias notifi='cd /media/prakash/dev/tote-tocc-notificationservice'
+
 alias derez='rm -Iv'			                # rm interactive, prompt once only
 alias uhaul='mv -iv --'					# mv prompt confirmation
 
@@ -495,6 +514,8 @@ alias uhaul='mv -iv --'					# mv prompt confirmation
 if [ -x /usr/bin/dircolors ]; then
     eval "`dircolors -b`"
     alias ls='ls --color=auto'
+    alias la='ls -a --color=auto'
+    alias ll='ls -la --color=auto'
     alias dir='dir --color=auto'
     alias vdir='vdir --color=auto'
     alias grep='grep --color=auto'
