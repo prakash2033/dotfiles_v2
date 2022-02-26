@@ -1,3 +1,5 @@
 #To ignore
 cache.db
+cache.db.lock
+history.search
 normal_user/ranger/.config/ranger/plugins/*
