@@ -81,6 +81,12 @@ https://www.reddit.com/r/coolgithubprojects/.rss "Linux-Subreddit"
 https://www.reddit.com/r/selfhosted/.rss "Linux-Subreddit"
 
 # }}}
+
+# ------- Web Development {{{
+
+https://www.reddit.com/r/webdev/.rss "Webdev-Subreddit"
+
+# }}}
 # -------- Video {{{
 # ------------------------------------------------------
 https://www.youtube.com/feeds/videos.xml?user=Jakejw93 "Video-Linux"
