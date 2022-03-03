@@ -37,9 +37,10 @@
 "query:All Articles Video-Linux:tags # \"Video-Linux\"" "Video-Linux"
 "query:All Articles News:tags # \"News\"" "News"
 "query:All Articles Tech-News:tags # \"Tech-News\"" "Tech-News"
+"query:All Articles Dev-Subreddit:tags # \"Dev-Subreddit\"" "Dev-Subreddit"
 "query:All Articles Blog:tags # \"Blog\"" "Blog"
 "query:All Articles Podcast:tags # \"Podcast\"" "Podcast"
-"query:All Articles Miscellaneous:tags # \"Miscellaneous\"" "Miscellaneous"
+"query:All Articles YouTube-Videos:tags # \"Miscellaneous\"" "Miscellaneous"
 
 # "query:All Unread Articles (30days):unread = \"yes\" and (age between 0:31)"
 # "query:Unread Articles (primary):unread = \"yes\" and tags # \"primary\""
@@ -86,13 +87,30 @@ https://www.reddit.com/r/coolgithubprojects/.rss "Linux-Subreddit"
 https://www.reddit.com/r/selfhosted/.rss "Linux-Subreddit"
 
 # }}}
+# -------- Web Development {{{
 
-# ------- Web Development {{{
-
-https://www.reddit.com/r/webdev/.rss "Webdev-Subreddit"
+https://www.reddit.com/r/webdev/.rss "Dev-Subreddit"
+https://www.reddit.com/r/dotnet/.rss "Dev-Subreddit"
+https://www.reddit.com/r/angular/.rss "Dev-Subreddit"
+https://www.reddit.com/r/typescript/.rss "Dev-Subreddit"
 
 # }}}
-# -------- Video {{{
+#-------- News {{{
+
+https://feeds.thelocal.com/rss/se "News"
+https://www.nagpurtoday.in/latest-news/rss "News"
+#https://thelivenagpur.com/feed/
+#https://feeds.bbci.co.uk/hindi/india/rss.xml "News"
+https://lukesmith.xyz/rss.xml "Blog"
+https://srbachchan.tumblr.com/rss "Blog"
+https://ubuntupodcast.org/feed/podcast/ "Podcast"
+https://notrelated.libsyn.com/rss "Podcast"
+https://www.archlinux.org/feeds/news/ "Tech-News"
+https://blog.angular.io/feed "Tech-News"
+https://azurecomcdn.azureedge.net/en-us/updates/feed/ "Tech-News"
+
+# }}}
+# -------- Video-Linux {{{
 # ------------------------------------------------------
 https://www.youtube.com/feeds/videos.xml?user=Jakejw93 "Video-Linux"
 https://www.youtube.com/feeds/videos.xml?user=sneekylinux "Video-Linux"
@@ -112,31 +130,19 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCxQKHvKbmSzGMvUrVtJYnUA "Vi
 https://www.youtube.com/feeds/videos.xml?channel_id=UC9x0AN7BWHpCDHSm9NiJFJQ "Video-Linux" "~Network Chuck (YouTube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA "Video-Linux" "~Mental Outlaw (YouTube)"
 
-https://feeds.thelocal.com/rss/se "News"
-https://www.nagpurtoday.in/latest-news/rss "News"
-#https://thelivenagpur.com/feed/
-#https://feeds.bbci.co.uk/hindi/india/rss.xml "News"
-https://lukesmith.xyz/rss.xml "Blog"
-https://srbachchan.tumblr.com/rss "Blog"
-https://ubuntupodcast.org/feed/podcast/ "Podcast"
-https://notrelated.libsyn.com/rss "Podcast"
-https://www.archlinux.org/feeds/news/ "Tech-News"
-https://blog.angular.io/feed "Tech-News"
-https://azurecomcdn.azureedge.net/en-us/updates/feed/ "Tech-News"
-
-https://www.youtube.com/feeds/videos.xml?channel_id=UCdqoLdDI5U8Xz2_mYPD71eg "Miscellaneous" "~i bike unfolded (YouTube)"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCL0QSFSUfW8cHua_rDpltTg "Miscellaneous" "~Peter Paul Chato (YouTube)"
-#https://www.youtube.com/feeds/videos.xml?channel_id=UCrC8mOqJQpoB7NuIMKIS6rQ "Miscellaneous" "~Study IQ Education (YouTube)"
-https://www.youtube.com/feeds/videos.xml?channel_id=UC15sF31QE-7rooIlSKnTq_w "Miscellaneous" "~MSK (YouTube)"
-https://www.youtube.com/feeds/videos.xml?channel_id=UC1MwJy1R0nGQkXxRD9p-zTQ "Miscellaneous" "~Barnacules Nerdgasm (YouTube)"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCBr_Fu6q9iHYQCh13jmpbrg "Miscellaneous" "~Errichto (YouTube)"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCcYzLCs3zrQIBVHYA1sK2sw "Miscellaneous" "~Sadhguru (YouTube)"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCBJycsmduvYEL83R_U4JriQ "Miscellaneous" "~MKBHD (YouTube)"
-https://www.youtube.com/feeds/videos.xml?channel_id=UC8bM_y2J-rhv1FL3hdP2VSA "Miscellaneous" "~Nomad Trails (YouTube)"
-https://www.youtube.com/feeds/videos.xml?channel_id=UC54_ux4BnaJwkVFn5M391XQ "Miscellaneous" "~TMKOC (YouTube)"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCl2mFZoRqjw_ELax4Yisf6w "Miscellaneous" "~Louis Rossmann (YouTube)"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCNJcSUSzUeFm8W9P7UUlSeQ "Miscellaneous" "~The Viral fever (YouTube)"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCfDxyxsxaKpyYXkrNRItLsg "Miscellaneous" "~KRK (YouTube)"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCy5mW8fB24ITiiC0etjLI6w "Miscellaneous" "~Nilesh Misra (YouTube)"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCatL-c6pmnjzEOHSyjn-sHA "Miscellaneous" "~Khan GS Reasearch Centre"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCdqoLdDI5U8Xz2_mYPD71eg "YouTube-Videos" "~i bike unfolded (YouTube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCL0QSFSUfW8cHua_rDpltTg "YouTube-Videos" "~Peter Paul Chato (YouTube)"
+#https://www.youtube.com/feeds/videos.xml?channel_id=UCrC8mOqJQpoB7NuIMKIS6rQ "YouTube-Videos" "~Study IQ Education (YouTube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC15sF31QE-7rooIlSKnTq_w "YouTube-Videos" "~MSK (YouTube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC1MwJy1R0nGQkXxRD9p-zTQ "YouTube-Videos" "~Barnacules Nerdgasm (YouTube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCBr_Fu6q9iHYQCh13jmpbrg "YouTube-Videos" "~Errichto (YouTube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCcYzLCs3zrQIBVHYA1sK2sw "YouTube-Videos" "~Sadhguru (YouTube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCBJycsmduvYEL83R_U4JriQ "YouTube-Videos" "~MKBHD (YouTube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC8bM_y2J-rhv1FL3hdP2VSA "YouTube-Videos" "~Nomad Trails (YouTube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC54_ux4BnaJwkVFn5M391XQ "YouTube-Videos" "~TMKOC (YouTube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCl2mFZoRqjw_ELax4Yisf6w "YouTube-Videos" "~Louis Rossmann (YouTube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCNJcSUSzUeFm8W9P7UUlSeQ "YouTube-Videos" "~The Viral fever (YouTube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCfDxyxsxaKpyYXkrNRItLsg "YouTube-Videos" "~KRK (YouTube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCy5mW8fB24ITiiC0etjLI6w "YouTube-Videos" "~Nilesh Misra (YouTube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCatL-c6pmnjzEOHSyjn-sHA "YouTube-Videos" "~Khan GS Reasearch Centre"
 # }}}
