@@ -37,7 +37,7 @@ export LESS=$LESS" -S"
 #-------- Exports {{{
 #------------------------------------------------------
 # set display
-#export DISPLAY=:0
+# export DISPLAY=:0
 
 # set 256color support (doesnt work with older apps like abook)
 export TERM="screen-256color"
@@ -499,13 +499,13 @@ alias repo='cd ~/Public/gitrepo'
 alias dot='cd ~/Public/gitrepo/dotfiles_v2'
 alias notes='cd ~/Public/gitrepo/shownotes'
 
-alias dev='cd /media/prakash/dev'
-alias code='cd /media/prakash/code'
-alias tos='cd /media/prakash/dev/tote-tocc-tos'
-alias label='cd /media/prakash/dev/tote-tocc-labelservice'
-alias software='cd /media/prakash/dev/tote-tocc-softwareservice'
-alias service='cd /media/prakash/dev/tote-tocc-services-ui'
-alias notifi='cd /media/prakash/dev/tote-tocc-notificationservice'
+alias dev='cd ~/dev'
+alias code='cd ~/code'
+alias tos='cd ~/dev/tote-tocc-tos'
+alias label='cd ~/dev/tote-tocc-labelservice'
+alias software='cd ~/dev/tote-tocc-softwareservice'
+alias service='cd ~/dev/tote-tocc-services-ui'
+alias notifi='cd ~/dev/tote-tocc-notificationservice'
 
 alias derez='rm -Iv'			                # rm interactive, prompt once only
 alias uhaul='mv -iv --'					# mv prompt confirmation
