@@ -326,7 +326,6 @@ bindkey -s '\e5' "!:0-4 \t"      # last command + 1st-4th argument
 bindkey -s '\e`' "!:0- \t"       # all but the last argument
 bindkey -s '\e9' "!:0 !:2* \t"   # all but the 1st argument (aka 2nd word)
 
-
 # history search fzf
 # references: https://github.com/junegunn/fzf/wiki/examples#command-history
 # fzf-history-zsh() { print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac --height 10% | sed 's/ *[0-9]* *//') ;}
@@ -709,9 +708,13 @@ vvv() {
 }
 
 # Set up Node Version Manager
-source /usr/share/nvm/init-nvm.sh
+#source /usr/share/nvm/init-nvm.sh
 
 unsetopt nomatch
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # ----- Zsh Autosuggestions
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh

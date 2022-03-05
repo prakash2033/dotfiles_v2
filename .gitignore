@@ -1,4 +1,5 @@
 #To ignore
+.DS_Store
 cache.db
 cache.db.lock
 history.search

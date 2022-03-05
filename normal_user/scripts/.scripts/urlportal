@@ -44,15 +44,15 @@
 #### }}}
 ########################## VARIABLE SECTION ########################## {{{
 DEFAULT="$BROWSERCLI"
-VIDEO_QUEUE="tsp mpv --ontop --no-border --force-window --autofit=500x280 --geometry=-15-53"
-# VIDEO_QUEUE_ALT="tsp quvi dump "$LINK" -b quiet --exec 'mpv %u'"
+VIDEO_QUEUE="ts mpv --ontop --no-border --force-window --autofit=500x280 --geometry=-15-53"
+# VIDEO_QUEUE_ALT="ts quvi dump "$LINK" -b quiet --exec 'mpv %u'"
 VIDEO_CLIP="mpv --loop --quiet --ontop --no-border --force-window --autofit=900x600 --geometry=-15+60"
 # IMAGEGUI="feh -. -x -B black -g 900x600-15+60"
 # IMAGECLI="w3m /usr/lib/w3m/cgi-bin/treat_as_url.cgi -o display_image=1 -o imgdisplay=/usr/lib/w3m/w3mimgdisplay"
 IMAGECLI="w3m -o display_image=1 -o imgdisplay=w3mimgdisplay"
 # IMAGECLI="fbi"
 # LIVEFEED='streamlink -p "mpv --cache 2048 --ontop --no-border --force-window --autofit=500x280 --geometry=-15-60"'
-LIVEFEED="tsp streamlink"
+LIVEFEED="ts streamlink"
 DDL_PATH=~/Downloads/plowshare
 DDL_QUEUE_FAST=~/.config/plowshare/queuefast.txt
 #### }}}
@@ -227,7 +227,7 @@ case "$LINK" in
         LINK="${LINK/small/big}"
         tmux new-window -n pixcli && tmux send-keys "$IMAGECLI '$LINK' && tmux kill-pane" 'Enter'
         ;;
-    *hotspic.ru/img*)
+    *hotsic.ru/img*)
         LINK="$(curl --data "imgContinue=Click To View The Image ... " --location "$LINK" | grep centred | grep -oP 'src=\047\K[^\047]+')"
         tmux new-window -n pixcli && tmux send-keys "$IMAGECLI '$LINK' && tmux kill-pane" 'Enter'
         ;;
