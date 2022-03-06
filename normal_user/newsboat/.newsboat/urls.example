@@ -34,12 +34,14 @@
 "query:All Unread Articles:unread = \"yes\""
 "query:All Articles DDL-DataHoarder:tags # \"DDL-DataHoarder\"" "DDL-DataHoarder"
 "query:All Articles Linux-Subreddit:tags # \"Linux-Subreddit\"" "Linux-Subreddit"
-"query:All Articles Video-Linux:tags # \"Video-Linux\"" "Video-Linux"
+"query:All Articles Apple-Subreddit:tags # \"Apple-Subreddit\"" "Apple-Subreddit"
+"query:All Articles Dev-Subreddit:tags # \"Dev-Subreddit\"" "Dev-Subreddit"
+"query:All Articles Interesting-Subreddit:tags # \"Interesting-Subreddit\"" "Interesting-Subreddit"
 "query:All Articles News:tags # \"News\"" "News"
 "query:All Articles Tech-News:tags # \"Tech-News\"" "Tech-News"
-"query:All Articles Dev-Subreddit:tags # \"Dev-Subreddit\"" "Dev-Subreddit"
 "query:All Articles Blog:tags # \"Blog\"" "Blog"
 "query:All Articles Podcast:tags # \"Podcast\"" "Podcast"
+"query:All Articles Video-Linux:tags # \"Video-Linux\"" "Video-Linux"
 "query:All Articles YouTube-Subs:tags # \"YouTube-Subs\"" "YouTube-Subs"
 "query:All Articles YouTube-Music:tags # \"YouTube-Music\"" "YouTube-Music"
 
@@ -88,6 +90,27 @@ https://www.reddit.com/r/coolgithubprojects/.rss "Linux-Subreddit"
 https://www.reddit.com/r/selfhosted/.rss "Linux-Subreddit"
 
 # }}}
+# -------- Apple-Subreddit {{{
+
+https://www.reddit.com/r/mac/.rss "Apple-Subreddit"
+https://www.reddit.com/r/macos/.rss "Apple-Subreddit"
+https://www.reddit.com/r/applewatch/.rss "Apple-Subreddit"
+
+# }}}
+# -------- Interesting-Subreddits{{{
+
+https://www.reddit.com/r/lifeprotips/.rss "Interesting-Subreddit"
+https://www.reddit.com/r/todayilearned/.rss "Interesting-Subreddit"
+https://www.reddit.com/r/learnuselesstalents/.rss "Interesting-Subreddit"
+https://www.reddit.com/r/explainlikeimfive/.rss "Interesting-Subreddit"
+https://www.reddit.com/r/upliftingnews/.rss "Interesting-Subreddit"
+https://www.reddit.com/r/relationships/.rss "Interesting-Subreddit"
+https://www.reddit.com/r/relationship_advice/.rss "Interesting-Subreddit"
+https://www.reddit.com/r/confession/.rss "Interesting-Subreddit"
+https://www.reddit.com/r/confessions/.rss "Interesting-Subreddit"
+
+# }}}
+
 # -------- Web Development {{{
 
 https://www.reddit.com/r/webdev/.rss "Dev-Subreddit"
@@ -100,6 +123,7 @@ https://www.reddit.com/r/typescript/.rss "Dev-Subreddit"
 
 https://feeds.thelocal.com/rss/se "News"
 https://www.nagpurtoday.in/latest-news/rss "News"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC_gUM8rL-Lrg6O3adPW9K1g "News" "~WION"
 #https://thelivenagpur.com/feed/
 #https://feeds.bbci.co.uk/hindi/india/rss.xml "News"
 https://lukesmith.xyz/rss.xml "Blog"
@@ -122,7 +146,6 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCdh-HeBRlgk7YJ0NDxPz6Mw "Vi
 https://www.youtube.com/feeds/videos.xml?channel_id=UCcAy1o8VUCkdowxRYbc0XRw "Video-Linux" "~Sebi's Random Tech (YouTube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC-wmf-Avorzz9QPKzdYFgeg "Video-Linux" "~Laptop Retrospective (YouTube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCCTVrRB5KpIiK6V2GGVsR1Q "Video-Linux" "~kudvenkat (YouTube)"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCXuqSBlHAE6Xw-yeJA0Tunw "Video-Linux" "~Linus Tech Tips (YouTube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCkf4VIqu3Acnfzuk3kRIFwA "Video-Linux" "~gotbletu (YouTube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "Video-Linux" "~Luke Smith (YouTube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCf93fPKwotph47H3_KDcRyg "Video-Linux" "~Kris Occhipinti (YouTube)"
@@ -134,6 +157,7 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA "Vi
 # }}}
 # -------- YouTube-Subscriptions{{{
 
+https://www.youtube.com/feeds/videos.xml?channel_id=UCXuqSBlHAE6Xw-yeJA0Tunw "YouTube-Subs" "~Linus Tech Tips (YouTube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCdqoLdDI5U8Xz2_mYPD71eg "YouTube-Subs" "~i bike unfolded (YouTube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCL0QSFSUfW8cHua_rDpltTg "YouTube-Subs" "~Peter Paul Chato (YouTube)"
 #https://www.youtube.com/feeds/videos.xml?channel_id=UCrC8mOqJQpoB7NuIMKIS6rQ "YouTube-Subs" "~Study IQ Education (YouTube)"
@@ -141,7 +165,7 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UC15sF31QE-7rooIlSKnTq_w "Yo
 https://www.youtube.com/feeds/videos.xml?channel_id=UC1MwJy1R0nGQkXxRD9p-zTQ "YouTube-Subs" "~Barnacules Nerdgasm (YouTube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCBr_Fu6q9iHYQCh13jmpbrg "YouTube-Subs" "~Errichto (YouTube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCcYzLCs3zrQIBVHYA1sK2sw "YouTube-Subs" "~Sadhguru (YouTube)"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCBJycsmduvYEL83R_U4JriQ "YouTube-Subs" "~MKBHD (YouTube)"
+Mttps://www.youtube.com/feeds/videos.xml?channel_id=UCBJycsmduvYEL83R_U4JriQ "YouTube-Subs" "~MKBHD (YouTube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC8bM_y2J-rhv1FL3hdP2VSA "YouTube-Subs" "~Nomad Trails (YouTube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC54_ux4BnaJwkVFn5M391XQ "YouTube-Subs" "~TMKOC (YouTube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCl2mFZoRqjw_ELax4Yisf6w "YouTube-Subs" "~Louis Rossmann (YouTube)"
@@ -154,6 +178,11 @@ https://www.youtube.com/feeds/videos.xml?user=EnArgBlatteTalar               "Yo
 https://www.youtube.com/feeds/videos.xml?user=arvindguptatoys                "YouTube-Subs" "~Arvind Gupta"
 https://www.youtube.com/feeds/videos.xml?user=DrRajPhanden                   "YouTube-Subs" "~Cycle Baba"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCeiAKuJGZrIjYvaq0nMwbJg "YouTube-Subs" "~Filmy Indian"
+https://www.youtube.com/feeds/videos.xml?user=showstylemedia                 "YouTube-Subs" "~Kumar Vishwas"
+https://www.youtube.com/feeds/videos.xml?user=MrMego17                       "YouTube-Subs" "~Paul Messner"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC4xKdmAXFh4ACyhpiQ_3qBw "YouTube-Subs" "~TechLead"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC_us_hH43AJtU_A-iXCLmqw "YouTube-Subs" "~TechLead Show"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCZrrEuHiQjN2CUo84g5tk7w "YouTube-Subs" "~tripcode!Q/7"
 
 # }}}
 # -------- YouTube-Music {{{
@@ -165,5 +194,4 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCpDjYVQS411CBBw0thoB0Sw "Yo
 
 #https://www.youtube.com/feeds/videos.xml?channel_id= "YouTube-Subs" "~"
 #https://www.youtube.com/feeds/videos.xml?user=  "YouTube-Subs" "~"
-
-
+#https://www.reddit.com/r//.rss "-Subreddit"
