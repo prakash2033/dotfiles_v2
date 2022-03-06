@@ -893,7 +893,7 @@ _viewGitLogLine="$_gitLogLineToHash |
 xargs -I % sh -c 'git show --color=always % | 
 diff-so-fancy'"
 
-gcop() {  # search for commit with preview and copy hash
+glog() {  # search for commit with preview and copy hash
   glNoGraph |
       fzf -i -e --no-sort --reverse \
           --tiebreak=index --no-multi \

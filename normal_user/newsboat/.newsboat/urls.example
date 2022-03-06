@@ -41,6 +41,7 @@
 "query:All Articles Blog:tags # \"Blog\"" "Blog"
 "query:All Articles Podcast:tags # \"Podcast\"" "Podcast"
 "query:All Articles YouTube-Subs:tags # \"YouTube-Subs\"" "YouTube-Subs"
+"query:All Articles YouTube-Music:tags # \"YouTube-Music\"" "YouTube-Music"
 
 # "query:All Unread Articles (30days):unread = \"yes\" and (age between 0:31)"
 # "query:Unread Articles (primary):unread = \"yes\" and tags # \"primary\""
@@ -130,6 +131,9 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCxQKHvKbmSzGMvUrVtJYnUA "Vi
 https://www.youtube.com/feeds/videos.xml?channel_id=UC9x0AN7BWHpCDHSm9NiJFJQ "Video-Linux" "~Network Chuck (YouTube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA "Video-Linux" "~Mental Outlaw (YouTube)"
 
+# }}}
+# -------- YouTube-Subscriptions{{{
+
 https://www.youtube.com/feeds/videos.xml?channel_id=UCdqoLdDI5U8Xz2_mYPD71eg "YouTube-Subs" "~i bike unfolded (YouTube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCL0QSFSUfW8cHua_rDpltTg "YouTube-Subs" "~Peter Paul Chato (YouTube)"
 #https://www.youtube.com/feeds/videos.xml?channel_id=UCrC8mOqJQpoB7NuIMKIS6rQ "YouTube-Subs" "~Study IQ Education (YouTube)"
@@ -145,4 +149,21 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCNJcSUSzUeFm8W9P7UUlSeQ "Yo
 https://www.youtube.com/feeds/videos.xml?channel_id=UCfDxyxsxaKpyYXkrNRItLsg "YouTube-Subs" "~KRK (YouTube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCy5mW8fB24ITiiC0etjLI6w "YouTube-Subs" "~Nilesh Misra (YouTube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCatL-c6pmnjzEOHSyjn-sHA "YouTube-Subs" "~Khan GS Reasearch Centre"
+https://www.youtube.com/feeds/videos.xml?channel_id=UChjRM_qQAaOAiLNbOGbYcRA "YouTube-Subs" "~9To5Mac"
+https://www.youtube.com/feeds/videos.xml?user=EnArgBlatteTalar               "YouTube-Subs" "~Angry Foreigner"
+https://www.youtube.com/feeds/videos.xml?user=arvindguptatoys                "YouTube-Subs" "~Arvind Gupta"
+https://www.youtube.com/feeds/videos.xml?user=DrRajPhanden                   "YouTube-Subs" "~Cycle Baba"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCeiAKuJGZrIjYvaq0nMwbJg "YouTube-Subs" "~Filmy Indian"
+
 # }}}
+# -------- YouTube-Music {{{
+
+https://www.youtube.com/feeds/videos.xml?channel_id=UCbXsTqyVlt2-2YrLt1M4GLQ "YouTube-Music" "~Bharat Chauhan"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCpDjYVQS411CBBw0thoB0Sw "YouTube-Music" "~Frizzell D'Souza"
+
+# }}}
+
+#https://www.youtube.com/feeds/videos.xml?channel_id= "YouTube-Subs" "~"
+#https://www.youtube.com/feeds/videos.xml?user=  "YouTube-Subs" "~"
+
+
