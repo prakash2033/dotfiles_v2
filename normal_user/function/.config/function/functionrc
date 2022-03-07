@@ -7,9 +7,6 @@
 #
 #       DESC: ZSH/BASH Compatible Alias/Functions
 #
-#       http://www.youtube.com/user/gotbletu
-#       https://twitter.com/gotbletu
-#       https://github.com/gotbletu
 
 # Load more Config
 [ -f "$HOME/.config/privatekey/privatekeyrc" ] && source "$HOME/.config/privatekey/privatekeyrc"
