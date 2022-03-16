@@ -177,3 +177,5 @@ if [ -d "$HOME/.config/function" ]; then
   done
 fi
 
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
