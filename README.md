@@ -10,7 +10,7 @@
     sudo pacman -S git stow
     mkdir -p ~/Public/gitrepo
     cd ~/Public/gitrepo
-    git clone https://github.com/gotbletu/dotfiles_v2.git
+    git clone https://github.com/prakash2033/dotfiles_v2.git
 
     ## symlink all folders (trailing slash */) in dotfiles dir to home dir
     cd ~/Public/gitrepo/dotfiles_v2/normal_user
