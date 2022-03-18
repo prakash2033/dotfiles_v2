@@ -128,8 +128,6 @@ bindkey -M vicmd '^r' history-incremental-search-backward
 autoload -U compinit && compinit        # enable autocompletion
 fpath+=(~/.zsh/completion)              # set path to custom autocompletion
 zstyle ':completion:*' menu select      # to activate the menu, press tab twice
-zstyle ':vcs_info:git:*' formats '%F{yellow}(%b)%r%f'
-zstyle ':vcs_info:*' enable git
 
 # do not autoselect the first completion entry
 unsetopt menu_complete

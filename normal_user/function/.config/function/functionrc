@@ -435,6 +435,8 @@ rld-xmodmap-uskeyboardlayout() { setxkbmap -layout us ;} # reset back to US keyb
 rld-xresources() { xrdb -load ~/.Xresources ;}
 rld-zshrc() { source ~/.zshrc ;}
 rld-samba() { sudo systemctl restart nmb.service smb.service ;}
+rld-unload-umbrella() { sudo launchctl unload /Library/LaunchDaemons/com.opendns.osx.RoamingClientConfigUpdater.plist ;}
+rld-load-umbrella() { sudo launchctl load /Library/LaunchDaemons/com.opendns.osx.RoamingClientConfigUpdater.plist ;}
 # }}}
 #-------- Derez Files {{{
 #------------------------------------------------------
