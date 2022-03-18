@@ -618,7 +618,7 @@ m-sound() { arecord -L && arecord -l && cat /proc/asound/pcm ;} #List audio capt
 # }}}
 
 find_pkm() { for i;do command -v "$i" >/dev/null && { echo "$i"; return 0;};done;return 1; }
-export PKMGR=$(find_pkm yaourt yay pacaur pacman aptitude apt-get yum zypper emerge)
+export PKMGR=$(find_pkm yaourt yay pacaur pacman aptitude apt-get yum zypper emerge brew)
 
 # {{{ apt-get
 if [ "$PKMGR" = "apt-get" ]; then
@@ -857,9 +857,19 @@ elif [ "$PKMGR" = "zypper" ]; then
   pkm-remove() { sudo zypper remove "$@" ;}
   pkm-search() { zypper search "$@" ;}
   pkm-upgrade() { sudo zypper update ;}
+# }}}
+# {{{ brew
+elif [ "$PKMGR" = "brew" ]; then
+  pkm-install() { brew install "$@" ;}
+  pkm-refresh() { brew refresh ;}
+  pkm-uninstall() { brew uninstall "$@" ;}
+  pkm-search() { brew search "$@" ;}
+  pkm-update() { brew update ;}
+  pkm-upgrade() { brew update ;}
+  pkm-outdated() { brew outdated ;}
 fi
 # }}}
-
+#
 #}}}
 #-------- FFF File Manager {{{
 #------------------------------------------------------
