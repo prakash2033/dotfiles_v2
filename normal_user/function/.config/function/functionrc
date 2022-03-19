@@ -295,6 +295,7 @@ fi
 #------------------------------------------------------
 cfg-abookrc() { $EDITOR ~/.abook/abookrc ;}
 cfg-addressbook() { $EDITOR ~/.abook/addressbook ;}
+cfg-dropdown() { $EDITOR ~/Public/gitrepo/shownotes/any_term_dropdown.sh ;}
 cfg-autostartrc() { $EDITOR ~/.autostartrc ;}
 cfg-aria2() { $EDITOR ~/.config/aria2/aria2.conf ;}
 cfg-bashrc() { $EDITOR ~/.bashrc ;}
@@ -377,6 +378,7 @@ cfg-retroarch() { $EDITOR ~/.config/retroarch/retroarch.cfg ;}
 cfg-rofibangs() { $EDITOR ~/.config/rofi/launchers/rofi-bangs ;}
 cfg-rtv() { $EDITOR ~/.config/rtv/rtv.cfg ;}
 cfg-samba() { sudo $EDITOR /etc/samba/smb.conf ;}
+cfg-skhdrc() { $EDITOR ~/.config/skhd/skhdrc ;}
 cfg-skippyxd() { $EDITOR ~/.skippy-xd.rc ;}
 cfg-slrnrc() { $EDITOR ~/.slrnrc ;}
 cfg-ssh-client() { sudo $EDITOR /etc/ssh/ssh_config ;}
@@ -396,6 +398,7 @@ cfg-transmission-ncurse() { $EDITOR ~/.config/transmission-remote-cli/settings.c
 cfg-transmission-tremc() { $EDITOR ~/.config/tremc/settings.cfg ;}
 cfg-turses() { $EDITOR ~/.turses/config ;}
 cfg-urlview() { $EDITOR ~/.urlview ;}
+cfg-urlportal() { $EDITOR ~/.scripts/urlportal ;}
 cfg-updatedb() { sudo $EDITOR /etc/updatedb.conf ;}
 cfg-vifmrc() { $EDITOR ~/.config/vifm/vifmrc ;}
 cfg-vimrc() { $EDITOR ~/.vimrc ;}

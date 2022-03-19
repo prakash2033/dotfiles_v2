@@ -39,6 +39,7 @@
 "query:All Articles Interesting-Subreddit:tags # \"Interesting-Subreddit\"" "Interesting-Subreddit"
 "query:All Articles News:tags # \"News\"" "News"
 "query:All Articles Tech-News:tags # \"Tech-News\"" "Tech-News"
+"query:All Articles YouTube-News:tags # \"YouTube-News\"" "YouTube-News"
 "query:All Articles Blog:tags # \"Blog\"" "Blog"
 "query:All Articles Podcast:tags # \"Podcast\"" "Podcast"
 "query:All Articles Video-Linux:tags # \"Video-Linux\"" "Video-Linux"
@@ -123,8 +124,6 @@ https://www.reddit.com/r/typescript/.rss "Dev-Subreddit"
 
 https://feeds.thelocal.com/rss/se "News"
 https://www.nagpurtoday.in/latest-news/rss "News"
-https://www.youtube.com/feeds/videos.xml?user=BBCHindi  "News" "~BBC Hindi"
-https://www.youtube.com/feeds/videos.xml?channel_id=UC_gUM8rL-Lrg6O3adPW9K1g "News" "~WION"
 #https://thelivenagpur.com/feed/
 #https://feeds.bbci.co.uk/hindi/india/rss.xml "News"
 https://lukesmith.xyz/rss.xml "Blog"
@@ -134,6 +133,12 @@ https://notrelated.libsyn.com/rss "Podcast"
 https://www.archlinux.org/feeds/news/ "Tech-News"
 https://blog.angular.io/feed "Tech-News"
 https://azurecomcdn.azureedge.net/en-us/updates/feed/ "Tech-News"
+
+# }}}
+# -------- YouTube-News {{{
+
+https://www.youtube.com/feeds/videos.xml?user=BBCHindi  "YouTube-News" "~BBC Hindi"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC_gUM8rL-Lrg6O3adPW9K1g "YouTube-News" "~WION"
 
 # }}}
 # -------- Video-Linux {{{
