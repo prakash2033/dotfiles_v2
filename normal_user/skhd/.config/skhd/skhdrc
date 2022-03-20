@@ -5,5 +5,5 @@
 # cmd + shift - return : ~/Scripts/qtb.sh
 
 # open chrome
-cmd - c : open /Applications/Google\ Chrome.app
+cmd + shift - c : open /Applications/Google\ Chrome.app
 

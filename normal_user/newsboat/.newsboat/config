@@ -213,6 +213,7 @@ macro v set browser "lynx -dump %u | awk '/http/{print $2}' | awk '!x[$0]++' | v
 
 define-filter "Top 10 Most Pirated Movies of The Week on BitTorrent" "feedtitle =~ \"DVDrip – TorrentFreak\""
 define-filter "gotbletu" "feedtitle =~ \"gotbletu\" or description =~ \"gotbletu\""
+define-filter "The Kapil Sharma Show" "feedtitle =~ \"The Kapil Sharma Show\" or description =~ \"The Kapil Sharma Show\""
 # define-filter "windowsdec" "description =~ \"windows\""
 # define-filter "windows" "title = \"firearms\""
 # define-filter "gotbletudesc" "description =~ \"gotbletu\""
