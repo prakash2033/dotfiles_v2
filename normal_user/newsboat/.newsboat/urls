@@ -145,8 +145,8 @@ https://www.nytimes.com/svc/collections/v1/publish/https://www.nytimes.com/secti
 # }}}
 # -------- Video-News{{{
 
-https://timesofindia.indiatimes.com/rssfeedsvideo/3812907.cms "Video-News" "~TOI"
-
+# https://timesofindia.indiatimes.com/rssfeedsvideo/3812907.cms "Video-News" "~TOI"
+https://www.news18.com/rss/ivideos.xml "Video-News" "~Ñews 18"
 # }}}
 # -------- YouTube-News {{{
 
