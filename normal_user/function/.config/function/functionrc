@@ -63,7 +63,7 @@ find_alt() { for i;do which "$i" >/dev/null && { echo "$i"; return 0;};done;retu
 # set the default program
 # the first program in the array that is detected on your system will be chosen as the default
 export OPENER=$(find_alt open cygstart xdg-open exo-open gnome-open )
-export BROWSER=$(find_alt chromium chromium-browser qutebrowser google-chrome firefox $OPENER )
+export BROWSER=$(find_alt /Applications/Firefox.app/Contents/MacOS/firefox-bin chromium chromium-browser qutebrowser google-chrome $OPENER )
 export BROWSERCLI=$(find_alt w3m links2 links lynx elinks $OPENER )
 export BROWSERTOR=$(find_alt tor-browser-en)
 export BROWSER_PRIVATE="chromium --incognito"
@@ -505,6 +505,7 @@ alias notes='cd ~/Public/gitrepo/shownotes'
 alias dev='cd ~/dev'
 alias code='cd ~/code'
 alias tos='cd ~/dev/tote-tocc-tos'
+alias tosnew='cd ~/dev/tote-tocc-tos-new'
 alias label='cd ~/dev/tote-tocc-labelservice'
 alias software='cd ~/dev/tote-tocc-softwareservice'
 alias service='cd ~/dev/tote-tocc-services-ui'

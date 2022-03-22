@@ -7,3 +7,6 @@
 # open chrome
 cmd + shift - c : open /Applications/Google\ Chrome.app
 
+# open finder
+cmd + shift - e : Open ~
+

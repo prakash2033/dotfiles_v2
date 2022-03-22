@@ -38,6 +38,7 @@
 "query:All Articles Dev-Subreddit:tags # \"Dev-Subreddit\"" "Dev-Subreddit"
 "query:All Articles Interesting-Subreddit:tags # \"Interesting-Subreddit\"" "Interesting-Subreddit"
 "query:All Articles News:tags # \"News\"" "News"
+"query:All Articles World-News:tags # \"World-News\"" "World-News"
 "query:All Articles Tech-News:tags # \"Tech-News\"" "Tech-News"
 "query:All Articles YouTube-News:tags # \"YouTube-News\"" "YouTube-News"
 "query:All Articles Blog:tags # \"Blog\"" "Blog"
@@ -133,6 +134,12 @@ https://notrelated.libsyn.com/rss "Podcast"
 https://www.archlinux.org/feeds/news/ "Tech-News"
 https://blog.angular.io/feed "Tech-News"
 https://azurecomcdn.azureedge.net/en-us/updates/feed/ "Tech-News"
+
+# }}}
+# -------- World News{{{
+
+https://news.google.com/rss "World-News" "~Google News"
+https://www.nytimes.com/svc/collections/v1/publish/https://www.nytimes.com/section/world/rss.xml "World-News" "~NewYork Times"
 
 # }}}
 # -------- YouTube-News {{{
