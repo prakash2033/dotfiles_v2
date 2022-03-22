@@ -129,9 +129,6 @@ case "$LINK" in
     *youtube.com/watch*|*youtu.be/*)
         $VIDEO_QUEUE "$LINK"
         ;;
-    *indiatimes.com/videos/*)
-        $VIDEO_QUEUE "$LINK"
-        ;;
     *.webp|*.webm)
         nohup $VIDEO_CLIP "$LINK" > /dev/null 2>&1 &
         ;;
