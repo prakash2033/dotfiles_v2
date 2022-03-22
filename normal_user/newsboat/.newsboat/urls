@@ -40,6 +40,7 @@
 "query:All Articles News:tags # \"News\"" "News"
 "query:All Articles World-News:tags # \"World-News\"" "World-News"
 "query:All Articles Tech-News:tags # \"Tech-News\"" "Tech-News"
+"query:All Articles Video-News:tags # \"Video-News\"" "Video-News"
 "query:All Articles YouTube-News:tags # \"YouTube-News\"" "YouTube-News"
 "query:All Articles Blog:tags # \"Blog\"" "Blog"
 "query:All Articles Podcast:tags # \"Podcast\"" "Podcast"
@@ -136,10 +137,15 @@ https://blog.angular.io/feed "Tech-News"
 https://azurecomcdn.azureedge.net/en-us/updates/feed/ "Tech-News"
 
 # }}}
-# -------- World News{{{
+# -------- World-News{{{
 
 https://news.google.com/rss "World-News" "~Google News"
 https://www.nytimes.com/svc/collections/v1/publish/https://www.nytimes.com/section/world/rss.xml "World-News" "~NewYork Times"
+
+# }}}
+# -------- Video-News{{{
+
+https://timesofindia.indiatimes.com/rssfeedsvideo/3812907.cms "Video-News" "~TOI"
 
 # }}}
 # -------- YouTube-News {{{
