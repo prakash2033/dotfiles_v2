@@ -67,7 +67,11 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' unstagedstr '!'
 zstyle ':vcs_info:*' stagedstr '+'
 zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
-zstyle ':vcs_info:git*' actionformats "%s  %r/%S %b %m%u%c"
+# zstyle ':vcs_info:git:*' formats "on branch %s  %r/%S %b %m%u%c"
+# zstyle ':vcs_info:git:*' actionformats "on branch %s  %r/%S %b %m%u%c"
+zstyle ':vcs_info:*' formats " (%s)-[%b%Q]%m%u%c"
+# zstyle ':vcs_info:*' actionformats " (%s)-[%b%Q|%a]%c"
+
 
 +vi-git-untracked(){
     if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
