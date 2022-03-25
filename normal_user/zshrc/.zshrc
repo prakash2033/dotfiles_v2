@@ -11,6 +11,7 @@
 autoload -U promptinit && promptinit
 prompt fade magenta   # set prompt theme (for listing: $ prompt -p)
 
+
 # }}}
 #-------- ZSH Modules {{{
 #------------------------------------------------------
@@ -51,13 +52,37 @@ cfg-history() { $EDITOR $HISTFILE ;}
 #
 # }}}
 # -------- Git Status {{{
-function parse_git_dirty {
-    [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
-  }
-function parse_git_branch {
-      git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
+
+# https://www.themoderncoder.com/add-git-branch-information-to-your-zsh-prompt/
+# https://arjanvandergaag.nl/blog/customize-zsh-prompt-with-vcs-info.html
+# https://stackoverflow.com/questions/49744179/zsh-vcs-info-how-to-indicate-if-there-are-untracked-files-in-git
+
+# Load version control information
+autoload -Uz vcs_info
+precmd() { vcs_info }
+
+# Format the vcs_info_msg_0_ variable
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr '!'
+zstyle ':vcs_info:*' stagedstr '+'
+zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
+zstyle ':vcs_info:git*' actionformats "%s  %r/%S %b %m%u%c"
+
++vi-git-untracked(){
+    if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
+        git status --porcelain | grep '??' &> /dev/null ; then
+        # This will show the marker if there are any untracked files in repo.
+        # If instead you want to show the marker only if there are untracked
+        # files in $PWD, use:
+        #[[ -n $(git ls-files --others --exclude-standard) ]] ; then
+        hook_com[staged]+='T'
+    fi
 }
-bindkey -s '^g' 'parse_git_branch\n'
+
+# Set up the prompt (with git branch name)
+setopt PROMPT_SUBST
+
 # }}}
 #-------- Vim Mode {{{
 #------------------------------------------------------
@@ -79,7 +104,7 @@ KEYTIMEOUT=1
 # show vim status
 # http://zshwiki.org/home/examples/zlewidgets
 function zle-line-init zle-keymap-select {
-    RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
+    RPS1="$vcs_info_msg_0_ ${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
     RPS2=$RPS1
     zle reset-prompt
 }
@@ -298,7 +323,7 @@ alias -g Sn='| sort -n'
 alias -g Snr='| sort -nr'
 
 #}}}
-#---- Source External Files {{{
+# -------- Source External Files {{{
 #------------------------------------------------------
 # source all files in function directory
 if [ -d "$HOME/.config/function" ]; then
