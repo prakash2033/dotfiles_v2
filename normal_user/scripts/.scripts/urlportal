@@ -52,7 +52,7 @@ VIDEO_CLIP="mpv --loop --quiet --ontop --no-focus-on-open --no-border --force-wi
 # IMAGECLI="w3m -o display_image=1 -o imgdisplay=w3mimgdisplay"
 # IMAGECLI="fbi"
 
-IMAGECLI="feh -. -x -B black -g 900x600-15+60"
+IMAGECLI="feh -. -B black -g 900x600+260+160"
 # LIVEFEED='streamlink -p "mpv --cache 2048 --ontop --no-border --force-window --autofit=500x280 --geometry=-15-60"'
 LIVEFEED="ts streamlink"
 DDL_PATH=~/Downloads/plowshare
@@ -135,6 +135,9 @@ case "$LINK" in
         $VIDEO_QUEUE "$LINK"
         ;;
     *news18.com/news/ivideos/*)
+        $VIDEO_QUEUE "$LINK"
+        ;;
+    *nytimes.com/video/*)
         $VIDEO_QUEUE "$LINK"
         ;;
     *.webp|*.webm)
