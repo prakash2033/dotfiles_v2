@@ -11,6 +11,7 @@
 autoload -U promptinit && promptinit
 prompt fade magenta   # set prompt theme (for listing: $ prompt -p)
 
+
 # }}}
 #-------- ZSH Modules {{{
 #------------------------------------------------------
@@ -50,6 +51,43 @@ cfg-history() { $EDITOR $HISTFILE ;}
 
 #
 # }}}
+# -------- Git Status {{{
+
+# https://www.themoderncoder.com/add-git-branch-information-to-your-zsh-prompt/
+# https://arjanvandergaag.nl/blog/customize-zsh-prompt-with-vcs-info.html
+# https://stackoverflow.com/questions/49744179/zsh-vcs-info-how-to-indicate-if-there-are-untracked-files-in-git
+
+# Load version control information
+autoload -Uz vcs_info
+precmd() { vcs_info }
+
+# Format the vcs_info_msg_0_ variable
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr '!'
+zstyle ':vcs_info:*' stagedstr '+'
+zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
+# zstyle ':vcs_info:git:*' formats "on branch %s  %r/%S %b %m%u%c"
+# zstyle ':vcs_info:git:*' actionformats "on branch %s  %r/%S %b %m%u%c"
+zstyle ':vcs_info:*' formats " (%s)-[%b%Q]%m%u%c"
+# zstyle ':vcs_info:*' actionformats " (%s)-[%b%Q|%a]%c"
+
+
++vi-git-untracked(){
+    if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
+        git status --porcelain | grep '??' &> /dev/null ; then
+        # This will show the marker if there are any untracked files in repo.
+        # If instead you want to show the marker only if there are untracked
+        # files in $PWD, use:
+        #[[ -n $(git ls-files --others --exclude-standard) ]] ; then
+        hook_com[staged]+='T'
+    fi
+}
+
+# Set up the prompt (with git branch name)
+setopt PROMPT_SUBST
+
+# }}}
 #-------- Vim Mode {{{
 #------------------------------------------------------
 # enable vim mode on commmand line
@@ -70,7 +108,7 @@ KEYTIMEOUT=1
 # show vim status
 # http://zshwiki.org/home/examples/zlewidgets
 function zle-line-init zle-keymap-select {
-    RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
+    RPS1="$vcs_info_msg_0_ ${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
     RPS2=$RPS1
     zle reset-prompt
 }
@@ -81,9 +119,9 @@ zle -N zle-keymap-select
 # fixes backspace deletion issues
 # http://zshwiki.org/home/zle/vi-mode
 bindkey -a u undo
-# bindkey -a '^R' redo	# conflicts with history search hotkey
+# bindkey -a '^R' redo  # conflicts with history search hotkey
 bindkey -a '^T' redo
-bindkey '^?' backward-delete-char	#backspace
+bindkey '^?' backward-delete-char #backspace
 
 # history search in vim mode
 # http://zshwiki.org./home/zle/bindkeys#why_isn_t_control-r_working_anymore
@@ -183,7 +221,7 @@ alias -s {at,ch,com,de,se,net,org}="background $BROWSER"
 # archive extractor
 alias -s ace="unace l"
 alias -s rar="unrar l"
-alias -s {tar,bz2,gz,xz}="tar tvf"	#tar.bz2,tar.gz,tar.xz
+alias -s {tar,bz2,gz,xz}="tar tvf"  #tar.bz2,tar.gz,tar.xz
 alias -s zip="unzip -l"
 
 #}}}
@@ -238,8 +276,8 @@ bindkey -M isearch " " magic-space    # normal space during searches
 alias -g BELL='&& sleep 2 && echo -e "\a"'
 
 # http://www.zzapper.co.uk/zshtips.html
-alias -g ND='*(/om[1])' 	      # newest directory
-alias -g NF='*(.om[1])' 	      # newest file
+alias -g ND='*(/om[1])'         # newest directory
+alias -g NF='*(.om[1])'         # newest file
 # alias -g V='| vim -R -'
 alias -g V='| vless'
 alias -g L='| less -N'
@@ -289,7 +327,7 @@ alias -g Sn='| sort -n'
 alias -g Snr='| sort -nr'
 
 #}}}
-#---- Source External Files {{{
+# -------- Source External Files {{{
 #------------------------------------------------------
 # source all files in function directory
 if [ -d "$HOME/.config/function" ]; then
@@ -325,7 +363,6 @@ bindkey -s '\e4' "!:0-3 \t"      # last command + 1st-3rd argument
 bindkey -s '\e5' "!:0-4 \t"      # last command + 1st-4th argument
 bindkey -s '\e`' "!:0- \t"       # all but the last argument
 bindkey -s '\e9' "!:0 !:2* \t"   # all but the 1st argument (aka 2nd word)
-
 
 # history search fzf
 # references: https://github.com/junegunn/fzf/wiki/examples#command-history
@@ -406,15 +443,15 @@ compctl -K _cmpl_redpill redpill
 
 # bleachbitcli
 _cmpl_bleachbit() {
-	reply=($(bleachbit -l | cut -d' ' -f1))
+  reply=($(bleachbit -l | cut -d' ' -f1))
 }
 compctl -K _cmpl_bleachbit bleachbit
 
 # playonlinux
 _cmpl_playonlinux() {
-	myarray=($(ls ~/.PlayOnLinux/shortcuts | sed 's:\ :\\\ :g'))
-	reply=(printf "%s\n" ${myarray[@]})
-	# reply=(${myarray[@]})
+  myarray=($(ls ~/.PlayOnLinux/shortcuts | sed 's:\ :\\\ :g'))
+  reply=(printf "%s\n" ${myarray[@]})
+  # reply=(${myarray[@]})
 }
 compctl -K _cmpl_playonlinux playonlinux
 
@@ -454,7 +491,7 @@ bindkey "^f" sudo_
 
 # fzf_surfraw() { zle -I; surfraw $(awk 'NF > 0' ~/.config/surfraw/bookmarks | fzf | awk 'NF != 0 && !/^#/ {print $1}' ) ; }; zle -N fzf_surfraw; bindkey '^W' fzf_surfraw
 
-	# reply=($(awk 'NF != 0 && !/^#/ {print $1}' ~/.config/surfraw/bookmarks | sort -n))
+  # reply=($(awk 'NF != 0 && !/^#/ {print $1}' ~/.config/surfraw/bookmarks | sort -n))
 # }}}
 
 # hp: you define a function, you make a widget out of it with zle -N funcname, then you  bind that
@@ -709,9 +746,13 @@ vvv() {
 }
 
 # Set up Node Version Manager
-source /usr/share/nvm/init-nvm.sh
+#source /usr/share/nvm/init-nvm.sh
 
 unsetopt nomatch
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # ----- Zsh Autosuggestions
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
