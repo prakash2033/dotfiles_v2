@@ -40,7 +40,7 @@
 "query:All Articles Dev-Subreddit:tags # \"Dev-Subreddit\"" "Dev-Subreddit"
 "query:All Articles Blog:tags # \"Blog\"" "Blog"
 "query:All Articles Podcast:tags # \"Podcast\"" "Podcast"
-"query:All Articles YouTube-Videos:tags # \"Miscellaneous\"" "Miscellaneous"
+"query:All Articles YouTube-Videos:tags # \"YouTube-Videos\"" "YouTube-Videos"
 
 # "query:All Unread Articles (30days):unread = \"yes\" and (age between 0:31)"
 # "query:Unread Articles (primary):unread = \"yes\" and tags # \"primary\""

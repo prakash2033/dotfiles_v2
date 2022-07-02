@@ -16,6 +16,7 @@
 
 # Load more PATH
 [ -d "$HOME/.scripts" ] && PATH="$HOME/.scripts:$PATH"
+[ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
 [ -d "$HOME/.privatescripts" ] && PATH="$HOME/.privatescripts:$PATH"
 [ -d "$HOME/.binjutsu/x86_64" ] && PATH="$HOME/.binjutsu/x86_64:$PATH"
 
@@ -265,10 +266,10 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 if [ -d "$HOME/.screenlayout" ] ; then
-	PATH="$HOME/.screenlayout:$PATH"
+    PATH="$HOME/.screenlayout:$PATH"
 fi
 # if [ -d "$HOME/.config/vifm/scripts" ] ; then
-# 	PATH="$HOME/.config/vifm/scripts:$PATH"
+#   PATH="$HOME/.config/vifm/scripts:$PATH"
 # fi
 
 # Go Packages (Golang)
@@ -457,32 +458,32 @@ derez-greenclip() { killall greenclip ; rm ~/.cache/greenclip.history && nohup g
 # if [ -f "/usr/lib/w3m/cgi-bin/treat_as_url.cgi" ] ; then
 #     alias w3m="w3m /usr/lib/w3m/cgi-bin/treat_as_url.cgi"
 # fi
-alias bc='bc -q -l'					# dont show opening msg, use math library
+alias bc='bc -q -l'                 # dont show opening msg, use math library
 # alias cal='cal -3 | grep --color -EC6 "\b$(date +%e | sed "s/ //g")"' # show calendar for 3 months
 # alias cal='cal | grep --before-context 6 --after-context 6 --color -e " $(date +%e)" -e "^$(date +%e)"' # show calendar for 3 months
 alias cal='cal -3 | grep -B6 -A6 --color -e " $(date +%e)" -e "^$(date +%e)"' # show calendar for 3 months
-alias cp='cp -aiv'					# cp prompt confirmation
-alias df='df -hT --total | head -n 1 && df -hT --total | sed '1d' | sort'	# human readable, print filetype, and total
-alias du='du -d1 -h'					# max depth, human readable
-alias emacs='emacs -nw'					# cli mode
+alias cp='cp -aiv'                  # cp prompt confirmation
+alias df='df -hT --total | head -n 1 && df -hT --total | sed '1d' | sort'   # human readable, print filetype, and total
+alias du='du -d1 -h'                    # max depth, human readable
+alias emacs='emacs -nw'                 # cli mode
 alias feh='feh --auto-zoom --scale-down -g 1360x768 -B white'
-alias free='free -h'					# human readable
-alias info='info --vi-keys'				# GNU info act like man command
+alias free='free -h'                    # human readable
+alias info='info --vi-keys'             # GNU info act like man command
 alias ln='ln -iv'
 # alias lsblk='lsblk -o "TRAN,NAME,HOTPLUG,SIZE,FSTYPE,TYPE,LABEL,MOUNTPOINT,UUID,MODEL,SERIAL"'
-alias mkdir='mkdir -p -v'				# create if not exist, verbose
+alias mkdir='mkdir -p -v'               # create if not exist, verbose
 alias mocp='padsp mocp'                                 # moc player working with pulseaudio
-alias mount='mount | column -t'				# align in column
-alias nano='nano -c -$'					# word wrapping
-# alias nvlc='nvlc --no-color'				# vlc black/white color
-alias periscope='periscope -l en'			# get english subtitles
-alias pdfgrep='pdfgrep -in'				# ignorecase, page number
+alias mount='mount | column -t'             # align in column
+alias nano='nano -c -$'                 # word wrapping
+# alias nvlc='nvlc --no-color'              # vlc black/white color
+alias periscope='periscope -l en'           # get english subtitles
+alias pdfgrep='pdfgrep -in'             # ignorecase, page number
 alias qcp='qcp -f do'                                   # renameutils bulk copy (destination column only)
 alias qmv='qmv -f do'                                   # renameutils bulk rename (destination column only)
-alias rmdir='rmdir -v'			                # rm empty directory only
-alias sr='sr -browser=$BROWSERCLI'			# open in cli browser
-alias surfraw='surfraw -browser=$BROWSER'		# open in gui browser
-alias wget='wget -N -c'					# continues/resumes
+alias rmdir='rmdir -v'                          # rm empty directory only
+alias sr='sr -browser=$BROWSERCLI'          # open in cli browser
+alias surfraw='surfraw -browser=$BROWSER'       # open in gui browser
+alias wget='wget -N -c'                 # continues/resumes
 alias ytv='youtube-viewer -7 --results=6 --video-player=mpv --append-arg="--ontop --no-border --force-window --autofit=500x280 --geometry=-15-53"' # color, fullscreen, 720p, number of results
 alias yt='ytfzf -t -l'
 alias visudo='sudo EDITOR="$EDITOR" visudo'
@@ -507,8 +508,8 @@ alias software='cd /media/prakash/dev/tote-tocc-softwareservice'
 alias service='cd /media/prakash/dev/tote-tocc-services-ui'
 alias notifi='cd /media/prakash/dev/tote-tocc-notificationservice'
 
-alias derez='rm -Iv'			                # rm interactive, prompt once only
-alias uhaul='mv -iv --'					# mv prompt confirmation
+alias derez='rm -Iv'                            # rm interactive, prompt once only
+alias uhaul='mv -iv --'                 # mv prompt confirmation
 
 # color for common commands
 # tutorial video: http://www.youtube.com/watch?v=RbVCzxnKJL4
@@ -546,7 +547,7 @@ alias vless="vim --not-a-term -c 'set nomod nolist' -"
 down4me() { curl -s "http://downforeveryoneorjustme.com/$1" | sed '/just you/!d;s/<[^>]*>//g' ;}   # check if a website is down
 # killall-zombies() { kill -HUP $(ps -A -ostat,ppid | grep -e '[zZ]'| awk '{ print $2 }') ;}  # kill zombie process
 # zombie-process() { ps aux | awk '{ print $8 " " $2 }' | grep -w Z ;}
-mkcd() { mkdir -p -- "$1"; cd "$_" ;}	          # create folder then cd into it
+mkcd() { mkdir -p -- "$1"; cd "$_" ;}             # create folder then cd into it
 open() { "$OPENER" "$@" > /dev/null 2>&1 ;}        # open with default GUI program
 
 # }}}
@@ -594,12 +595,12 @@ m-sound() { arecord -L && arecord -l && cat /proc/asound/pcm ;} #List audio capt
 # https://wiki.archlinux.org/index.php/Pacman_Rosetta
 # http://old-en.opensuse.org/Software_Management_Command_Line_Comparison
 # https://bbs.archlinux.org/viewtopic.php?pid=1281605#p1281605
-# Arch			-- pacman, yaourt
-# Debian/Ubuntu		-- apt-get(apt), aptitude, dpkg
-# Gentoo		-- eclean, emerge, equery, layman
-# OpenSuse		-- zypper
-# Red Hat/Fedora	-- package-cleanup, rpm, yum
-# Suse			-- rug
+# Arch          -- pacman, yaourt
+# Debian/Ubuntu     -- apt-get(apt), aptitude, dpkg
+# Gentoo        -- eclean, emerge, equery, layman
+# OpenSuse      -- zypper
+# Red Hat/Fedora    -- package-cleanup, rpm, yum
+# Suse          -- rug
 # Not finish, only tested on Debian, Arch, Fedora so far
 
 # cleanold; removes certain packages that can no longer be downloaded
@@ -750,7 +751,7 @@ elif [ "$PKMGR" = "pacaur" ]; then
   pkm-remove-orphans() { pacaur -Rs $(pacman -Qqtd) ;}
   pkm-search() { pacaur -Qs "$@" && pacaur -s "$@" ;}
   pkm-search-local() { pacaur -Qs "$@" ;}
-  pkm-upgrade() { pacaur -Syu ;}	# upgrade everything except aur package
+  pkm-upgrade() { pacaur -Syu ;}    # upgrade everything except aur package
   pkm-upgrade-aur() { pacaur --noconfirm -Sbua ;} # only upgrade aur package
 # }}}
 # {{{ pacman
@@ -828,7 +829,7 @@ elif [ "$PKMGR" = "yay" ]; then
   pkm-remove-orphans() { yay -Rs $(pacman -Qqtd) ;}
   pkm-search() { yay --noconfirm "$@" ;}
   pkm-search-local() { yay -Qs "$@" ;}
-  pkm-upgrade() { yay -Syu ;}	# upgrade everything except aur package
+  pkm-upgrade() { yay -Syu ;}   # upgrade everything except aur package
   pkm-upgrade-aur() { yay --noconfirm -Sbua ;} # only upgrade aur package
 # }}}
 # {{{ yum
@@ -1226,7 +1227,7 @@ peerflix-viewer() {
 #   keyword="$(echo "&what=$@&category=&sb=relevance&su=anytime&sd=all&dir=desc" | sed 's/ /\%20/g')"
 #   pagenum=3
 #   pagenum_to_url=$(for num in $(seq 1 "$pagenum"); do echo \
-#   	"http://www.tnaflix.com/search.php?page=$num$keyword"; done )
+#       "http://www.tnaflix.com/search.php?page=$num$keyword"; done )
 #   videourl=$(echo "$pagenum_to_url" | while read line; do lynx -dump "$line" \
 #   | awk '/video[0-9]/ {print $2}' | awk '!x[$0]++' ; done)
 #
@@ -1236,7 +1237,7 @@ peerflix-viewer() {
 #   keyword="$(echo "&what=$@&category=&sb=relevance&su=anytime&sd=all&dir=desc" | sed 's/ /\%20/g')"
 #   pagenum=3
 #   pagenum_to_url=$(for num in $(seq 1 "$pagenum"); do echo \
-#   	"http://www.empflix.com/search.php?page=$num$keyword"; done )
+#       "http://www.empflix.com/search.php?page=$num$keyword"; done )
 #   videourl=$(echo "$pagenum_to_url" | while read line; do lynx -dump "$line" \
 #   | awk '/empflix\.com\/videos/ {print $2}' | awk '!x[$0]++' ; done)
 #
@@ -1258,9 +1259,9 @@ peerflix-viewer() {
 # tutorial video: http://www.youtube.com/watch?v=FnJ67oAxVQ4
 # watch/login/comment/search/download...etc video on youtube, all from cli
 # https://github.com/trizen/youtube-viewer
-yt-listen() { youtube-viewer -n $@ ;}	# no video, music/audio only
-# yt-music() { youtube-viewer -n --category=Music --top ;}	# show top music list
-yt-music() { youtube-viewer -n --category=10 --top ;}	# show top music list
+yt-listen() { youtube-viewer -n $@ ;}   # no video, music/audio only
+# yt-music() { youtube-viewer -n --category=Music --top ;}  # show top music list
+yt-music() { youtube-viewer -n --category=10 --top ;}   # show top music list
 yts-movie-movieclipstrailer() { youtube-viewer -u UCi8e0iOVk1fEOogdfu4YgfA ;}
 ## }}}
 # #-------- NVLC Podcast RSS {{{
@@ -1268,8 +1269,8 @@ yts-movie-movieclipstrailer() { youtube-viewer -u UCi8e0iOVk1fEOogdfu4YgfA ;}
 # # DEMO: https://www.youtube.com/watch?v=7y_58wpHuFE
 # # DESC: play local and internet media using ncurses VLC
 #
-# nvlc-cdplayer() { nvlc ${1:-cdda://} ;}		# other cdrom; cdda:///dev/cdrom ; cdda:///dev/sr0 ; cdda:///dev/sr1
-# nvlc-dvdplayer() { nvlc ${1:-/dev/cdrom} ;}		#other; /dev/sr0 ; /dev/dvd
+# nvlc-cdplayer() { nvlc ${1:-cdda://} ;}       # other cdrom; cdda:///dev/cdrom ; cdda:///dev/sr0 ; cdda:///dev/sr1
+# nvlc-dvdplayer() { nvlc ${1:-/dev/cdrom} ;}       #other; /dev/sr0 ; /dev/dvd
 # nvlc-podcast() { nvlc -S podcast --podcast-urls "$@" ;}
 # podcast-game-cupodcast() { nvlc-podcast "http://CUpodcast.podbean.com/feed/" ;}
 # podcast-mma-joerogan() { nvlc-podcast "http://joeroganexp.joerogan.libsynpro.com/rss" ;}
@@ -1442,7 +1443,7 @@ acc-tennis() { acestream-launcher --player "$ACE_PLAYER" acestream://f3b9d8f1575
 # DEMO: http://www.youtube.com/watch?v=ee4XzWuapsE
 # DESC: lightweight torrent client; interface from cli, webui, ncurses, and gui
 # WEBUI:  http://localhost:9091/transmission/web/
-# 	  http://192.168.1.xxx:9091/transmission/web/
+#     http://192.168.1.xxx:9091/transmission/web/
 
 tsm-clearcompleted() {
   transmission-remote -l | grep 100% | grep Done | \
@@ -1471,9 +1472,9 @@ tsm-blocklist() {
   echo -e "${Green}>>>Numbers of IP Now Blocked ${Color_Off}"
     tsm-count
 }
-tsm-altdownloadspeed() { transmission-remote --downlimit "${@:-900}" ;}	# download default to 900K, else enter your own
+tsm-altdownloadspeed() { transmission-remote --downlimit "${@:-900}" ;} # download default to 900K, else enter your own
 tsm-altdownloadspeedunlimited() { transmission-remote --no-downlimit ;}
-tsm-limitupload() { transmission-remote --uplimit "${@:-10}" ;}	# upload default to 10kpbs, else enter your own
+tsm-limitupload() { transmission-remote --uplimit "${@:-10}" ;} # upload default to 10kpbs, else enter your own
 tsm-limituploadunlimited() { transmission-remote --no-uplimit ;}
 tsm-askmorepeers() { transmission-remote -t"$1" --reannounce ;}
 tsm-daemon() { transmission-daemon ;}
@@ -1481,10 +1482,10 @@ tsm-quit() { killall transmission-daemon ;}
 tsm-add() { transmission-remote --add "$1" ;}
 tsm-hash() { transmission-remote --add "magnet:?xt=urn:btih:$1" ;}       # adding via hash info
 tsm-verify() { transmission-remote --verify "$1" ;}
-tsm-pause() { transmission-remote -t"$1" --stop ;}		# <id> or all
-tsm-start() { transmission-remote -t"$1" --start ;}		# <id> or all
+tsm-pause() { transmission-remote -t"$1" --stop ;}      # <id> or all
+tsm-start() { transmission-remote -t"$1" --start ;}     # <id> or all
 tsm-purge() { transmission-remote -t"$1" --remove-and-delete ;} # delete data also
-tsm-remove() { transmission-remote -t"$1" --remove ;}		# leaves data alone
+tsm-remove() { transmission-remote -t"$1" --remove ;}       # leaves data alone
 tsm-info() { transmission-remote -t"$1" --info ;}
 tsm-speed() { while true;do clear; transmission-remote -t"$1" -i | grep Speed;sleep 1;done ;}
 tsm-grep() { transmission-remote --list | grep -i "$1" ;}
@@ -1621,16 +1622,16 @@ freetuxtv-moldavian() { nvlc "http://database.freetuxtv.net/WebStreamExport/inde
 
 alias flexget='~/.virtualenv/flexget/bin/flexget'
 flexget-list() { flexget series list && flexget movie-list list ;}
-flexget-check() { flexget check ;}			# check if config file has any errors
-flexget-test() { flexget --test execute ;}		# dry run
+flexget-check() { flexget check ;}          # check if config file has any errors
+flexget-test() { flexget --test execute ;}      # dry run
 flexget-execute() { flexget execute ;}                  # download new torrent
-flexget-cron() { flexget --cron execute ;}		# skip writing to logs
+flexget-cron() { flexget --cron execute ;}      # skip writing to logs
 flexget-version() { flexget -V ;}
-flexget-learnall() { flexget execute --learn ;}		# bypass dling old torrents
+flexget-learnall() { flexget execute --learn ;}     # bypass dling old torrents
 flexget-moviequeue-add() { flexget movie-list add "$@" ;}
 flexget-moviequeue-del() { flexget movie-list del "$@" ;}
 flexget-moviequeue-purge() { flexget movie-list purge ;}  # clear all queue
-flexget-forget() { flexget movie-list forget "$@" ;}	# allow redownloading on waiting list
+flexget-forget() { flexget movie-list forget "$@" ;}    # allow redownloading on waiting list
 
 #}}}
 
@@ -1658,9 +1659,9 @@ if command -v fasd >/dev/null; then
   # alias zz='fasd_cd -d -i'        # cd with interactive selection
 
   # open with external programs
-  alias m="f -e $PLAYER"		# open with video player
-  alias o="a -e $OPENER"		# open any file
-  alias v="f -e $EDITOR"		# open with text editor
+  alias m="f -e $PLAYER"        # open with video player
+  alias o="a -e $OPENER"        # open any file
+  alias v="f -e $EDITOR"        # open with text editor
 fi
 #}}}
 
@@ -2868,8 +2869,8 @@ rdesktop-fedoramate64() {
 #------------------------------------------------------
 # http://www.pclinuxos.com/forum/index.php/topic,97181.msg822796.html#msg822796
 # Screen capture software
-# Ctrl+C	Stop
-# Ctrl+C x2	Cancle rendering
+# Ctrl+C    Stop
+# Ctrl+C x2 Cancle rendering
 # BUG: RMD Adjusted recording window, which cuts 10 pixel from the height, thus we have to use offset -x -y
 # https://wiki.archlinux.org/index.php/RecordMyDesktop
 # http://sourceforge.net/p/recordmydesktop/discussion/590957/thread/cf788e96/
@@ -2891,10 +2892,10 @@ RMD_CHANNELS=1
 # SoundCard (pulse for pulseaudio; install pavucontrol to change pulse settings)
 #            hw:0,1 for directly communicating with your soundcard
 #            to get a list of sound device:
-#            	arecord -l
-#            	aplay -l
-#            	cat /proc/asound/pcm
-#            	alsamixer and hit F6
+#               arecord -l
+#               aplay -l
+#               cat /proc/asound/pcm
+#               alsamixer and hit F6
 # FF_SOUNDCARD=pulse
 # FF_SOUNDCARD=hw:0,1
 RMD_SOUNDCARD=hw:3,0
@@ -3512,7 +3513,7 @@ fzf-locate() {
   # if cancle or fail then exit
   # if [ $? -ne 0 ]
   # then
-  #  	exit
+  #     exit
   # fi
 }
 
@@ -3653,7 +3654,7 @@ ffxcast_fullscreen_movie() {
 # #-------- Clipboard and Upload {{{
 # #------------------------------------------------------
 # # DEMO: http://www.youtube.com/watch?v=fKP0FLp3uW0 (xclip)
-# # 	https://www.youtube.com/watch?v=Ww7Sl4d8F8A (pastebinit)
+# #     https://www.youtube.com/watch?v=Ww7Sl4d8F8A (pastebinit)
 # # DESC: copy/paste for linux machines (Mac style)
 #
 #
@@ -3797,7 +3798,7 @@ while true
 #-------- Alias Custom {{{
 #------------------------------------------------------
 # alias sudo='sudo -i'
-# alias sudo='sudo '					# make aliases work with sudo
+# alias sudo='sudo '                    # make aliases work with sudo
 # alias ps="ps aux | grep -v grep | grep "
 # alias ff="find . |grep "
 # alias pp="ps aux |grep "
@@ -3812,7 +3813,7 @@ alias psg='ps aux|grep -v grep|grep -i '
 psgrep() { ps axuf | grep -v grep | grep "$@" -i --color=auto; }
 alias sshxforwarding='ssh -XCc blowfish-cbc,arcfour'
 alias sshxtrusted='ssh -Y'
-alias stackexchange='lynx http://column80.com'		# lookup information
+alias stackexchange='lynx http://column80.com'      # lookup information
 alias xev-keycode="xev | grep 'keycode\|button'"
 # alias weechat='weechat-curses'
 
@@ -3860,7 +3861,7 @@ manned() {
 
 # search commandlinefu.com
 cmdfu() { curl "http://www.commandlinefu.com/commands/matching/$(echo "$@" \
-	| sed 's/ /-/g')/$(echo -n $@ | base64)/plaintext" ;}
+    | sed 's/ /-/g')/$(echo -n $@ | base64)/plaintext" ;}
 
 # display one random command from commandlinefu.com
 cmdfu-random() { echo -e "`curl -sL http://www.commandlinefu.com/commands/random/json|sed -re 's/.*,"command":"(.*)","summary":"([^"]+).*/\\x1b[1;32m\2\\n\\n\\x1b[1;33m\1\\x1b[0m/g'`\n" ;}
@@ -4989,14 +4990,14 @@ catalog-search() {
 # http://clonezilla.org/show-live-doc-content.php?topic=clonezilla-live/doc/04_Create_Recovery_Clonezilla
 # https://rbgeek.wordpress.com/2013/04/16/part-2-creation-of-autorun-recovery-clonezilla-live-cddvd-from-image/#more-8366
 clonezilla-create-recoveryiso() {
-	if [ $# -lt 2 ]; then
-		echo -e "create recovery autorun cd using existing clonezilla sarge image recovery-iso-zip feature in clonezilla"
-		echo -e "\nUsage: $0 <existing_image> <device>"
-		echo -e "\nExample: $0 mydesktop sdx"
-		echo -e "\nNote: <device> is the harddrive that is on the machine this livecd is going to restore to (sdx)"
-		echo -e "Note2: <output_file> will be saved to your current path"
-		return 1
-	fi
+    if [ $# -lt 2 ]; then
+        echo -e "create recovery autorun cd using existing clonezilla sarge image recovery-iso-zip feature in clonezilla"
+        echo -e "\nUsage: $0 <existing_image> <device>"
+        echo -e "\nExample: $0 mydesktop sdx"
+        echo -e "\nNote: <device> is the harddrive that is on the machine this livecd is going to restore to (sdx)"
+        echo -e "Note2: <output_file> will be saved to your current path"
+        return 1
+    fi
         # set current pwd as the output path
         sudo sed -i 's:ocsroot=.*:ocsroot='\""$PWD"\"':g' /etc/drbl/drbl.conf
 
@@ -5012,19 +5013,19 @@ clonezilla-create-recoveryiso() {
 sudo ocs-iso -g en_US.UTF-8 -t -k NONE -e "-g auto -e1 auto -e2 -c -r -j2 -p true restoredisk $SARGE_IMAGE $DEVICE" "$SARGE_IMAGE"
 
         # set output file permissions to everyone
-	# sudo chmod -R 777 "$OUTPUT_FILE"
+    # sudo chmod -R 777 "$OUTPUT_FILE"
 }
 
 # }}}
 # #-------- Environment Variable {{{
 # #------------------------------------------------------
-# export HISTCONTROL=ignoreboth			#Remove Extra Commands
-# export HISTCONTROL=erasedups			#Erase duplicates across the whole history
-# HISTCONTROL=ignorespace				#Space follow by a cmd,will not be saved in history
-# HISTCONTROL=ignoredups				#Rm Dupes, the continuous repeated entry from history
-# HISTFILESIZE=3000				#Bash history size limit
+# export HISTCONTROL=ignoreboth         #Remove Extra Commands
+# export HISTCONTROL=erasedups          #Erase duplicates across the whole history
+# HISTCONTROL=ignorespace               #Space follow by a cmd,will not be saved in history
+# HISTCONTROL=ignoredups                #Rm Dupes, the continuous repeated entry from history
+# HISTFILESIZE=3000             #Bash history size limit
 # HISTSIZE=1000
-# export HISTTIMEFORMAT="%d/%m/%y %T "		#History list shows digital time and date
+# export HISTTIMEFORMAT="%d/%m/%y %T "      #History list shows digital time and date
 # # Set 256 Colors
 # # http://blog.sanctum.geek.nz/256-colour-terminals/
 # # if [ -e /usr/share/terminfo/x/xterm-256color ]; then
@@ -5102,38 +5103,38 @@ sshot() { ~/.scripts/screenshot.sh area ;}
 #-------- Copy Move {{{
 #------------------------------------------------------
 cpr() {
-	if [ $# -lt 1 ]; then
+    if [ $# -lt 1 ]; then
         echo -e "rsync copying files using task spooler queue"
         echo -e "\nUsage:\n$0 [-h help] [-t task-spooler] <source> <destination>"
         echo -e "\nInclude Parent Folder:\n$0 <source> <destination>"
         echo -e "\nExclude Parent Folder:\n$0 <source>/ <destination>"
         echo -e "\nRequirements: rsync task-spooler"
         return 1
-	else
-		case "$1" in
-		  -t) tsp rsync -a "$@" ;;
-		  -h) $0 ;;
-		  -*) $0 ;;
-		  *) rsync -av --progress "$@" ;;
-		esac
-	fi
+    else
+        case "$1" in
+          -t) tsp rsync -a "$@" ;;
+          -h) $0 ;;
+          -*) $0 ;;
+          *) rsync -av --progress "$@" ;;
+        esac
+    fi
 }
 mvr() {
-	if [ $# -lt 1 ]; then
+    if [ $# -lt 1 ]; then
         echo -e "rsync moving files using task spooler queue"
         echo -e "\nUsage:\n$0 [-h help] [-t task-spooler] <source> <destination>"
         echo -e "\nInclude Parent Folder:\n$0 <source> <destination>"
         echo -e "\nExclude Parent Folder:\n$0 <source>/ <destination>"
         echo -e "\nRequirements: rsync task-spooler"
         return 1
-	else
-		case "$1" in
-		  -t) tsp rsync -a --remove-source-files "$@" ;;
-		  -h) $0 ;;
-		  -*) $0 ;;
-		  *) rsync -av --progress --remove-source-files "$@" ;;
-		esac
-	fi
+    else
+        case "$1" in
+          -t) tsp rsync -a --remove-source-files "$@" ;;
+          -h) $0 ;;
+          -*) $0 ;;
+          *) rsync -av --progress --remove-source-files "$@" ;;
+        esac
+    fi
 }
 # }}}
 #-------- Python Pip VirtualEnv (Python Isolated Environment) {{{
@@ -5411,31 +5412,31 @@ convert_to_txt() { soffice --headless --convert-to "txt:Text (encoded):UTF8" "$1
 
 # http://duff-johnson.com/2014/02/17/the-8-most-popular-document-formats-on-the-web/
 convert_to_pdf() {
-	if [ $# -lt 1 ]; then
-		echo -e "Usage: $0 <file_name>.<doc|docx|ppt|pptx|xls|xlsx|txt|rtf|html|epub|cbr|cbz|cbt|cb7|cba|jpg|jpeg|pbm|pgm|png>"
-		echo -e "\nsingle:   $0 file.doc"
-		echo -e "\nmultiple: $0 file1.jpg file2.jpg file3.jpg"
-		echo -e "\nwildcard: $0 *.png"
-		echo -e "\nRequirement: calibre imagemagick libreoffice"
+    if [ $# -lt 1 ]; then
+        echo -e "Usage: $0 <file_name>.<doc|docx|ppt|pptx|xls|xlsx|txt|rtf|html|epub|cbr|cbz|cbt|cb7|cba|jpg|jpeg|pbm|pgm|png>"
+        echo -e "\nsingle:   $0 file.doc"
+        echo -e "\nmultiple: $0 file1.jpg file2.jpg file3.jpg"
+        echo -e "\nwildcard: $0 *.png"
+        echo -e "\nRequirement: calibre imagemagick libreoffice"
         return 1
-	else
-		if [ ! -f "${1%.*}".pdf ] ; then
-		NAME=${1%.*}
-		case "$1" in
-		  *.doc|*.docx)    soffice --headless --convert-to pdf "$@" ;;
-		  *.ppt|*.pptx)    soffice --headless --convert-to pdf "$@" ;;
-		  *.xls|*.xlsx)    soffice --headless --convert-to pdf "$@" ;;
-		  *.txt|*.rtf)     soffice --headless --convert-to pdf "$@" ;;
-		  *.html)          soffice --headless --convert-to pdf "$@" ;;
-		  *.epub)          soffice --headless --convert-to pdf "$@" ;;
-		  *.cbr|*.cbz|*.cb7|*.cbt|*.cba)    ebook-convert "$1" .pdf ;;
-		  *.jpg|*.jpeg|*.pbm|*.pgm|*.png)   convert "$@" "${1%.*}"-`date +'%F_%Hh%Ms%S'`.pdf ;;
-		  *)               echo "'$1' - unsupported format or file does not exist" ;;
-		esac
-		else
-			echo "'${1%.*}.pdf' - file exist, skipping to prevent overwrite"
-		fi
-	fi
+    else
+        if [ ! -f "${1%.*}".pdf ] ; then
+        NAME=${1%.*}
+        case "$1" in
+          *.doc|*.docx)    soffice --headless --convert-to pdf "$@" ;;
+          *.ppt|*.pptx)    soffice --headless --convert-to pdf "$@" ;;
+          *.xls|*.xlsx)    soffice --headless --convert-to pdf "$@" ;;
+          *.txt|*.rtf)     soffice --headless --convert-to pdf "$@" ;;
+          *.html)          soffice --headless --convert-to pdf "$@" ;;
+          *.epub)          soffice --headless --convert-to pdf "$@" ;;
+          *.cbr|*.cbz|*.cb7|*.cbt|*.cba)    ebook-convert "$1" .pdf ;;
+          *.jpg|*.jpeg|*.pbm|*.pgm|*.png)   convert "$@" "${1%.*}"-`date +'%F_%Hh%Ms%S'`.pdf ;;
+          *)               echo "'$1' - unsupported format or file does not exist" ;;
+        esac
+        else
+            echo "'${1%.*}.pdf' - file exist, skipping to prevent overwrite"
+        fi
+    fi
 }
 
 # }}}
@@ -5449,96 +5450,96 @@ convert-to-devices-android_720pnd()  { ffmpeg -i "$1" -s 1280x720  ${ANDROID_DEV
 convert-to-devices-android_1080p() { ffmpeg -i "$1" -s 1920x1080 ${ANDROID_DEVICE[*]} "${1%.*}".android1080p.mp4 ;}
 
 convert-to-droid-kindlefire() {
-	if [ $# -lt 1 ]; then
-		echo -e "Usage: $0 <file_name>"
-		echo -e "\nsingle:   $0 file.avi"
-		echo -e "\nmultiple: $0 file1.avi file2.avi file3.avi"
-		echo -e "\nwildcard: $0 *.avi"
-		return 1
-	fi
+    if [ $# -lt 1 ]; then
+        echo -e "Usage: $0 <file_name>"
+        echo -e "\nsingle:   $0 file.avi"
+        echo -e "\nmultiple: $0 file1.avi file2.avi file3.avi"
+        echo -e "\nwildcard: $0 *.avi"
+        return 1
+    fi
 
-	myArray=( "$@" )
-	for arg in "${myArray[@]}"; do
-		while [ ! -f "${arg%.*}".kindlefire.mp4 ]
-		do
-			ffmpeg -i "$arg" -s 1024x600 -acodec aac -ab 96k -vcodec libx264 -preset slow -f mp4 -crf 22 -strict experimental "${arg%.*}".kindlefire.mp4
-		done
-	done
+    myArray=( "$@" )
+    for arg in "${myArray[@]}"; do
+        while [ ! -f "${arg%.*}".kindlefire.mp4 ]
+        do
+            ffmpeg -i "$arg" -s 1024x600 -acodec aac -ab 96k -vcodec libx264 -preset slow -f mp4 -crf 22 -strict experimental "${arg%.*}".kindlefire.mp4
+        done
+    done
 }
 
 convert-to-droid-androidtablet() {
-	if [ $# -lt 1 ]; then
-		echo -e "A preset for Midrange Andriud Tablet devices."
-		echo -e "\nUsage: $0 <file_name>"
-		echo -e "\nsingle:   $0 file.avi"
-		echo -e "\nmultiple: $0 file1.avi file2.avi file3.avi"
-		echo -e "\nwildcard: $0 *.avi"
-		return 1
-	fi
+    if [ $# -lt 1 ]; then
+        echo -e "A preset for Midrange Andriud Tablet devices."
+        echo -e "\nUsage: $0 <file_name>"
+        echo -e "\nsingle:   $0 file.avi"
+        echo -e "\nmultiple: $0 file1.avi file2.avi file3.avi"
+        echo -e "\nwildcard: $0 *.avi"
+        return 1
+    fi
 
-	myArray=( "$@" )
-	for arg in "${myArray[@]}"; do
-		while [ ! -f "${arg%.*}".androidtablet.mp4 ]
-		do
-			HandBrakeCLI -i "$arg" -o "${arg%.*}.androidtablet.mp4" --preset="Android Tablet"
-		done
-	done
+    myArray=( "$@" )
+    for arg in "${myArray[@]}"; do
+        while [ ! -f "${arg%.*}".androidtablet.mp4 ]
+        do
+            HandBrakeCLI -i "$arg" -o "${arg%.*}.androidtablet.mp4" --preset="Android Tablet"
+        done
+    done
 }
 
 convert-to-droid-android() {
-	if [ $# -lt 1 ]; then
-		echo -e "A preset for Midrange android devices."
-		echo -e "\nUsage: $0 <file_name>"
-		echo -e "\nsingle:   $0 file.avi"
-		echo -e "\nmultiple: $0 file1.avi file2.avi file3.avi"
-		echo -e "\nwildcard: $0 *.avi"
-		return 1
-	fi
+    if [ $# -lt 1 ]; then
+        echo -e "A preset for Midrange android devices."
+        echo -e "\nUsage: $0 <file_name>"
+        echo -e "\nsingle:   $0 file.avi"
+        echo -e "\nmultiple: $0 file1.avi file2.avi file3.avi"
+        echo -e "\nwildcard: $0 *.avi"
+        return 1
+    fi
 
-	myArray=( "$@" )
-	for arg in "${myArray[@]}"; do
-		while [ ! -f "${arg%.*}".android.mp4 ]
-		do
-			HandBrakeCLI -i "$arg" -o "${arg%.*}.android.mp4" --preset="Android"
-		done
-	done
+    myArray=( "$@" )
+    for arg in "${myArray[@]}"; do
+        while [ ! -f "${arg%.*}".android.mp4 ]
+        do
+            HandBrakeCLI -i "$arg" -o "${arg%.*}.android.mp4" --preset="Android"
+        done
+    done
 }
 convert-to-droid-high() {
-	if [ $# -lt 1 ]; then
-		echo -e "HandBrake's general-purpose preset for High Profile H.264 video, with all the bells and whistles."
-		echo -e "\nUsage: $0 <file_name>"
-		echo -e "\nsingle:   $0 file.avi"
-		echo -e "\nmultiple: $0 file1.avi file2.avi file3.avi"
-		echo -e "\nwildcard: $0 *.avi"
-		return 1
-	fi
+    if [ $# -lt 1 ]; then
+        echo -e "HandBrake's general-purpose preset for High Profile H.264 video, with all the bells and whistles."
+        echo -e "\nUsage: $0 <file_name>"
+        echo -e "\nsingle:   $0 file.avi"
+        echo -e "\nmultiple: $0 file1.avi file2.avi file3.avi"
+        echo -e "\nwildcard: $0 *.avi"
+        return 1
+    fi
 
-	myArray=( "$@" )
-	for arg in "${myArray[@]}"; do
-		while [ ! -f "${arg%.*}".high.mp4 ]
-		do
-			HandBrakeCLI -i "$arg" -o "${arg%.*}.high.mp4" --preset="High Profile"
-		done
-	done
+    myArray=( "$@" )
+    for arg in "${myArray[@]}"; do
+        while [ ! -f "${arg%.*}".high.mp4 ]
+        do
+            HandBrakeCLI -i "$arg" -o "${arg%.*}.high.mp4" --preset="High Profile"
+        done
+    done
 }
 
 convert-to-droid-normal() {
-	if [ $# -lt 1 ]; then
-		echo -e "HandBrake's normal, default settings."
-		echo -e "\nUsage: $0 <file_name>"
-		echo -e "\nsingle:   $0 file.avi"
-		echo -e "\nmultiple: $0 file1.avi file2.avi file3.avi"
-		echo -e "\nwildcard: $0 *.avi"
-		return 1
-	fi
+    if [ $# -lt 1 ]; then
+        echo -e "HandBrake's normal, default settings."
+        echo -e "\nUsage: $0 <file_name>"
+        echo -e "\nsingle:   $0 file.avi"
+        echo -e "\nmultiple: $0 file1.avi file2.avi file3.avi"
+        echo -e "\nwildcard: $0 *.avi"
+        return 1
+    fi
 
-	myArray=( "$@" )
-	for arg in "${myArray[@]}"; do
-		while [ ! -f "${arg%.*}".normal.mp4 ]
-		do
-			HandBrakeCLI -i "$arg" -o "${arg%.*}.normal.mp4" --preset="Normal"
-		done
-	done
+    myArray=( "$@" )
+    for arg in "${myArray[@]}"; do
+        while [ ! -f "${arg%.*}".normal.mp4 ]
+        do
+            HandBrakeCLI -i "$arg" -o "${arg%.*}.normal.mp4" --preset="Normal"
+        done
+    done
 }
 
 # }}}
@@ -5581,12 +5582,12 @@ convert_audiocd_to_iso() { use dd or ddrescure or readom ;}
 
 # has CDDB tags?
 ripit-mydefault() {
-	ripit -o ~/Downloads -p 0 -c 0 --nointeraction "$@"
-	# -p ; playlist (m3u file) 0=disable
-	# --nointeraction; use 1st CDDB it finds
-	# -c ; 0 - Lame (for mp3), 1 - Oggenc, 2 - Flac, 3 - Faac,
-	# 	4 - mp4als, 5 - Musepack, 6 - Wavpack, 7 - ffmpeg
-	# $@ ; specfic tracks like 1-4,5,8
+    ripit -o ~/Downloads -p 0 -c 0 --nointeraction "$@"
+    # -p ; playlist (m3u file) 0=disable
+    # --nointeraction; use 1st CDDB it finds
+    # -c ; 0 - Lame (for mp3), 1 - Oggenc, 2 - Flac, 3 - Faac,
+    #   4 - mp4als, 5 - Musepack, 6 - Wavpack, 7 - ffmpeg
+    # $@ ; specfic tracks like 1-4,5,8
 }
 
 rip_to_mp3() { mkdir -p ~/Downloads/audiocd ; ripit -o ~/Downloads/audiocd -p 0 -c 0 --nointeraction "$@" ;}
@@ -5614,14 +5615,14 @@ convert_to_srt() { ffmpeg -i "$1" "${1%.*}".srt ;} # ass --> srt
 convert_to_hardsubs() {
 if [ $# -lt 2 ]
 then
-	echo -e "Use ffmpeg to hardcode subtitles into one movietrack"
-	echo -e "\nUsage:\n$0 [file] [subtitle (srt/ass)] [fontsize (25)] [color code (yellow)] [fontname (dejavu sans mono)]"
-	echo -e "\nexample:\n$0 file.mp4 file.srt"
-	echo -e "$0 file.mp4 file.srt 30 5000FF14 Arial \n"
-	echo -e "kml color code: http://www.zonums.com/gmaps/kml_color/"
+    echo -e "Use ffmpeg to hardcode subtitles into one movietrack"
+    echo -e "\nUsage:\n$0 [file] [subtitle (srt/ass)] [fontsize (25)] [color code (yellow)] [fontname (dejavu sans mono)]"
+    echo -e "\nexample:\n$0 file.mp4 file.srt"
+    echo -e "$0 file.mp4 file.srt 30 5000FF14 Arial \n"
+    echo -e "kml color code: http://www.zonums.com/gmaps/kml_color/"
 
 
-	exit 1
+    exit 1
 fi
 
 ffmpeg -y -i "$1" -vf subtitles="$2":force_style="'Fontsize=${3:-25},PrimaryColour=&H${4:-5014F0FF},FontName=${5:-DejaVu Sans Mono}'" -codec:v libx264 -preset medium -crf 22 -codec:a aac -qscale:a 6 -strict experimental "${1%.*}"-hardsubs.mp4
@@ -5695,24 +5696,24 @@ done
 
 
 # concat_movie() {
-# 	appendfile=$(echo "$@" | sed 's: : --append :g')
-# 	avidemux2_cli --nogui --audio-codec copy --video-codec copy --output-format "${1##*.}" --load $(echo $appendfile) --save "${1%.*}"-appended."${1##*.}"
+#   appendfile=$(echo "$@" | sed 's: : --append :g')
+#   avidemux2_cli --nogui --audio-codec copy --video-codec copy --output-format "${1##*.}" --load $(echo $appendfile) --save "${1%.*}"-appended."${1##*.}"
 # }
 #
 concat-video-movie() {
-	avidemux2_cli --nogui --force-alt-h264 \
-	--audio-codec copy --video-codec copy --output-format "${1##*.}" \
-	--load "$1" --append "$2" --append "$3" --append "$4" \
-	--append "$5" --append "$6" --append "$7" --append "$8" \
-	--save "${1%.*}"-appended."${1##*.}"
+    avidemux2_cli --nogui --force-alt-h264 \
+    --audio-codec copy --video-codec copy --output-format "${1##*.}" \
+    --load "$1" --append "$2" --append "$3" --append "$4" \
+    --append "$5" --append "$6" --append "$7" --append "$8" \
+    --save "${1%.*}"-appended."${1##*.}"
 }
 
 concat-video-mp4() {
-	avidemux2_cli --nogui --force-alt-h264 \
-	--audio-codec copy --video-codec copy --output-format "${1##*.}" \
-	--load "$1" --append "$2" --append "$3" --append "$4" \
-	--append "$5" --append "$6" --append "$7" --append "$8" \
-	--save "${1%.*}"-appended."${1##*.}"
+    avidemux2_cli --nogui --force-alt-h264 \
+    --audio-codec copy --video-codec copy --output-format "${1##*.}" \
+    --load "$1" --append "$2" --append "$3" --append "$4" \
+    --append "$5" --append "$6" --append "$7" --append "$8" \
+    --save "${1%.*}"-appended."${1##*.}"
 }
 
 
@@ -5774,86 +5775,86 @@ archive-createall-zip() {
 #-------- Muxing {{{
 #------------------------------------------------------
 mux_to_mkv() {
-	# mkvmerge -o newfile.mkv part1.mkv +part2.mkv
-	# appendfile=$echo ${@} | sed 's: : +:g')
-	appendfile=$(echo "$@" | sed 's: : +:g')
+    # mkvmerge -o newfile.mkv part1.mkv +part2.mkv
+    # appendfile=$echo ${@} | sed 's: : +:g')
+    appendfile=$(echo "$@" | sed 's: : +:g')
         # appendfile=$(echo "$@" | sed 's/ /\ +/g')
 
-	mkvmerge -o "${1%.*}".mux.mkv $(echo $appendfile)
-	echo $appendfile
+    mkvmerge -o "${1%.*}".mux.mkv $(echo $appendfile)
+    echo $appendfile
 
-	}
+    }
 
 # }}}
 #-------- Web Search Prefix {{{
 #------------------------------------------------------
 # Custom seaches
 gg-comic() { sitelist=$(echo "avaxhome.ws h33t.com mycomicpost.com bdcomics.bdgamers.net" \
-	  	| sed 's/ /\+OR\+site\:/g')
-	url=$(echo "https://encrypted.google.com/search?hl=en&q=$@+site:$sitelist"\
-		| sed 's/ /+/g'); $BROWSER $url; }
+        | sed 's/ /\+OR\+site\:/g')
+    url=$(echo "https://encrypted.google.com/search?hl=en&q=$@+site:$sitelist"\
+        | sed 's/ /+/g'); $BROWSER $url; }
 gg-cyberlocker() { sitelist=$(echo "hotfile.com rapidshare.com mediafire.com
-	uploading.com depositfiles.com zshare.net filepost.com filefactory.com
-	2shared.com zippyshare.com slingfile.com wuala.com filetram.com
-	4shared.com rabidfiles.com" \
-		| sed 's/ /\+OR\+site\:/g')
-	url=$(echo "https://encrypted.google.com/search?hl=en&q=$@+site:$sitelist"\
-		| sed 's/ /+/g'); $BROWSER $url; }
+    uploading.com depositfiles.com zshare.net filepost.com filefactory.com
+    2shared.com zippyshare.com slingfile.com wuala.com filetram.com
+    4shared.com rabidfiles.com" \
+        | sed 's/ /\+OR\+site\:/g')
+    url=$(echo "https://encrypted.google.com/search?hl=en&q=$@+site:$sitelist"\
+        | sed 's/ /+/g'); $BROWSER $url; }
 gg-dojin() { sitelist=$(echo "hentairules.net fakku.net hentaifromhell.net" \
-		| sed 's/ /\+OR\+site\:/g')
-	url=$(echo "https://encrypted.google.com/search?hl=en&q=$@+site:$sitelist"\
-		| sed 's/ /+/g'); $BROWSER $url; }
+        | sed 's/ /\+OR\+site\:/g')
+    url=$(echo "https://encrypted.google.com/search?hl=en&q=$@+site:$sitelist"\
+        | sed 's/ /+/g'); $BROWSER $url; }
 gg-icons() { sitelist=$(echo "iconseeker.com iconarchive.com iconfinder.com
-	deviantart.com veryicon.com iconspedia.com" \
-		| sed 's/ /\+OR\+site\:/g')
-	url=$(echo "https://encrypted.google.com/search?hl=en&q=$@+site:$sitelist"\
-		| sed 's/ /+/g'); $BROWSER $url; }
+    deviantart.com veryicon.com iconspedia.com" \
+        | sed 's/ /\+OR\+site\:/g')
+    url=$(echo "https://encrypted.google.com/search?hl=en&q=$@+site:$sitelist"\
+        | sed 's/ /+/g'); $BROWSER $url; }
 gg-keygen() { sitelist=$(echo "crack.ms/cracks/crack.ms?id" \
-		| sed 's/ /\+OR\+site\:/g')
-	url=$(echo "https://encrypted.google.com/search?hl=en&q=$@+site:$sitelist"\
-		| sed 's/ /+/g'); $BROWSER $url; }
+        | sed 's/ /\+OR\+site\:/g')
+    url=$(echo "https://encrypted.google.com/search?hl=en&q=$@+site:$sitelist"\
+        | sed 's/ /+/g'); $BROWSER $url; }
 gg-music() { url=$(echo "https://encrypted.google.com/search?hl=en&q=
-	intitle:index.of+mp3+"$@"+-html+-htm+-txt"\
-		| sed 's/ /+/g'); $BROWSER $url; }
+    intitle:index.of+mp3+"$@"+-html+-htm+-txt"\
+        | sed 's/ /+/g'); $BROWSER $url; }
 gg-packages() { sitelist=$(echo "sourceforge.net github.com archlinux.org/packages
-	freecode.com/projects gnome.org/extension python.org/pypi gentoo.org/package" \
-		| sed 's/ /\+OR\+site\:/g')
-	url=$(echo "https://encrypted.google.com/search?hl=en&q=$@+site:$sitelist"\
-		| sed 's/ /+/g'); $BROWSER $url; }
+    freecode.com/projects gnome.org/extension python.org/pypi gentoo.org/package" \
+        | sed 's/ /\+OR\+site\:/g')
+    url=$(echo "https://encrypted.google.com/search?hl=en&q=$@+site:$sitelist"\
+        | sed 's/ /+/g'); $BROWSER $url; }
 gg-pastebin() { sitelist=$(echo "pastebin.com paste2.org pastie.org snipt.net
-	heypasteit.com/clip pastee.org shell-fu.org commandlinefu.com catonmat.net
-	linuxconfig.net github.com bitbucket.org slexy.org stackoverflow.com
-	askubuntu.com superuser.com dotfiles.org dotshare.it gitorious.org
+    heypasteit.com/clip pastee.org shell-fu.org commandlinefu.com catonmat.net
+    linuxconfig.net github.com bitbucket.org slexy.org stackoverflow.com
+    askubuntu.com superuser.com dotfiles.org dotshare.it gitorious.org
         pastefs.com
-	serverfault.com wikia.com stackexchange.com" \
-		| sed 's/ /\+OR\+site\:/g')
-	url=$(echo "https://encrypted.google.com/search?hl=en&q=$@+site:$sitelist"\
-		| sed 's/ /+/g'); $BROWSER $url; }
+    serverfault.com wikia.com stackexchange.com" \
+        | sed 's/ /\+OR\+site\:/g')
+    url=$(echo "https://encrypted.google.com/search?hl=en&q=$@+site:$sitelist"\
+        | sed 's/ /+/g'); $BROWSER $url; }
 gg-porn() { sitelist=$(echo "youporn.com redtube.com xvideos.com xhamster.com
-	tube8.com grayvee.com pornhub.com/view_video.php?viewkey tnaflix.com
-	youjizz.com hardsextube.com/video drtuber.com/video pornoxo.com limesteam.com
-       	motherless.com xnxx.com cliphunter.com extremetube.com/video" \
-		| sed 's/ /\+OR\+site\:/g')
-	url=$(echo "https://encrypted.google.com/search?hl=en&q=$@+site:$sitelist"\
-		| sed 's/ /+/g'); $BROWSER $url; }
+    tube8.com grayvee.com pornhub.com/view_video.php?viewkey tnaflix.com
+    youjizz.com hardsextube.com/video drtuber.com/video pornoxo.com limesteam.com
+        motherless.com xnxx.com cliphunter.com extremetube.com/video" \
+        | sed 's/ /\+OR\+site\:/g')
+    url=$(echo "https://encrypted.google.com/search?hl=en&q=$@+site:$sitelist"\
+        | sed 's/ /+/g'); $BROWSER $url; }
 gg-serial() { sitelist=$(echo "freeserials.com/serials/download.php?id= serials.ws/d.php?n" \
-		| sed 's/ /\+OR\+site\:/g')
-	url=$(echo "https://encrypted.google.com/search?hl=en&q=$@+site:$sitelist"\
-		| sed 's/ /+/g'); $BROWSER $url; }
+        | sed 's/ /\+OR\+site\:/g')
+    url=$(echo "https://encrypted.google.com/search?hl=en&q=$@+site:$sitelist"\
+        | sed 's/ /+/g'); $BROWSER $url; }
 gg-torrent() { sitelist=$(echo "eztv.it thepiratebay.se torrentzap.com fenopy.com
-	torrindex.com h33t.com tokyotosho.info nyaa.eu" \
-		| sed 's/ /\+OR\+site\:/g')
-	url=$(echo "https://encrypted.google.com/search?hl=en&q=$@+site:$sitelist"\
-		| sed 's/ /+/g'); $BROWSER $url; }
+    torrindex.com h33t.com tokyotosho.info nyaa.eu" \
+        | sed 's/ /\+OR\+site\:/g')
+    url=$(echo "https://encrypted.google.com/search?hl=en&q=$@+site:$sitelist"\
+        | sed 's/ /+/g'); $BROWSER $url; }
 gg-translate() {
-	$BROWSER http://translate.google.com/#auto/en/"$*" ;}
+    $BROWSER http://translate.google.com/#auto/en/"$*" ;}
 
 #}}}
 #-------- Clean Stuff {{{
 #------------------------------------------------------
 
 rm-except() {
-	find . -type f -not -name '*copy*' | xargs rm
+    find . -type f -not -name '*copy*' | xargs rm
 }
 rmdir-empty() { find -empty -print -delete ;}
 d-swiggle() { find . -type f -name '*~' -exec rm -v {} \; ;}
@@ -5861,11 +5862,11 @@ d-url() { find . -type f -iname '*.url' -exec rm -v {} \; ;}
 d-thumbsdb() { find . -type f -iname 'Thumbs.db' -exec rm -v {} \; ;}
 swiggle() { find . -name *~ -delete ;}
 cleanlinks() {
-	# not in the repos: inspired by http://www.xfree86.org/4.8.0/cleanlinks.1.html
-	# delete empty folder
-	find . -type d -empty -print0 | xargs -0 rmdir
-	# delete broken symlinks
-	find . -type l -xtype l | xargs -l rm
+    # not in the repos: inspired by http://www.xfree86.org/4.8.0/cleanlinks.1.html
+    # delete empty folder
+    find . -type d -empty -print0 | xargs -0 rmdir
+    # delete broken symlinks
+    find . -type l -xtype l | xargs -l rm
 }
 # }}}
 #-------- Logitech K810 Keyboard {{{
@@ -5885,27 +5886,27 @@ tmsu-list() { tmsu tags ;}
 tmsu-repair() { tmsu repair "$@" ;}
 tmsu-search() { tmsu files "$@" ;}
 fzf-tmsu() {
-	nohup xdg-open "$(tmsu files "$@" | fzf -e -i )" >/dev/null 2>&1&
+    nohup xdg-open "$(tmsu files "$@" | fzf -e -i )" >/dev/null 2>&1&
 
-	# if cancle or fail then exit
-	if [ $? -ne 0 ]
-	then
-	 	exit
-	fi
+    # if cancle or fail then exit
+    if [ $? -ne 0 ]
+    then
+        exit
+    fi
 }
 # }}}
 #-------- WINE Gaming {{{
 #------------------------------------------------------
 # get newest version
 syu-winetrickz() { cd ~/Programs/appz/winetricks; rm -f winetricks; \
-      	wget http://www.kegel.com/wine/winetricks; chmod +x winetricks ;}
+        wget http://www.kegel.com/wine/winetricks; chmod +x winetricks ;}
 
 # http://wiki.winehq.org/winetricks
 # change wineprefix location so winetricks can be use on it
 set-wineprefix() {
-	WINEPREFIX="$PWD"
-	echo "ex: /home/username/.PlayOnLinux/wineprefix/Office2007"
-	echo "wineprefix is now set to: $WINEPREFIX"
+    WINEPREFIX="$PWD"
+    echo "ex: /home/username/.PlayOnLinux/wineprefix/Office2007"
+    echo "wineprefix is now set to: $WINEPREFIX"
 }
 
 
@@ -5915,9 +5916,9 @@ set-wineprefix() {
 
 alias pydeb='sudo python setup.py --command-packages=stdeb.command debianize'
 alias dp-installed='dpkg --get-selections | grep $1'
-alias dp-deb-show='dpkg --info'			#to examine archive files
-alias dp-deb-content='dpkg --contents'		#to list their contents.
-whichpkg() { dpkg -S $( which $1 ); }		#lookup for what package uses this command
+alias dp-deb-show='dpkg --info'         #to examine archive files
+alias dp-deb-content='dpkg --contents'      #to list their contents.
+whichpkg() { dpkg -S $( which $1 ); }       #lookup for what package uses this command
 cmdpkg() { PACKAGE=$(dpkg -S $(which $1) | cut -d':' -f1); echo "[${PACKAGE}]"; dpkg -s "${PACKAGE}" ;}
 
 
@@ -5945,35 +5946,35 @@ echo "$progID install" |sudo dpkg --set-selections
 
 
 killkernel() { #Removes all unused kernel, except the newest one
-	dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r \
-	| sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d' \
-	| xargs sudo apt-get -y purge ;}
+    dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r \
+    | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d' \
+    | xargs sudo apt-get -y purge ;}
 
 # }}}
 #-------- Renaming Case {{{
 #------------------------------------------------------
 
-alias renameit="ls | rename -v 's/ /_/g'"	#change files with spaces to underscore
+alias renameit="ls | rename -v 's/ /_/g'"   #change files with spaces to underscore
 single-to-doubles() {
 # for bash shell only
-	for i in ?.jpg; do mv $i 0$i; done
-	for i in ?.png; do mv $i 0$i; done
-	for i in ?.PNG; do mv $i 0$i; done
+    for i in ?.jpg; do mv $i 0$i; done
+    for i in ?.png; do mv $i 0$i; done
+    for i in ?.PNG; do mv $i 0$i; done
 }
 doubles-to-triples() {
-	for i in ??.jpg; do mv $i 0$i; done
-	for i in ??.png; do mv $i 0$i; done
+    for i in ??.jpg; do mv $i 0$i; done
+    for i in ??.png; do mv $i 0$i; done
 }
-string-lowercase() { echo "$@" | tr '[:upper:]' '[:lower:]' ;}	# converts string to lowercase
+string-lowercase() { echo "$@" | tr '[:upper:]' '[:lower:]' ;}  # converts string to lowercase
 
 # http://stackoverflow.com/a/3211670
 nametodigit() {
-	local a=1
-	for i in `ls -v | grep -i "$1"`; do
-	  new=$(printf "%04d.$1" "$a") #04 pad to length of 4
-	  mv -- "${i}" "${new}"
-	  let a=a+1
-	done
+    local a=1
+    for i in `ls -v | grep -i "$1"`; do
+      new=$(printf "%04d.$1" "$a") #04 pad to length of 4
+      mv -- "${i}" "${new}"
+      let a=a+1
+    done
 }
 
 paddy() {
@@ -5995,16 +5996,16 @@ done
 # adds leading zeros to digits in filenames
 
 padme() {
-	num=`expr match "$1" '[^0-9]*\([0-9]\+\).*'`
-	paddednum=`printf "%03d" $num`
-	echo ${1/$num/$paddednum}
+    num=`expr match "$1" '[^0-9]*\([0-9]\+\).*'`
+    paddednum=`printf "%03d" $num`
+    echo ${1/$num/$paddednum}
 }
 
 # http://www.walkingrandomly.com/?p=2850
 zeropadding() {
-	num=`expr match "$1" '[^0-9]*\([0-9]\+\).*'`
-	paddednum=`printf "%03d" $num`
-	echo ${1/$num/$paddednum}
+    num=`expr match "$1" '[^0-9]*\([0-9]\+\).*'`
+    paddednum=`printf "%03d" $num`
+    echo ${1/$num/$paddednum}
 }
 
 
@@ -6013,10 +6014,10 @@ zeropad() { for i in "$@" ;do mv $i `padme $i`; done ;}
 # http://www.youtube.com/watch?v=rE7ISiKoNec
 #lower case bash/zsh
 # lowercase() {
-# 	# [bash] https://www.garron.me/en/bits/rename-files-from-uppercase-to-lowercase.html
-# 	for i in *; do mv $i `echo $i | tr [:upper:] [:lower:]`; done
-# 	# [zsh] https://lorenzod8n.wordpress.com/category/zsh/
-# 	for file in *; do mv $file ${file:l}; done
+#   # [bash] https://www.garron.me/en/bits/rename-files-from-uppercase-to-lowercase.html
+#   for i in *; do mv $i `echo $i | tr [:upper:] [:lower:]`; done
+#   # [zsh] https://lorenzod8n.wordpress.com/category/zsh/
+#   for file in *; do mv $file ${file:l}; done
 # ;}
 
 # http://stackoverflow.com/a/11824856
@@ -6049,15 +6050,15 @@ fi
 #------------------------------------------------------
 
 ocr2clipboard() {
-	# folder to dump it to
-	DIR=/tmp
+    # folder to dump it to
+    DIR=/tmp
 
-	# scale up the image resolution for better ocr-ing
-	convert "$1" -resize 5000 "$DIR"/image_out.png
-	# ocr the scaled image
-	tesseract "$DIR"/image_out.png "$DIR"/result
-	# copy to the clipboard
-	xclip -selection clipboard -i "$DIR"/result.txt
+    # scale up the image resolution for better ocr-ing
+    convert "$1" -resize 5000 "$DIR"/image_out.png
+    # ocr the scaled image
+    tesseract "$DIR"/image_out.png "$DIR"/result
+    # copy to the clipboard
+    xclip -selection clipboard -i "$DIR"/result.txt
 }
 # }}}
 #-------- Midi Music {{{
@@ -6072,8 +6073,8 @@ midi-fluidsynth() { fluidsynth -a alsa -m alsa_seq -l -i /usr/share/soundfonts/f
 
 # http://www.webupd8.org/2013/01/enable-trim-on-ssd-solid-state-drives.html
 trim-check() {
-#	sudo hdparm -I /dev/sda | grep "TRIM supported"
-	sudo hdparm -I /dev/"$1" | awk '/.*TRIM supported.*/{ if ($1 == "*") print "Yes, TRIM is enabled"; else print "No, TRIM is not enabled." ;}'
+#   sudo hdparm -I /dev/sda | grep "TRIM supported"
+    sudo hdparm -I /dev/"$1" | awk '/.*TRIM supported.*/{ if ($1 == "*") print "Yes, TRIM is enabled"; else print "No, TRIM is not enabled." ;}'
 }
 trim-fstrim() { sudo fstrim -v "$1" ;}
 gen-cron-trim() { sudo cp ~/.scripts/trim /etc/cron.daily/ ;}
@@ -6087,21 +6088,21 @@ gen-cron-trim() { sudo cp ~/.scripts/trim /etc/cron.daily/ ;}
 imguralbum() { python ~/.scripts/imgur-album-downloader/imguralbum.py "$@" ;}
 
 imguralbum_cbz() {
-	# usage: imguralbum [link] [filename]
+    # usage: imguralbum [link] [filename]
 
-	local IMGUR_SAVE_PATH=/tmp
+    local IMGUR_SAVE_PATH=/tmp
 
-	# make a temp folder
-	# mkdir -p "$IMGUR_SAVE_PATH"/"$2"
+    # make a temp folder
+    # mkdir -p "$IMGUR_SAVE_PATH"/"$2"
 
-	#download album
-	python ~/.scripts/imgur-album-downloader/imguralbum.py "$1" "$IMGUR_SAVE_PATH"/"$2"
+    #download album
+    python ~/.scripts/imgur-album-downloader/imguralbum.py "$1" "$IMGUR_SAVE_PATH"/"$2"
 
-	#create zip archive using .cbz extension for comics
-	zip -r "${2%/}.cbz" "$IMGUR_SAVE_PATH"/"$2"
+    #create zip archive using .cbz extension for comics
+    zip -r "${2%/}.cbz" "$IMGUR_SAVE_PATH"/"$2"
 
-	#delete temp folder
-	rm -rf "$IMGUR_SAVE_PATH"/"$2"
+    #delete temp folder
+    rm -rf "$IMGUR_SAVE_PATH"/"$2"
 }
 # }}}
 
@@ -6134,10 +6135,10 @@ date-global() {
 
 mp3cut() {
 
-	# example: cut from 5s to 10s; mpgtx -s file.mp3 "[00:05-00:10]" -b file-output
-	mpgtx -s "$1" "["$2":"$3"-"$4":"$5"]" -b "${1%.*}"-output."${1##*.}"
+    # example: cut from 5s to 10s; mpgtx -s file.mp3 "[00:05-00:10]" -b file-output
+    mpgtx -s "$1" "["$2":"$3"-"$4":"$5"]" -b "${1%.*}"-output."${1##*.}"
 
-	}
+    }
 
 #audiobooks
 mpv-saveposition() { mpv --save-position-on-quit "$@" ;}
@@ -6235,7 +6236,7 @@ cdls() {
 
 
 
-alias rdp='rdesktop -u "$USER" -g 1600x1200 -D -r disk:home=/home -r clipboard:PRIMARYCLIPBOARD'	# quick full screen RDP connection
+alias rdp='rdesktop -u "$USER" -g 1600x1200 -D -r disk:home=/home -r clipboard:PRIMARYCLIPBOARD'    # quick full screen RDP connection
 
 
 
@@ -6267,24 +6268,24 @@ lynx-awk() {
 }
 
 # nap() {
-# 	~/.bin/nap-1.5.4.linux-amd64/nap \
-# 	-r \
-# 	-s share-it.loginto.me:3456 \
-# 	-s 108.19.45.179:7777 \
-# 	-s 108.19.45.179:8888 \
-# 	-s spica.sytes.net:8888 \
-# 	-s 84.24.69.59:6436 \
-# 	-s 98.202.75.0:8877 \
-# 	-s 87.13.117.33:8888 \
-# 	-s 79.103.107.173:5995 \
-# 	-s 79.31.239.174:8888 \
+#   ~/.bin/nap-1.5.4.linux-amd64/nap \
+#   -r \
+#   -s share-it.loginto.me:3456 \
+#   -s 108.19.45.179:7777 \
+#   -s 108.19.45.179:8888 \
+#   -s spica.sytes.net:8888 \
+#   -s 84.24.69.59:6436 \
+#   -s 98.202.75.0:8877 \
+#   -s 87.13.117.33:8888 \
+#   -s 79.103.107.173:5995 \
+#   -s 79.31.239.174:8888 \
 #         -s 95.248.174.8:8888 \
 #         -s 82.53.30.153:3456 \
 #         -s 80.181.212.54:8888 \
-# 	"$@"
+#   "$@"
 # }
 
-nap() {	~/.bin/nap-1.5.4/src/nap $@ ;}
+nap() { ~/.bin/nap-1.5.4/src/nap $@ ;}
 
 
 # http://twit.altervista.org/linux-2/how-to-copy-an-entire-commandline-using-just-the-keyboard.html
@@ -6304,7 +6305,7 @@ color_term() {
 #------------------------------------------------------
 
 vcsi-width-3x5() {
-	vcsi "$2" -t -w "$1" --background-color 000000 --metadata-font-color ffffff -g 3x5 --end-delay-percent 20
+    vcsi "$2" -t -w "$1" --background-color 000000 --metadata-font-color ffffff -g 3x5 --end-delay-percent 20
 }
 convert-to-image_png() {
     if [ $# -lt 1 ]
@@ -6357,9 +6358,9 @@ vcsi-1280-3x4() {
 }
 
 vcsi-auto-3x5() {
-	eval $(ffprobe -v error -of flat=s=_ -select_streams v:0 -show_entries stream=height,width "$1")
-	get_width=${streams_stream_0_width}
-	vcsi "$1" -t -w "$get_width" --background-color 000000 --metadata-font-color ffffff -g 3x5 --end-delay-percent 20
+    eval $(ffprobe -v error -of flat=s=_ -select_streams v:0 -show_entries stream=height,width "$1")
+    get_width=${streams_stream_0_width}
+    vcsi "$1" -t -w "$get_width" --background-color 000000 --metadata-font-color ffffff -g 3x5 --end-delay-percent 20
 }
 
 vsheet-tonight-single() {
@@ -6372,17 +6373,17 @@ vsheet-tonight-single() {
     fi
 
         # get width of video file
-	eval $(ffprobe -v error -of flat=s=_ -select_streams v:0 -show_entries stream=height,width "$1")
-	get_width=${streams_stream_0_width}
+    eval $(ffprobe -v error -of flat=s=_ -select_streams v:0 -show_entries stream=height,width "$1")
+    get_width=${streams_stream_0_width}
         # generate video sheet
-	vcsi "$1" -t -w "$get_width" --background-color 000000 --metadata-font-color ffffff -g 2x5 --end-delay-percent 20
+    vcsi "$1" -t -w "$get_width" --background-color 000000 --metadata-font-color ffffff -g 2x5 --end-delay-percent 20
 
         # convert to jpg
         concat_jpg "$1".png
         # reduce jpg file size
-	image-resize-1920x1080 concatoutput.jpg
+    image-resize-1920x1080 concatoutput.jpg
         # rename to cover.jpg
-	mv concatoutput_1920x1080_resized.jpg cover.jpg
+    mv concatoutput_1920x1080_resized.jpg cover.jpg
 
         # add to calibre
         AUTHORS=$(echo "$1" | awk -F'_' '{print $3}' | cut -d' ' -f1,2 )
@@ -6422,17 +6423,17 @@ vsheet-fam-single() {
     fi
 
         # get width of video file
-	eval $(ffprobe -v error -of flat=s=_ -select_streams v:0 -show_entries stream=height,width "$1")
-	get_width=${streams_stream_0_width}
+    eval $(ffprobe -v error -of flat=s=_ -select_streams v:0 -show_entries stream=height,width "$1")
+    get_width=${streams_stream_0_width}
         # generate video sheet
-	vcsi "$1" -t -w "$get_width" --background-color 000000 --metadata-font-color ffffff -g 2x5 --end-delay-percent 20
+    vcsi "$1" -t -w "$get_width" --background-color 000000 --metadata-font-color ffffff -g 2x5 --end-delay-percent 20
 
         # convert to jpg
         concat_jpg "$1".png
         # reduce jpg file size
-	image-resize-1920x1080 concatoutput.jpg
+    image-resize-1920x1080 concatoutput.jpg
         # rename to cover.jpg
-	mv concatoutput_1920x1080_resized.jpg cover.jpg
+    mv concatoutput_1920x1080_resized.jpg cover.jpg
 
         # add to calibre
         AUTHORS=$(echo "$1" | awk -F'_full_hi_' '{print $1}' | cut -d_ -f2- | sed 's:_: :g' | sed -e "s/\b\(.\)/\u\1/g" | sed 's/[0-9]*//g')
@@ -6472,17 +6473,17 @@ vsheet-mofos-single() {
     fi
 
         # get width of video file
-	eval $(ffprobe -v error -of flat=s=_ -select_streams v:0 -show_entries stream=height,width "$1")
-	get_width=${streams_stream_0_width}
+    eval $(ffprobe -v error -of flat=s=_ -select_streams v:0 -show_entries stream=height,width "$1")
+    get_width=${streams_stream_0_width}
         # generate video sheet
-	vcsi "$1" -t -w "$get_width" --background-color 000000 --metadata-font-color ffffff -g 2x5 --end-delay-percent 20
+    vcsi "$1" -t -w "$get_width" --background-color 000000 --metadata-font-color ffffff -g 2x5 --end-delay-percent 20
 
         # convert to jpg
         concat_jpg "$1".png
         # reduce jpg file size
-	image-resize-1920x1080 concatoutput.jpg
+    image-resize-1920x1080 concatoutput.jpg
         # rename to cover.jpg
-	mv concatoutput_1920x1080_resized.jpg cover.jpg
+    mv concatoutput_1920x1080_resized.jpg cover.jpg
 
         # add to calibre
         AUTHORS=$( echo "$1" | awk -F_ '{print $2,$3}' | sed -e "s/\b\(.\)/\u\1/g" | sed 's/[0-9]*//g' )
@@ -6521,17 +6522,17 @@ vsheet-super() {
     fi
 
         # get width of video file
-	eval $(ffprobe -v error -of flat=s=_ -select_streams v:0 -show_entries stream=height,width "$1")
-	get_width=${streams_stream_0_width}
+    eval $(ffprobe -v error -of flat=s=_ -select_streams v:0 -show_entries stream=height,width "$1")
+    get_width=${streams_stream_0_width}
         # generate video sheet
-	vcsi "$1" -t -w "$get_width" --background-color 000000 --metadata-font-color ffffff -g 2x5 --end-delay-percent 20
+    vcsi "$1" -t -w "$get_width" --background-color 000000 --metadata-font-color ffffff -g 2x5 --end-delay-percent 20
 
         # convert to jpg
         concat_jpg "$1".png
         # reduce jpg file size
-	image-resize-1920x1080 concatoutput.jpg
+    image-resize-1920x1080 concatoutput.jpg
         # rename to cover.jpg
-	mv concatoutput_1920x1080_resized.jpg cover.jpg
+    mv concatoutput_1920x1080_resized.jpg cover.jpg
 
         # add to calibre
         AUTHORS=$( echo "${1%.*}" | awk -F- '{print $1}')
@@ -6612,21 +6613,21 @@ yt2banneraudio() {
 
 
 imguralbum_cbz() {
-	# usage: imguralbum [link] [filename]
+    # usage: imguralbum [link] [filename]
 
-	local IMGUR_SAVE_PATH=/tmp
+    local IMGUR_SAVE_PATH=/tmp
 
-	# make a temp folder
-	# mkdir -p "$IMGUR_SAVE_PATH"/"$2"
+    # make a temp folder
+    # mkdir -p "$IMGUR_SAVE_PATH"/"$2"
 
-	#download album
-	imguralbum.py "$1" "$IMGUR_SAVE_PATH"/"$2"
+    #download album
+    imguralbum.py "$1" "$IMGUR_SAVE_PATH"/"$2"
 
-	#create zip archive using .cbz extension for comics
-	zip -r "${2%/}.cbz" "$IMGUR_SAVE_PATH"/"$2"
+    #create zip archive using .cbz extension for comics
+    zip -r "${2%/}.cbz" "$IMGUR_SAVE_PATH"/"$2"
 
-	#delete temp folder
-	rm -rf "$IMGUR_SAVE_PATH"/"$2"
+    #delete temp folder
+    rm -rf "$IMGUR_SAVE_PATH"/"$2"
 }
 
 
@@ -6652,7 +6653,7 @@ testz()
 alias tardir='for i in *; do if [ -d "$i" ]; then tar czf "$i".tar.gz  "$i"; fi; done'
 alias rardir='find * -maxdepth 0 -type d -exec rar a {}.rar {} \;'
 alias zipdir='find * -maxdepth 0 -type d -exec zip -r {}.zip {} \;'
-	#Warning: removes dir after compression (below)
+    #Warning: removes dir after compression (below)
 alias rarkill='find * -maxdepth 0 -type d -exec rar a -df {}.rar {} \;'
 #http://www.commandlinefu.com/commands/view/5198
 # $ ls | while read filename; do tar -czvf "$filename".tar.gz "$filename"; rm "$filename"; done
@@ -6844,7 +6845,7 @@ unmount-raw() {
 
     # if mount was sucessful then cd and ls the mountpoint
     # if [ $? -eq 0 ]; then
-	# cd "/tmp/$1" && ls
+    # cd "/tmp/$1" && ls
     # else
     #     return 1
     # fi
@@ -6873,7 +6874,7 @@ mount-raw() {
 
     # if mount was sucessful then cd and ls the mountpoint
     # if [ $? -eq 0 ]; then
-	# cd "/tmp/$1" && ls
+    # cd "/tmp/$1" && ls
     # else
     #     return 1
     # fi
@@ -7094,10 +7095,10 @@ date-global() {
 
 mp3cut() {
 
-	# example: cut from 5s to 10s; mpgtx -s file.mp3 "[00:05-00:10]" -b file-output
-	mpgtx -s "$1" "["$2":"$3"-"$4":"$5"]" -b "${1%.*}"-output."${1##*.}"
+    # example: cut from 5s to 10s; mpgtx -s file.mp3 "[00:05-00:10]" -b file-output
+    mpgtx -s "$1" "["$2":"$3"-"$4":"$5"]" -b "${1%.*}"-output."${1##*.}"
 
-	}
+    }
 
 #audiobooks
 mpv-saveposition() { mpv --save-position-on-quit "$@" ;}
@@ -7113,7 +7114,7 @@ mplist(){ mplayer -playlist <(tree -aif "$1" | awk '/\.(mp3|wav|ogg|avi|mpg|iso)
 zombie-process() { ps aux | awk '{ print $8 " " $2 }' | grep -w Z ;}
 
 mbuffer() {
-	mplayer -vo fbdev $1 -fs -subcp ${2:-cp1251} -vf scale=${3:-1280:720}
+    mplayer -vo fbdev $1 -fs -subcp ${2:-cp1251} -vf scale=${3:-1280:720}
 }
 normalizeaudio()       { sox --norm "$1" "${1%.*}"."$0"."${1##*.}" ;}
 web2png() { CutyCapt --url="$1" --out=web2png_output.png ;}
@@ -7177,7 +7178,7 @@ function lsofg()
 
 
 
-alias rdp='rdesktop -u "$USER" -g 1600x1200 -D -r disk:home=/home -r clipboard:PRIMARYCLIPBOARD'	# quick full screen RDP connection
+alias rdp='rdesktop -u "$USER" -g 1600x1200 -D -r disk:home=/home -r clipboard:PRIMARYCLIPBOARD'    # quick full screen RDP connection
 
 
 sbg(){
@@ -7195,24 +7196,24 @@ m-connect() { nmcli d connect enp5s0 ;}
 
 
 # nap() {
-# 	~/.bin/nap-1.5.4.linux-amd64/nap \
-# 	-r \
-# 	-s share-it.loginto.me:3456 \
-# 	-s 108.19.45.179:7777 \
-# 	-s 108.19.45.179:8888 \
-# 	-s spica.sytes.net:8888 \
-# 	-s 84.24.69.59:6436 \
-# 	-s 98.202.75.0:8877 \
-# 	-s 87.13.117.33:8888 \
-# 	-s 79.103.107.173:5995 \
-# 	-s 79.31.239.174:8888 \
+#   ~/.bin/nap-1.5.4.linux-amd64/nap \
+#   -r \
+#   -s share-it.loginto.me:3456 \
+#   -s 108.19.45.179:7777 \
+#   -s 108.19.45.179:8888 \
+#   -s spica.sytes.net:8888 \
+#   -s 84.24.69.59:6436 \
+#   -s 98.202.75.0:8877 \
+#   -s 87.13.117.33:8888 \
+#   -s 79.103.107.173:5995 \
+#   -s 79.31.239.174:8888 \
 #         -s 95.248.174.8:8888 \
 #         -s 82.53.30.153:3456 \
 #         -s 80.181.212.54:8888 \
-# 	"$@"
+#   "$@"
 # }
 
-nap() {	
+nap() { 
   mkdir -p ~/Downloads/Napster/{upload,download,incomplete}
   ~/.bin/nap-1.5.4/src/nap $@
 }
@@ -7224,7 +7225,7 @@ nap() {
 #------------------------------------------------------
 
 vcsi-width-3x5() {
-	vcsi "$2" -t -w "$1" --background-color 000000 --metadata-font-color ffffff -g 3x5 --end-delay-percent 20
+    vcsi "$2" -t -w "$1" --background-color 000000 --metadata-font-color ffffff -g 3x5 --end-delay-percent 20
 }
 convert-to-image_jpg() {
     if [ $# -lt 1 ]
@@ -7261,9 +7262,9 @@ vcsi-1280-3x4() {
 }
 
 vcsi-auto-3x5() {
-	eval $(ffprobe -v error -of flat=s=_ -select_streams v:0 -show_entries stream=height,width "$1")
-	get_width=${streams_stream_0_width}
-	vcsi "$1" -t -w "$get_width" --background-color 000000 --metadata-font-color ffffff -g 3x5 --end-delay-percent 20
+    eval $(ffprobe -v error -of flat=s=_ -select_streams v:0 -show_entries stream=height,width "$1")
+    get_width=${streams_stream_0_width}
+    vcsi "$1" -t -w "$get_width" --background-color 000000 --metadata-font-color ffffff -g 3x5 --end-delay-percent 20
 }
 
 vsheet-tonight-single() {
@@ -7276,17 +7277,17 @@ vsheet-tonight-single() {
     fi
 
         # get width of video file
-	eval $(ffprobe -v error -of flat=s=_ -select_streams v:0 -show_entries stream=height,width "$1")
-	get_width=${streams_stream_0_width}
+    eval $(ffprobe -v error -of flat=s=_ -select_streams v:0 -show_entries stream=height,width "$1")
+    get_width=${streams_stream_0_width}
         # generate video sheet
-	vcsi "$1" -t -w "$get_width" --background-color 000000 --metadata-font-color ffffff -g 2x5 --end-delay-percent 20
+    vcsi "$1" -t -w "$get_width" --background-color 000000 --metadata-font-color ffffff -g 2x5 --end-delay-percent 20
 
         # convert to jpg
         concat_jpg "$1".png
         # reduce jpg file size
-	image-resize-1920x1080 concatoutput.jpg
+    image-resize-1920x1080 concatoutput.jpg
         # rename to cover.jpg
-	mv concatoutput_1920x1080_resized.jpg cover.jpg
+    mv concatoutput_1920x1080_resized.jpg cover.jpg
 
         # add to calibre
         AUTHORS=$(echo "$1" | awk -F'_' '{print $3}' | cut -d' ' -f1,2 )
@@ -7326,17 +7327,17 @@ vsheet-fam-single() {
     fi
 
         # get width of video file
-	eval $(ffprobe -v error -of flat=s=_ -select_streams v:0 -show_entries stream=height,width "$1")
-	get_width=${streams_stream_0_width}
+    eval $(ffprobe -v error -of flat=s=_ -select_streams v:0 -show_entries stream=height,width "$1")
+    get_width=${streams_stream_0_width}
         # generate video sheet
-	vcsi "$1" -t -w "$get_width" --background-color 000000 --metadata-font-color ffffff -g 2x5 --end-delay-percent 20
+    vcsi "$1" -t -w "$get_width" --background-color 000000 --metadata-font-color ffffff -g 2x5 --end-delay-percent 20
 
         # convert to jpg
         concat_jpg "$1".png
         # reduce jpg file size
-	image-resize-1920x1080 concatoutput.jpg
+    image-resize-1920x1080 concatoutput.jpg
         # rename to cover.jpg
-	mv concatoutput_1920x1080_resized.jpg cover.jpg
+    mv concatoutput_1920x1080_resized.jpg cover.jpg
 
         # add to calibre
         AUTHORS=$(echo "$1" | awk -F'_full_hi_' '{print $1}' | cut -d_ -f2- | sed 's:_: :g' | sed -e "s/\b\(.\)/\u\1/g" | sed 's/[0-9]*//g')
@@ -7376,17 +7377,17 @@ vsheet-mofos-single() {
     fi
 
         # get width of video file
-	eval $(ffprobe -v error -of flat=s=_ -select_streams v:0 -show_entries stream=height,width "$1")
-	get_width=${streams_stream_0_width}
+    eval $(ffprobe -v error -of flat=s=_ -select_streams v:0 -show_entries stream=height,width "$1")
+    get_width=${streams_stream_0_width}
         # generate video sheet
-	vcsi "$1" -t -w "$get_width" --background-color 000000 --metadata-font-color ffffff -g 2x5 --end-delay-percent 20
+    vcsi "$1" -t -w "$get_width" --background-color 000000 --metadata-font-color ffffff -g 2x5 --end-delay-percent 20
 
         # convert to jpg
         concat_jpg "$1".png
         # reduce jpg file size
-	image-resize-1920x1080 concatoutput.jpg
+    image-resize-1920x1080 concatoutput.jpg
         # rename to cover.jpg
-	mv concatoutput_1920x1080_resized.jpg cover.jpg
+    mv concatoutput_1920x1080_resized.jpg cover.jpg
 
         # add to calibre
         AUTHORS=$( echo "$1" | awk -F_ '{print $2,$3}' | sed -e "s/\b\(.\)/\u\1/g" | sed 's/[0-9]*//g' )
@@ -7425,17 +7426,17 @@ vsheet-super() {
     fi
 
         # get width of video file
-	eval $(ffprobe -v error -of flat=s=_ -select_streams v:0 -show_entries stream=height,width "$1")
-	get_width=${streams_stream_0_width}
+    eval $(ffprobe -v error -of flat=s=_ -select_streams v:0 -show_entries stream=height,width "$1")
+    get_width=${streams_stream_0_width}
         # generate video sheet
-	vcsi "$1" -t -w "$get_width" --background-color 000000 --metadata-font-color ffffff -g 2x5 --end-delay-percent 20
+    vcsi "$1" -t -w "$get_width" --background-color 000000 --metadata-font-color ffffff -g 2x5 --end-delay-percent 20
 
         # convert to jpg
         concat_jpg "$1".png
         # reduce jpg file size
-	image-resize-1920x1080 concatoutput.jpg
+    image-resize-1920x1080 concatoutput.jpg
         # rename to cover.jpg
-	mv concatoutput_1920x1080_resized.jpg cover.jpg
+    mv concatoutput_1920x1080_resized.jpg cover.jpg
 
         # add to calibre
         AUTHORS=$( echo "${1%.*}" | awk -F- '{print $1}')
@@ -7555,7 +7556,7 @@ tmux-discover-pane() {
 alias tardir='for i in *; do if [ -d "$i" ]; then tar czf "$i".tar.gz  "$i"; fi; done'
 alias rardir='find * -maxdepth 0 -type d -exec rar a {}.rar {} \;'
 alias zipdir='find * -maxdepth 0 -type d -exec zip -r {}.zip {} \;'
-	#Warning: removes dir after compression (below)
+    #Warning: removes dir after compression (below)
 alias rarkill='find * -maxdepth 0 -type d -exec rar a -df {}.rar {} \;'
 #http://www.commandlinefu.com/commands/view/5198
 # $ ls | while read filename; do tar -czvf "$filename".tar.gz "$filename"; rm "$filename"; done
@@ -7564,13 +7565,13 @@ alias rarkill='find * -maxdepth 0 -type d -exec rar a -df {}.rar {} \;'
 
 
 atool-delete() {
-	local zipfilename="$1"
-	local deletefile="$(atool -l "$zipfilename" | tail -n +4 | head -n -2 | cut -d':' -f2 | cut -d' ' -f4- | sed 's/\ /\\ /g' | sed -n "${2}p")"
+    local zipfilename="$1"
+    local deletefile="$(atool -l "$zipfilename" | tail -n +4 | head -n -2 | cut -d':' -f2 | cut -d' ' -f4- | sed 's/\ /\\ /g' | sed -n "${2}p")"
 
-	zip -d "$zipfilename" "$deletefile"
+    zip -d "$zipfilename" "$deletefile"
 
 
-	}
+    }
 
 atool-zip-delete() { zip -d "$@" \*.txt ;}
 
@@ -7756,14 +7757,14 @@ whileloop() { while true; do "$@"; sleep 1; done ;}
 #         return 1
 #     fi
 #         keyword=$(echo "*$@*" |  sed -e 's/ /*/g')
-# 	find -type f -iname $keyword | vim -R -
+#   find -type f -iname $keyword | vim -R -
 # }
 
 # find current dir files bigger than X size
 # useage: @size <filesize> <keyword>
 @size() {
-	keyword=$(echo "*${@:2}*" |  sed -e 's/ /*/g')
-	find -type f -size +${1}M -iname $keyword  | vim -R - ;}
+    keyword=$(echo "*${@:2}*" |  sed -e 's/ /*/g')
+    find -type f -size +${1}M -iname $keyword  | vim -R - ;}
 
 # search pdf files in current dir for keywords inside the pdfs
 # http://www.commandlinefu.com/commands/view/9189
@@ -7777,7 +7778,7 @@ whileloop() { while true; do "$@"; sleep 1; done ;}
 
         return 1
     fi
-	find -iname \*.pdf -print0 | xargs -0 pdfgrep -in "$@"
+    find -iname \*.pdf -print0 | xargs -0 pdfgrep -in "$@"
 }
 
 
@@ -8322,4 +8323,3 @@ vicd()
 
 # autostart tmux session or attach
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ] && [ ${UID} != 0 ]; then tmux new-session -A -s main; else tmux attach ; fi &> /dev/null
-
