@@ -17,6 +17,7 @@
     git clone https://github.com/prakash2033/dotfiles_v2.git
     git clone https://github.com/so-fancy/diff-so-fancy.git
     git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+    git clone https://github.com/prakash2033/shownotes.git
 
     ## symlink all folders (trailing slash */) in dotfiles dir to home dir
     cd ~/Public/gitrepo/dotfiles_v2/normal_user
