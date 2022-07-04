@@ -7,10 +7,11 @@
 ![alt text](http://i.imgur.com/EcQoF8a.gif)
 
 ### Fresh Install Info
-    sudo pacman -S git stow mpv coreutils xdotool sxiv cmus htop newsboat
+    sudo pacman -S git stow mpv coreutils xdotool sxiv cmus htop newsboat jq fzf yt-dlp dmenu ueberzug ytfzf
     yay -S task-spooler
     yay -S wmutils-git
     yay -S nvm
+    yay -S ytfzf
     mkdir -p ~/Public/gitrepo 
     cd ~/Public/gitrepo
     git clone https://github.com/prakash2033/dotfiles_v2.git
