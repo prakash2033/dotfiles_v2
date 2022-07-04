@@ -7,10 +7,15 @@
 ![alt text](http://i.imgur.com/EcQoF8a.gif)
 
 ### Fresh Install Info
-    sudo pacman -S git stow
-    mkdir -p ~/Public/gitrepo
+    sudo pacman -S git stow mpv coreutils xdotool sxiv cmus htop newsboat
+    yay -S task-spooler
+    yay -S wmutils-git
+    yay -S nvm
+    mkdir -p ~/Public/gitrepo 
     cd ~/Public/gitrepo
     git clone https://github.com/prakash2033/dotfiles_v2.git
+    git clone https://github.com/so-fancy/diff-so-fancy.git
+    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 
     ## symlink all folders (trailing slash */) in dotfiles dir to home dir
     cd ~/Public/gitrepo/dotfiles_v2/normal_user
@@ -19,6 +24,10 @@
     # change to zsh shell
     sudo pacman -S zsh zsh-completions
     chsh -s /usr/bin/zsh
+
+    # vim plug install. Run :PlugInstall inside vim
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
     ## if new folder is added then:
     # redo link (-R)

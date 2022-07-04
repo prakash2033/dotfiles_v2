@@ -23,6 +23,11 @@ my_term="xterm"
 # option 2: auto detect terminal emulator (note: make sure to only open one)
 # my_term="urxvt|xterm|uxterm|termite|sakura|lxterminal|terminator|mate-terminal|pantheon-terminal|konsole|gnome-terminal|xfce4-terminal"
 
+if !(ps aux | grep "$my_term" | grep -v grep > /dev/null)
+  then
+    exec "$my_term" -maximized
+fi
+
 # get terminal emulator pid ex: 44040485
 # pid=$(xdotool search --class "$my_term" | tail -n1)
 
