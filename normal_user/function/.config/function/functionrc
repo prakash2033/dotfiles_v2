@@ -18,6 +18,7 @@
 [ -d "$HOME/.scripts" ] && PATH="$HOME/.scripts:$PATH"
 [ -d "$HOME/.privatescripts" ] && PATH="$HOME/.privatescripts:$PATH"
 [ -d "$HOME/.binjutsu/x86_64" ] && PATH="$HOME/.binjutsu/x86_64:$PATH"
+[ -d "$HOME/.dotnet/tools" ] && PATH="$HOME/.dotnet/tools:$PATH"
 
 # no line wrapping in less
 export LESS=$LESS" -S"
@@ -499,13 +500,14 @@ alias repo='cd ~/Public/gitrepo'
 alias dot='cd ~/Public/gitrepo/dotfiles_v2'
 alias notes='cd ~/Public/gitrepo/shownotes'
 
-alias dev='cd /media/prakash/dev'
-alias code='cd /media/prakash/code'
-alias tos='cd /media/prakash/dev/tote-tocc-tos'
-alias label='cd /media/prakash/dev/tote-tocc-labelservice'
-alias software='cd /media/prakash/dev/tote-tocc-softwareservice'
-alias service='cd /media/prakash/dev/tote-tocc-services-ui'
-alias notifi='cd /media/prakash/dev/tote-tocc-notificationservice'
+alias dev='cd ~/dev'
+alias code='cd ~/code'
+alias tos='cd ~/dev/tote-tocc-tos'
+alias tosnew='cd ~/dev/tote-tocc-tos-new'
+alias label='cd ~/dev/tote-tocc-labelservice'
+alias software='cd ~/dev/tote-tocc-softwareservice'
+alias service='cd ~/dev/tote-tocc-services-ui'
+alias notifi='cd ~/dev/tote-tocc-notificationservice'
 
 alias derez='rm -Iv'			                # rm interactive, prompt once only
 alias uhaul='mv -iv --'					# mv prompt confirmation

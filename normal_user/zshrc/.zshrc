@@ -4,7 +4,7 @@
 # / /\__ \ | | | | | (__ 
 #/___|___/_| |_|_|  \___|
 # prakash2033 (@gmail|twitter|youtube|github|lbry)
-
+xrdb -load ~/.Xresources
 #-------- Prompt {{{
 #------------------------------------------------------
 # https://wiki.archlinux.org/index.php/Zsh#Prompts

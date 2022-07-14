@@ -140,6 +140,7 @@ https://azurecomcdn.azureedge.net/en-us/updates/feed/ "Tech-News"
 # ------------------------------------------------------
 https://www.youtube.com/feeds/videos.xml?user=Jakejw93 "Video-Linux"
 https://www.youtube.com/feeds/videos.xml?user=sneekylinux "Video-Linux"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCWh6YtclgTAzReTASc4uSKw "Video-Linux" "~MAKCC"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCIaiAJKGrdkVXD26ycTFPzQ "Video-Linux" "~OpenShot"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCngn7SVujlvskHRvRKc1cTw "Video-Linux" "~Bugswriter (YouTube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCZrrEuHiQjN2CUo84g5tk7w "Video-Linux" "~tripcode!Q/7"
@@ -166,7 +167,7 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UC15sF31QE-7rooIlSKnTq_w "Yo
 https://www.youtube.com/feeds/videos.xml?channel_id=UC1MwJy1R0nGQkXxRD9p-zTQ "YouTube-Subs" "~Barnacules Nerdgasm (YouTube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCBr_Fu6q9iHYQCh13jmpbrg "YouTube-Subs" "~Errichto (YouTube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCcYzLCs3zrQIBVHYA1sK2sw "YouTube-Subs" "~Sadhguru (YouTube)"
-Mttps://www.youtube.com/feeds/videos.xml?channel_id=UCBJycsmduvYEL83R_U4JriQ "YouTube-Subs" "~MKBHD (YouTube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCBJycsmduvYEL83R_U4JriQ "YouTube-Subs" "~MKBHD (YouTube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC8bM_y2J-rhv1FL3hdP2VSA "YouTube-Subs" "~Nomad Trails (YouTube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC54_ux4BnaJwkVFn5M391XQ "YouTube-Subs" "~TMKOC (YouTube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCl2mFZoRqjw_ELax4Yisf6w "YouTube-Subs" "~Louis Rossmann (YouTube)"
@@ -191,6 +192,9 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCZrrEuHiQjN2CUo84g5tk7w "Yo
 https://www.youtube.com/feeds/videos.xml?channel_id=UCbXsTqyVlt2-2YrLt1M4GLQ "YouTube-Music" "~Bharat Chauhan"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCpDjYVQS411CBBw0thoB0Sw "YouTube-Music" "~Frizzell D'Souza"
 
+# }}}
+# -------- Empty Section{{{
+https://pornhub.com/rss "Cornhub"
 # }}}
 
 #https://www.youtube.com/feeds/videos.xml?channel_id= "YouTube-Subs" "~"
