@@ -9,7 +9,9 @@
 ### Fresh Install Info
 
     # Debian/Ubuntu/Pop-OS
-    sudo apt install git stow mpv coreutils xdotool sxiv cmus htop newsboat jq fzf yt-dlp dmenu qpdfview task-spooler
+    sudo apt install xterm
+    sudo apt install git stow mpv coreutils xdotool sxiv cmus htop newsboat 
+    sudo apt install jq fzf yt-dlp dmenu qpdfview task-spooler
     sudo apt install xcb libxcb-util0-dev libxcb-cursor-dev
     sudo apt install python3-pip python-is-python3
     pip3 install ueberzug
@@ -19,7 +21,8 @@
     sudo make install doc
     
     # Arch
-    sudo pacman -S git stow mpv coreutils xdotool sxiv cmus htop newsboat jq fzf yt-dlp dmenu ueberzug ytfzf qpdfview
+    sudo pacman -S git stow mpv coreutils xdotool sxiv cmus htop newsboat 
+    sudo pacman -S jq fzf yt-dlp dmenu ueberzug ytfzf qpdfview
     yay -S task-spooler
     yay -S wmutils-git
     yay -S nvm
