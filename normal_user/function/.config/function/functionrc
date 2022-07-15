@@ -38,7 +38,7 @@ export LESS=$LESS" -S"
 #-------- Exports {{{
 #------------------------------------------------------
 # set display
-export DISPLAY=:0
+# export DISPLAY=:0
 
 # set 256color support (doesnt work with older apps like abook)
 export TERM="screen-256color"
