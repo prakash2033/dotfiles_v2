@@ -7,7 +7,7 @@
 ![alt text](http://i.imgur.com/EcQoF8a.gif)
 
 ### Fresh Install Info
-    sudo pacman -S git stow mpv coreutils xdotool sxiv cmus htop newsboat jq fzf yt-dlp dmenu ueberzug ytfzf
+    sudo pacman -S git stow mpv coreutils xdotool sxiv cmus htop newsboat jq fzf yt-dlp dmenu ueberzug ytfzf qpdfview
     yay -S task-spooler
     yay -S wmutils-git
     yay -S nvm
