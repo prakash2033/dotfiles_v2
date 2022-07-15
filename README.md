@@ -14,12 +14,17 @@
     sudo apt install python3-pip
     pip3 install ueberzug
     
+    git clone https://github.com/pystardust/ytfzf
+    cd ytfzf
+    sudo make install doc
+    
     # Arch
     sudo pacman -S git stow mpv coreutils xdotool sxiv cmus htop newsboat jq fzf yt-dlp dmenu ueberzug ytfzf qpdfview
     yay -S task-spooler
     yay -S wmutils-git
     yay -S nvm
     yay -S ytfzf
+    
     mkdir -p ~/Public/gitrepo 
     cd ~/Public/gitrepo
     git clone https://github.com/prakash2033/dotfiles_v2.git
