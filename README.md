@@ -7,6 +7,12 @@
 ![alt text](http://i.imgur.com/EcQoF8a.gif)
 
 ### Fresh Install Info
+
+    # Debian/Ubuntu/Pop-OS
+    sudo pacman -S git stow mpv coreutils xdotool sxiv cmus htop newsboat jq fzf yt-dlp dmenu qpdfview
+    sudo apt install python3-pip
+    
+    # Arch
     sudo pacman -S git stow mpv coreutils xdotool sxiv cmus htop newsboat jq fzf yt-dlp dmenu ueberzug ytfzf qpdfview
     yay -S task-spooler
     yay -S wmutils-git
