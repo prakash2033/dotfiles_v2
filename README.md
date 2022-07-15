@@ -14,6 +14,7 @@
     sudo apt install jq fzf yt-dlp dmenu qpdfview task-spooler
     sudo apt install xcb libxcb-util0-dev libxcb-cursor-dev
     sudo apt install python3-pip python-is-python3
+    sudo apt install w3m rtv
     pip3 install ueberzug
     
     git clone https://github.com/pystardust/ytfzf
