@@ -500,6 +500,7 @@ alias sc='cd ~/.scripts'
 alias repo='cd ~/Public/gitrepo'
 alias dot='cd ~/Public/gitrepo/dotfiles_v2'
 alias notes='cd ~/Public/gitrepo/shownotes'
+alias wiki='cd ~/Public/gitrepo/wiki'
 
 alias dev='cd $HOME/dev'
 alias code='cd $HOME/code'
