@@ -400,6 +400,7 @@ cfg-transmission-daemon() { $EDITOR ~/.config/transmission-daemon/settings.json 
 cfg-transmission-ncurse() { $EDITOR ~/.config/transmission-remote-cli/settings.cfg ;}
 cfg-transmission-tremc() { $EDITOR ~/.config/tremc/settings.cfg ;}
 cfg-turses() { $EDITOR ~/.turses/config ;}
+cfg-urlportal() { $EDITOR ~/.scripts/urlportal ;}
 cfg-urlview() { $EDITOR ~/.urlview ;}
 cfg-updatedb() { sudo $EDITOR /etc/updatedb.conf ;}
 cfg-vifmrc() { $EDITOR ~/.config/vifm/vifmrc ;}
