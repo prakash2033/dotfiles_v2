@@ -34,6 +34,7 @@
 "query:All Unread Articles:unread = \"yes\""
 "query:All Articles DDL-DataHoarder:tags # \"DDL-DataHoarder\"" "DDL-DataHoarder"
 "query:All Articles Linux-Subreddit:tags # \"Linux-Subreddit\"" "Linux-Subreddit"
+"query:All Articles NSFW-Subreddit:tags # \"NSFW-Subreddit\"" "NSFW-Subreddit"
 "query:All Articles Video-Linux:tags # \"Video-Linux\"" "Video-Linux"
 "query:All Articles News:tags # \"News\"" "News"
 "query:All Articles Tech-News:tags # \"Tech-News\"" "Tech-News"
@@ -41,6 +42,7 @@
 "query:All Articles Blog:tags # \"Blog\"" "Blog"
 "query:All Articles Podcast:tags # \"Podcast\"" "Podcast"
 "query:All Articles YouTube-Videos:tags # \"YouTube-Videos\"" "YouTube-Videos"
+"query:All Articles Trailers-n-Reviews:tags # \"Trailers-n-Reviews\"" "Trailers-n-Reviews"
 
 # "query:All Unread Articles (30days):unread = \"yes\" and (age between 0:31)"
 # "query:Unread Articles (primary):unread = \"yes\" and tags # \"primary\""
@@ -87,6 +89,10 @@ https://www.reddit.com/r/coolgithubprojects/.rss "Linux-Subreddit"
 https://www.reddit.com/r/selfhosted/.rss "Linux-Subreddit"
 
 # }}}
+# -------- NSFW-subreddit {{{
+https://www.reddit.com/r/leaked4u/.rss "NSFW-Subreddit"
+https://www.reddit.com/r/nsfw/.rss "NSFW-Subreddit"
+# }}}
 # -------- Web Development {{{
 
 https://www.reddit.com/r/webdev/.rss "Dev-Subreddit"
@@ -99,6 +105,10 @@ https://www.reddit.com/r/typescript/.rss "Dev-Subreddit"
 
 https://feeds.thelocal.com/rss/se "News"
 https://www.nagpurtoday.in/latest-news/rss "News"
+# https://news.google.com/rss?hl=en-IN&gl=IN&ceid=IN:en "News"
+https://news.google.com/rss/search?q=volvo&hl=en-IN&gl=IN&ceid=IN:en "News"
+https://news.google.com/rss/search?q=sweden&hl=en-IN&gl=IN&ceid=IN:en "News"
+https://news.google.com/rss/search?q=gothenburg&hl=en-IN&gl=IN&ceid=IN:en "News"
 #https://thelivenagpur.com/feed/
 #https://feeds.bbci.co.uk/hindi/india/rss.xml "News"
 https://lukesmith.xyz/rss.xml "Blog"
@@ -107,13 +117,12 @@ https://ubuntupodcast.org/feed/podcast/ "Podcast"
 https://notrelated.libsyn.com/rss "Podcast"
 https://www.archlinux.org/feeds/news/ "Tech-News"
 https://blog.angular.io/feed "Tech-News"
-https://azurecomcdn.azureedge.net/en-us/updates/feed/ "Tech-News"
+# https://azurecomcdn.azureedge.net/en-us/updates/feed/ "Tech-News"
 
 # }}}
 # -------- Video-Linux {{{
-# ------------------------------------------------------
-https://www.youtube.com/feeds/videos.xml?user=Jakejw93 "Video-Linux"
-https://www.youtube.com/feeds/videos.xml?user=sneekylinux "Video-Linux"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCvEdeev3sZoxi5hMksZI4KA "Video-Linux" "~jakejw93 - Linux Gaming"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCXD2cy-5xnwTcvTNoUqbnKw "Video-Linux" "~sneekylinux"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCIaiAJKGrdkVXD26ycTFPzQ "Video-Linux" "~OpenShot"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCngn7SVujlvskHRvRKc1cTw "Video-Linux" "~Bugswriter (YouTube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCZrrEuHiQjN2CUo84g5tk7w "Video-Linux" "~tripcode!Q/7"
@@ -128,7 +137,9 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCeeFfhMcJa1kjtfZAGskOCA "Vi
 https://www.youtube.com/feeds/videos.xml?channel_id=UCxQKHvKbmSzGMvUrVtJYnUA "Video-Linux" "~Learn Linux TV (YouTube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC9x0AN7BWHpCDHSm9NiJFJQ "Video-Linux" "~Network Chuck (YouTube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA "Video-Linux" "~Mental Outlaw (YouTube)"
-
+# }}}
+# -------- YouTube Videos {{{
+https://www.youtube.com/feeds/videos.xml?channel_id=UCOtQWL2z-tFbI-mgy_Rpdgg "YouTube-Videos" "~UNFILTERED by Samdish"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCdqoLdDI5U8Xz2_mYPD71eg "YouTube-Videos" "~i bike unfolded (YouTube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCXuqSBlHAE6Xw-yeJA0Tunw "YouTube-Videos" "~Linus Tech Tips (YouTube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCL0QSFSUfW8cHua_rDpltTg "YouTube-Videos" "~Peter Paul Chato (YouTube)"
@@ -146,4 +157,6 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCfDxyxsxaKpyYXkrNRItLsg "Yo
 https://www.youtube.com/feeds/videos.xml?channel_id=UCy5mW8fB24ITiiC0etjLI6w "YouTube-Videos" "~Nilesh Misra (YouTube)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCatL-c6pmnjzEOHSyjn-sHA "YouTube-Videos" "~Khan GS Reasearch Centre"
 # }}}
-
+# -------- Trailers-n-Reviews {{{
+https://www.youtube.com/feeds/videos.xml?channel_id=UCeiAKuJGZrIjYvaq0nMwbJg "Trailers-n-Reviews" "~FilmiIndian"
+# }}}
