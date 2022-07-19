@@ -47,13 +47,14 @@ DEFAULT="$BROWSERCLI"
 VIDEO_QUEUE="tsp mpv --ontop --no-focus-on-open --no-border --force-window --autofit=500x280 --geometry=-15-53 --screen=0"
 # VIDEO_QUEUE="tsp mpv --ontop --no-focus-on-open --no-border --force-window --autofit=800x580 --geometry=-15-53"
 # VIDEO_QUEUE_ALT="ts quvi dump "$LINK" -b quiet --exec 'mpv %u'"
-VIDEO_CLIP="mpv --loop --quiet --ontop --no-focus-on-open --no-border --force-window --autofit=900x600 --geometry=-15+60"
+VIDEO_CLIP="mpv --loop --quiet --ontop --no-focus-on-open --no-border --force-window --autofit=900x600 --geometry=-15+60 --screen=0"
 # IMAGEGUI="feh -. -x -B black -g 900x600-15+60"
 # IMAGECLI="w3m /usr/lib/w3m/cgi-bin/treat_as_url.cgi -o display_image=1 -o imgdisplay=/usr/lib/w3m/w3mimgdisplay"
 # IMAGECLI="w3m -o display_image=1 -o imgdisplay=w3mimgdisplay"
 # IMAGECLI="fbi"
 
-IMAGECLI="feh -. -B black -g 900x600+260+160"
+# IMAGECLI="feh -. -B black -g 900x600+260+160"
+IMAGECLI="feh -. -B black -g 900x600+1920+160"
 # LIVEFEED='streamlink -p "mpv --cache 2048 --ontop --no-border --force-window --autofit=500x280 --geometry=-15-60"'
 LIVEFEED="tsp streamlink"
 DDL_PATH=~/Downloads/plowshare
@@ -127,6 +128,9 @@ case "$LINK" in
         nohup $VIDEO_CLIP "$LINK" > /dev/null 2>&1 &
         ;;
     *xvideos.com/*)
+        nohup $VIDEO_CLIP "$LINK" > /dev/null 2>&1 &
+        ;;
+    *redgifs.com/*)
         nohup $VIDEO_CLIP "$LINK" > /dev/null 2>&1 &
         ;;
     *youtube.com/watch*|*youtu.be/*)
@@ -616,6 +620,9 @@ case "$LINK" in
         ;;
     *.nfo)
         tmux new-window -n view && tmux send-keys "vim '$LINK' && tmux kill-pane" 'Enter'
+        ;;
+    *thelocal.se/*)
+        tmux new-window -n browse && tmux send-keys "$DEFAULT -no-cookie '$LINK' && tmux kill-pane" 'Enter'
         ;;
     *.html)
         tmux new-window -n browse && tmux send-keys "$DEFAULT '$LINK' && tmux kill-pane" 'Enter'
