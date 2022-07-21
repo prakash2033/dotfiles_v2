@@ -54,7 +54,7 @@ VIDEO_CLIP="mpv --loop --quiet --ontop --no-focus-on-open --no-border --force-wi
 # IMAGECLI="fbi"
 
 # IMAGECLI="feh -. -B black -g 900x600+260+160"
-IMAGECLI="feh -. -B black -g 900x600+1920+160"
+IMAGECLI="feh -. -B black -g 1920x1080+1920+160"
 # LIVEFEED='streamlink -p "mpv --cache 2048 --ontop --no-border --force-window --autofit=500x280 --geometry=-15-60"'
 LIVEFEED="tsp streamlink"
 DDL_PATH=~/Downloads/plowshare
