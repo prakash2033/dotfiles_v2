@@ -106,9 +106,9 @@ https://www.reddit.com/r/typescript/.rss "Dev-Subreddit"
 https://feeds.thelocal.com/rss/se "News"
 https://www.nagpurtoday.in/latest-news/rss "News"
 # https://news.google.com/rss?hl=en-IN&gl=IN&ceid=IN:en "News"
-https://news.google.com/rss/search?q=volvo&hl=en-IN&gl=IN&ceid=IN:en "News"
-https://news.google.com/rss/search?q=sweden&hl=en-IN&gl=IN&ceid=IN:en "News"
-https://news.google.com/rss/search?q=gothenburg&hl=en-IN&gl=IN&ceid=IN:en "News"
+# https://news.google.com/rss/search?q=volvo%20cars&hl=en-IN&gl=IN&ceid=IN:en "News"
+# https://news.google.com/rss/search?q=sweden&hl=en-IN&gl=IN&ceid=IN:en "News"
+# https://news.google.com/rss/search?q=gothenburg&hl=en-IN&gl=IN&ceid=IN:en "News"
 #https://thelivenagpur.com/feed/
 #https://feeds.bbci.co.uk/hindi/india/rss.xml "News"
 https://lukesmith.xyz/rss.xml "Blog"
@@ -159,4 +159,7 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCatL-c6pmnjzEOHSyjn-sHA "Yo
 # }}}
 # -------- Trailers-n-Reviews {{{
 https://www.youtube.com/feeds/videos.xml?channel_id=UCeiAKuJGZrIjYvaq0nMwbJg "Trailers-n-Reviews" "~FilmiIndian"
+# }}}
+# -------- Born {{{
+https://www.pornhub.com/rss "phub"
 # }}}
