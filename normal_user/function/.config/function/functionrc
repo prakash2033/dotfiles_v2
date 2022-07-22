@@ -1190,7 +1190,6 @@ fap-pornhub() {
   keyword="$(echo "https://www.pornhub.com/video/search?search=$@" | sed 's/ /\+/g')"
   pagenum=3
   pagenum_to_url=$(for num in $(seq 1 "$pagenum"); do echo "$keyword&page=$num"; done )
-  echo $pagenum_to_url
   videourl=$(echo "$pagenum_to_url" | while read line; do lynx -dump "$line" \
   | awk '/view_video/ {print $2}' | cut -d\" -f 2 |  awk '!x[$0]++' ; done)
 
