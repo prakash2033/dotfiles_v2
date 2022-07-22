@@ -751,8 +751,9 @@ let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 "}}}
-
-
+" -------- Skeet Skeet CLI {{{
+map <F8> :exec '!nohup mpv ' . shellescape(getline('.'), 1) . ' >/dev/null 2>&1&'<CR><CR>
+"  }}}
 
 " Sorting words on the same line
 " https://stackoverflow.com/questions/1327978/sorting-words-not-lines-in-vim/1329899#1329899
