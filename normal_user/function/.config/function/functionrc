@@ -1156,6 +1156,16 @@ peerflix-viewer() {
 # #     2. hit F8 on the link you want to play
 # #     3. hit ZZ or ZQ to quit vim
 
+fap-fix() {
+  grepmatch=$(echo "$@" | sed 's/ /.*/g')
+  keyword="$(echo "http://www.youporn.com/search?query=$@&type=straight" | sed 's/ /\+/g')"
+  pagenum=3
+  pagenum_to_url=$(for num in $(seq 1 "$pagenum"); do echo "$keyword&page=$num"; done )
+  videourl=$(echo "$pagenum_to_url" | while read line; do lynx -dump "$line" \
+  | awk '/watch/ {print $2}' | cut -d\/ -f1-6 | grep -iE $grepmatch | awk '!x[$0]++' ; done)
+  echo $videourl | sed 's/\ /\n/g' | awk '!x[$0]++' | vim -R -
+}
+
 fap-youporn() {
   grepmatch=$(echo "$@" | sed 's/ /.*/g')
   keyword="$(echo "http://www.youporn.com/search?query=$@&type=straight" | sed 's/ /\+/g')"
@@ -1163,7 +1173,6 @@ fap-youporn() {
   pagenum_to_url=$(for num in $(seq 1 "$pagenum"); do echo "$keyword&page=$num"; done )
   videourl=$(echo "$pagenum_to_url" | while read line; do lynx -dump "$line" \
   | awk '/watch/ {print $2}' | cut -d\/ -f1-6 | grep -iE $grepmatch | awk '!x[$0]++' ; done)
-
   echo $videourl | sed 's/\ /\n/g' | awk '!x[$0]++' | vim -R -
 }
 
@@ -1173,6 +1182,17 @@ fap-youjizz() {
   pagenum_to_url=$(for num in $(seq 1 "$pagenum"); do echo "$keyword-$num".html""; done )
   videourl=$(echo "$pagenum_to_url" | while read line; do lynx -dump "$line" \
   | awk '/\.com\/videos/ {print $2}' | awk '!x[$0]++' ; done)
+
+  echo $videourl | sed 's/\ /\n/g' | awk '!x[$0]++' | vim -R -
+}
+
+fap-pornhub() {
+  keyword="$(echo "https://www.pornhub.com/video/search?search=$@" | sed 's/ /\+/g')"
+  pagenum=3
+  pagenum_to_url=$(for num in $(seq 1 "$pagenum"); do echo "$keyword&page=$num"; done )
+  echo $pagenum_to_url
+  videourl=$(echo "$pagenum_to_url" | while read line; do lynx -dump "$line" \
+  | awk '/view_video/ {print $2}' | cut -d\" -f 2 |  awk '!x[$0]++' ; done)
 
   echo $videourl | sed 's/\ /\n/g' | awk '!x[$0]++' | vim -R -
 }
