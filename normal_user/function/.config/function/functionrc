@@ -488,6 +488,8 @@ alias surfraw='surfraw -browser=$BROWSER'       # open in gui browser
 alias wget='wget -N -c'                 # continues/resumes
 alias ytv='youtube-viewer -7 --results=6 --video-player=mpv --append-arg="--ontop --no-border --force-window --autofit=500x280 --geometry=-15-53"' # color, fullscreen, 720p, number of results
 alias yt='ytfzf -t -l'
+alias u='urlportal'
+alias v='vim'
 alias visudo='sudo EDITOR="$EDITOR" visudo'
 
 alias h='cd $HOME && la'
