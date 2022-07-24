@@ -624,9 +624,6 @@ case "$LINK" in
     *.nfo)
         tmux new-window -n view && tmux send-keys "vim '$LINK' && tmux kill-pane" 'Enter'
         ;;
-    *srbachchan.tumblr.com/*)
-        tmux new-window -n browse && tmux send-keys "$IMAGECLI '$LINK' && tmux kill-pane" 'Enter'
-        ;;
     *thelocal.se/*)
         tmux new-window -n browse && tmux send-keys "$DEFAULT -no-cookie '$LINK' && tmux kill-pane" 'Enter'
         ;;
