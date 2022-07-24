@@ -1280,6 +1280,8 @@ yt-listen() { youtube-viewer -n $@ ;}   # no video, music/audio only
 yt-music() { youtube-viewer -n --category=10 --top ;}   # show top music list
 yts-movie-movieclipstrailer() { youtube-viewer -u UCi8e0iOVk1fEOogdfu4YgfA ;}
 yts-movie-reviews() { youtube-viewer -u UCeiAKuJGZrIjYvaq0nMwbJg ;}
+yts-tmkoc() { youtube-viewer -u UC54_ux4BnaJwkVFn5M391XQ ;}
+
 ## }}}
 # #-------- NVLC Podcast RSS {{{
 # #------------------------------------------------------
