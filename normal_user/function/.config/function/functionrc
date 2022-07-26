@@ -72,7 +72,8 @@ export BROWSER=$(find_alt chromium chromium-browser qutebrowser google-chrome fi
 export BROWSERCLI=$(find_alt w3m links2 links lynx elinks $OPENER )
 export BROWSERTOR=$(find_alt tor-browser-en)
 export BROWSER_PRIVATE="chromium --incognito"
-export BROWSERCLI_IMAGE="w3m /usr/lib/w3m/cgi-bin/treat_as_url.cgi -o display_image=1 -o imgdisplay=w3mimgdisplay"
+# export BROWSERCLI_IMAGE="w3m /usr/lib/w3m/cgi-bin/treat_as_url.cgi -o display_image=1 -o imgdisplay=w3mimgdisplay"
+export BROWSERCLI_IMAGE="w3m -o display_image=1 -o imgdisplay=w3mimgdisplay"
 export COMICER=$(find_alt mcomix comix zathura $OPENER )
 export EBOOKER=$(find_alt ebook-viewer $OPENER )
 export EDITOR=$(find_alt vim vi emacs nano leafpad gedit pluma $OPENER )
