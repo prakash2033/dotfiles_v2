@@ -39,6 +39,7 @@
 "query:All Articles Video-Linux:tags # \"Video-Linux\"" "Video-Linux"
 "query:All Articles News:tags # \"News\"" "News"
 "query:All Articles Tech-News:tags # \"Tech-News\"" "Tech-News"
+"query:All Articles Plex-Subreddit:tags # \"Plex-Subreddit\"" "Plex-Subreddit"
 "query:All Articles Dev-Subreddit:tags # \"Dev-Subreddit\"" "Dev-Subreddit"
 "query:All Articles Blog:tags # \"Blog\"" "Blog"
 "query:All Articles Podcast:tags # \"Podcast\"" "Podcast"
@@ -88,6 +89,11 @@ https://www.reddit.com/r/debian/.rss "Linux-Subreddit"
 https://www.reddit.com/r/opensource/.rss "Linux-Subreddit"
 https://www.reddit.com/r/coolgithubprojects/.rss "Linux-Subreddit"
 https://www.reddit.com/r/selfhosted/.rss "Linux-Subreddit"
+
+# }}}
+# -------- Plex-Subreddit {{{
+
+https://www.reddit.com/r/PleX/.rss "Plex-Subreddit"
 
 # }}}
 # -------- Azure-Subreddit {{{
