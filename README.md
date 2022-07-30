@@ -9,7 +9,7 @@
 ### Fresh Install Info
 
     # Debian/Ubuntu/Pop-OS
-    sudo apt install xterm
+    sudo apt install xterm tmux
     sudo apt install git stow mpv coreutils xdotool sxiv cmus htop newsboat 
     sudo apt install jq fzf yt-dlp dmenu qpdfview task-spooler
     sudo apt install xcb libxcb-util0-dev libxcb-cursor-dev
