@@ -9,13 +9,13 @@
 ### Fresh Install Info
 
     # Debian/Ubuntu/Pop-OS
-    sudo apt install xterm tmux
-    sudo apt install git stow mpv coreutils xdotool sxiv cmus htop newsboat 
-    sudo apt install jq fzf yt-dlp dmenu qpdfview task-spooler
-    sudo apt install xcb libxcb-util0-dev libxcb-cursor-dev
-    sudo apt install python3-pip python-is-python3
-    sudo apt install w3m rtv feh
-    sudo apt install onedrive ranger
+    sudo apt install xterm tmux -y
+    sudo apt install git stow mpv coreutils xdotool sxiv cmus htop newsboat -y
+    sudo apt install jq fzf yt-dlp dmenu qpdfview task-spooler -y
+    sudo apt install xcb libxcb-util0-dev libxcb-cursor-dev -y
+    sudo apt install python3-pip python-is-python3 -y
+    sudo apt install w3m rtv feh -y
+    sudo apt install onedrive ranger -y
     pip3 install ueberzug
     
     git clone https://github.com/pystardust/ytfzf
@@ -38,7 +38,7 @@
     git clone https://github.com/prakash2033/shownotes.git
     git clone https://github.com/michael-lazar/rtv.git
     cd rtv
-    python setup.py install
+    sudo python setup.py install
 
     ## symlink all folders (trailing slash */) in dotfiles dir to home dir
     cd ~/Public/gitrepo/dotfiles_v2/normal_user
