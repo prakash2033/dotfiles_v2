@@ -22,6 +22,11 @@
     cd ytfzf
     sudo make install doc
     
+    git clone https://github.com/wmutils/core
+    cd core
+    sudo make
+    sudo make install
+    
     # Arch
     sudo pacman -S git stow mpv coreutils xdotool sxiv cmus htop newsboat 
     sudo pacman -S jq fzf yt-dlp dmenu ueberzug ytfzf qpdfview
