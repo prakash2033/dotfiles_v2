@@ -13,6 +13,7 @@
     sudo dnf install mpv mpv-libs
     sudo dnf install xterm tmux zsh git stow coreutils xdotool sxiv htop newsboat
     sudo dnf install jq fzf yt-dlp dmenu qpdfview task-spooler
+    sudo dnf install w3m feh
 
     # Debian/Ubuntu/Pop-OS
     sudo apt install xterm tmux zsh -y
