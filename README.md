@@ -8,6 +8,11 @@
 
 ### Fresh Install Info
 
+    # Fedora
+    sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+    sudo dnf install mpv mpv-libs
+    sudo dnf install xterm tmux zsh git stow coreutils xdotool sxiv htop newsboat
+
     # Debian/Ubuntu/Pop-OS
     sudo apt install xterm tmux zsh -y
     sudo apt install git stow mpv coreutils xdotool sxiv cmus htop newsboat -y
