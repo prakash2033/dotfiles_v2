@@ -18,6 +18,10 @@
     sudo apt install onedrive ranger -y
     pip3 install ueberzug
     
+    # specially for debian 11 bullseye
+    sudo apt-get install vim-gui-common
+    sudo apt-get install vim-runtime
+    
     git clone https://github.com/pystardust/ytfzf
     cd ytfzf
     sudo make install doc
