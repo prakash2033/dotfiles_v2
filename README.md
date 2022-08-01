@@ -14,6 +14,8 @@
     sudo dnf install xterm tmux zsh git stow coreutils xdotool sxiv htop newsboat
     sudo dnf install jq fzf yt-dlp dmenu qpdfview task-spooler
     sudo dnf install w3m feh
+    ## for wmutils core
+    sudo dnf install libxcb-devel xcb-util-keysyms-devel xcb-util-devel xcb-util-wm-devel xcb-util-cursor-devel
 
     # Debian/Ubuntu/Pop-OS
     sudo apt install xterm tmux zsh -y
