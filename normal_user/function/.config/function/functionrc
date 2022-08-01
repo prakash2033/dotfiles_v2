@@ -39,7 +39,7 @@ export LESS=$LESS" -S"
 #-------- Exports {{{
 #------------------------------------------------------
 # set display
-# export DISPLAY=:0
+export DISPLAY=:0
 
 # set 256color support (doesnt work with older apps like abook)
 export TERM="screen-256color"
@@ -67,25 +67,18 @@ find_alt() { for i;do which "$i" >/dev/null && { echo "$i"; return 0;};done;retu
 
 # set the default program
 # the first program in the array that is detected on your system will be chosen as the default
-export OPENER=$(find_alt open cygstart xdg-open exo-open gnome-open )
-export BROWSER=$(find_alt chromium chromium-browser qutebrowser google-chrome firefox $OPENER )
+export OPENER=$(find_alt xdg-open exo-open gnome-open )
+export BROWSER=$(find_alt chromium-browser qutebrowser google-chrome firefox $OPENER )
 export BROWSERCLI=$(find_alt w3m links2 links lynx elinks $OPENER )
-export BROWSERTOR=$(find_alt tor-browser-en)
-export BROWSER_PRIVATE="chromium --incognito"
+export BROWSER_PRIVATE="chromium-browser --incognito"
 # export BROWSERCLI_IMAGE="w3m /usr/lib/w3m/cgi-bin/treat_as_url.cgi -o display_image=1 -o imgdisplay=w3mimgdisplay"
 export BROWSERCLI_IMAGE="w3m -o display_image=1 -o imgdisplay=w3mimgdisplay"
-export COMICER=$(find_alt mcomix comix zathura $OPENER )
-export EBOOKER=$(find_alt ebook-viewer $OPENER )
-export EDITOR=$(find_alt vim vi emacs nano leafpad gedit pluma $OPENER )
-export EDITORGUI=$(find_alt mousepad leafpad gedit pluma $OPENER )
-export WORDPROCESSOR=$(find_alt wordgrinder $OPENER )
-export FILEMANAGER=$(find_alt pcmanfm thunar nautilus dolphin spacefm enlightenment_filemanager $OPENER )
-export FILEMANAGERCLI=$(find_alt ranger vifm mc $OPENER )
+export EDITOR=$(find_alt vim vi emacs nano $OPENER )
+export FILEMANAGER=$(find_alt nautilus $OPENER )
+export FILEMANAGERCLI=$(find_alt ranger $OPENER )
 export MUSICER=$(find_alt mpv mplayer mpg123 cvlc $OPENER )
 export PAGER=$(find_alt less more most)
 export PLAYER=$(find_alt mpv mplayer ffplay cvlc $OPENER )
-export READER=$(find_alt mupdf zathura evince $OPENER )
-export ROOTER=$(find_alt gksudo kdesudo )
 # http://vim.wikia.com/wiki/Using_vim_as_a_man-page_viewer_under_Unix
 # https://zameermanji.com/blog/2012/12/30/using-vim-as-manpager/
 # https://vi.stackexchange.com/questions/4682/how-can-i-suppress-the-reading-from-stdin-message-from-within-vim
@@ -99,7 +92,7 @@ export IMAGEVIEWER=$(find_alt sxiv feh ristretto display eog $OPENER )
 export TTY_IMAGEVIEWER=fbi
 export TTY_PLAYER=$(mpv -vo fbdev)
 export QUEUER=$(find_alt tsp fq ts )
-export TERMER=$(find_alt urxvt xterm uxterm termite sakura lxterminal terminator mate-terminal pantheon-terminal konsole gnome-terminal xfce4-terminal $OPENER )
+export TERMER=$(find_alt xterm uxterm termite sakura lxterminal terminator mate-terminal pantheon-terminal konsole gnome-terminal xfce4-terminal $OPENER )
 
 
 
