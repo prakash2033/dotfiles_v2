@@ -22,7 +22,8 @@
 [ -d "$HOME/.binjutsu/x86_64" ] && PATH="$HOME/.binjutsu/x86_64:$PATH"
 
 # no line wrapping in less
-export LESS=$LESS" -S"
+# export LESS=$LESS" -S"
+export LESS='-R' man groff
 #-------- Empty Template {{{
 #------------------------------------------------------
 # DEMO: https://www.youtube.com/watch?v=jhv-2pNWfr4
