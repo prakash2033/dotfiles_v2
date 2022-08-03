@@ -30,6 +30,7 @@
     # specially for debian 11 bullseye
     sudo apt-get install vim-gui-common
     sudo apt-get install vim-runtime
+    sudo apt install vim-nox # works
     
     git clone https://github.com/pystardust/ytfzf
     cd ytfzf
