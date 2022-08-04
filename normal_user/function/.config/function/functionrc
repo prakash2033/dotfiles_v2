@@ -16,6 +16,7 @@
 
 # Load more PATH
 [ -d "$HOME/.scripts" ] && PATH="$HOME/.scripts:$PATH"
+[ -d "/usr/sbin" ] && PATH="/usr/sbin:$PATH"
 [ -d "$HOME/Public/gitrepo/diff-so-fancy" ] && PATH="$HOME/Public/gitrepo/diff-so-fancy:$PATH"
 [ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
 [ -d "$HOME/.privatescripts" ] && PATH="$HOME/.privatescripts:$PATH"
