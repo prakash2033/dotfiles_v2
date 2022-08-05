@@ -752,7 +752,7 @@ let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
 let g:UltiSnipsEditSplit="vertical"
 "}}}
 " -------- Skeet Skeet CLI {{{
-map <F8> :exec '!nohup mpv --autofit=900x600 --geometry=-15+60 ' . shellescape(getline('.'), 1) . ' >/dev/null 2>&1&'<CR><CR>
+map <F8> :exec '!nohup mpv --autofit=900x600 --geometry=-15+60 --screen=0 ' . shellescape(getline('.'), 1) . ' >/dev/null 2>&1&'<CR><CR>
 "  }}}
 
 " Sorting words on the same line
