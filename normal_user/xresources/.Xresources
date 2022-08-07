@@ -367,8 +367,7 @@ URxvt.keysym.C-question:  resize-font:show
 
 !! green dark/light
 *color2: #859900
-! *color10: #586e75
-*color10: #6cc247
+*color10: #586e75
 
 !! yellow dark/light
 *color3: #b58900
