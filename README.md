@@ -25,6 +25,7 @@
     sudo apt install python3-pip python-is-python3 -y
     sudo apt install w3m rtv feh -y
     sudo apt install onedrive ranger -y
+    sudo apt install libxext-dev -y
     pip3 install ueberzug
     
     # specially for debian 11 bullseye
