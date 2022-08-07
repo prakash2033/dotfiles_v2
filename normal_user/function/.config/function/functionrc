@@ -978,41 +978,41 @@ se(){
 ##### INTERNET #####
 ####################
 
-#-------- Youtube-dl (Stream|Download|RipAudio) {{{
+#-------- Yt-dlp (Stream|Download|RipAudio) {{{
 #------------------------------------------------------
 # DEMO: https://www.youtube.com/watch?v=MFxlwVhwayg
 # DESC: download/stream media from many online sites
-youtube-dl-stream() { youtube-dl -o - "$1" | $PLAYER - ;}
+yt-dl-stream() { yt-dlp -o - "$1" | $PLAYER - ;}
 
 
-youtube-dl-best() { youtube-dl --restrict-filenames -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio" -o "%(title)s.%(ext)s" "$@" ;}
-alias youtube-dl-thumbnail='youtube-dl --write-thumbnail --skip-download '
-alias youtube-dl-480='youtube-dl -f "bestvideo[height<=480][ext=mp4]+bestaudio[ext=m4a]" '
-alias youtube-dl-720='youtube-dl -f "bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]" '
-alias youtube-dl-4k='echo -e "This will transcode the video from webm to h264 which could take a long time\n\n"; youtube-dl -f "bestvideo[ext=webm]+bestaudio[ext=m4a]" --recode-video mp4 '
-# alias youtube-dl-mp3='youtube-dl --extract-audio -f bestaudio[ext=mp3] --no-playlist '
-alias youtube-dl-mp3='youtube-dl --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 160K --output "%(title)s.%(ext)s"'
+yt-dl-best() { yt-dlp --restrict-filenames -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio" -o "%(title)s.%(ext)s" "$@" ;}
+alias yt-dl-thumbnail='yt-dl --write-thumbnail --skip-download '
+alias yt-dl-480='yt-dlp -f "bestvideo[height<=480][ext=mp4]+bestaudio[ext=m4a]" '
+alias yt-dl-720='yt-dlp -f "bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]" '
+alias yt-dl-4k='echo -e "This will transcode the video from webm to h264 which could take a long time\n\n"; yt-dlp -f "bestvideo[ext=webm]+bestaudio[ext=m4a]" --recode-video mp4 '
+# alias yt-dl-mp3='yt-dlp --extract-audio -f bestaudio[ext=mp3] --no-playlist '
+alias yt-dl-mp3='yt-dlp --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 160K --output "%(title)s.%(ext)s"'
 
 
 # DESC: convert youtube to audio (youtube.com only)
 # -f 171 = webm audio (vorbis)
 # -f 140 = m4a (aac)
-yt2ogg() { youtube-dl --restrict-filenames -x --audio-format vorbis -o "%(title)s.%(ext)s" "$@" ;}
-yt2wav() { youtube-dl --restrict-filenames -x --audio-format wav -o "%(title)s.%(ext)s" "$@" ;}
-yt2mp3() { youtube-dl --restrict-filenames -x --audio-format mp3 -o "%(title)s.%(ext)s" "$@" ;}
-yt2webmaudio() { youtube-dl --restrict-filenames -o "%(title)s.%(ext)s" -f 171 "$@" ;}
-yt2m4a() { youtube-dl --restrict-filenames -o "%(title)s.%(ext)s" -f 140 "$@" ;}
-yt2webm() { youtube-dl --restrict-filenames -o '%(title)s.%(ext)s' -f 248+251 "$@" ;}
+yt2ogg() { yt-dlp --restrict-filenames -x --audio-format vorbis -o "%(title)s.%(ext)s" "$@" ;}
+yt2wav() { yt-dlp --restrict-filenames -x --audio-format wav -o "%(title)s.%(ext)s" "$@" ;}
+yt2mp3() { yt-dlp --restrict-filenames -x --audio-format mp3 -o "%(title)s.%(ext)s" "$@" ;}
+yt2webmaudio() { yt-dlp --restrict-filenames -o "%(title)s.%(ext)s" -f 171 "$@" ;}
+yt2m4a() { yt-dlp --restrict-filenames -o "%(title)s.%(ext)s" -f 140 "$@" ;}
+yt2webm() { yt-dlp --restrict-filenames -o '%(title)s.%(ext)s' -f 248+251 "$@" ;}
 yt2webmhighdesc() {
-  GET_FORMAT=$(youtube-dl -F "$@" )
+  GET_FORMAT=$(yt-dlp -F "$@" )
   VIDEO_ID=$(echo "$GET_FORMAT" | awk '/webm/ && /video only/ {print $1}' | tail -1)
   AUDIO_ID=$(echo "$GET_FORMAT" | awk '/webm/ && /audio only/ {print $1}' | tail -1)
 
-  # youtube-dl -c --restrict-filenames -o '%(title)s.%(ext)s' -f 248+251 "$@" 
-  youtube-dl -c --restrict-filenames -o '%(title)s.%(ext)s' -f "$VIDEO_ID"+"$AUDIO_ID" "$@" 
-  TITLE=$(youtube-dl --get-title "$@")
-  DURATION=$(youtube-dl --get-duration "$@")
-  DESC=$(youtube-dl --get-description "$@")
+  # yt-dlp -c --restrict-filenames -o '%(title)s.%(ext)s' -f 248+251 "$@" 
+  yt-dlp -c --restrict-filenames -o '%(title)s.%(ext)s' -f "$VIDEO_ID"+"$AUDIO_ID" "$@" 
+  TITLE=$(yt-dlp --get-title "$@")
+  DURATION=$(yt-dlp --get-duration "$@")
+  DESC=$(yt-dlp --get-description "$@")
   echo "$TITLE" >> "$TITLE".txt
   echo "$1" >> "$TITLE".txt
   echo "$DURATION" >> "$TITLE".txt
@@ -1020,15 +1020,15 @@ yt2webmhighdesc() {
 
 }
 yt2mp4highdesc() {
-  GET_FORMAT=$(youtube-dl -F "$@" )
+  GET_FORMAT=$(yt-dlp -F "$@" )
   VIDEO_ID=$(echo "$GET_FORMAT" | awk '/mp4/ && /video only/ {print $1}' | tail -1)
   AUDIO_ID=$(echo "$GET_FORMAT" | awk '/m4a/ && /audio only/ {print $1}' | tail -1)
 
-  # youtube-dl -c --restrict-filenames -o '%(title)s.%(ext)s' -f 137+140 "$@" 
-  youtube-dl -c --restrict-filenames -o '%(title)s.%(ext)s' -f "$VIDEO_ID"+"$AUDIO_ID" "$@" 
-  TITLE=$(youtube-dl --get-title "$@")
-  DURATION=$(youtube-dl --get-duration "$@")
-  DESC=$(youtube-dl --get-description "$@")
+  # yt-dlp -c --restrict-filenames -o '%(title)s.%(ext)s' -f 137+140 "$@" 
+  yt-dlp -c --restrict-filenames -o '%(title)s.%(ext)s' -f "$VIDEO_ID"+"$AUDIO_ID" "$@" 
+  TITLE=$(yt-dlp --get-title "$@")
+  DURATION=$(yt-dlp --get-duration "$@")
+  DESC=$(yt-dlp --get-description "$@")
   echo "$TITLE" >> "$TITLE".txt
   echo "$1" >> "$TITLE".txt
   echo "$DURATION" >> "$TITLE".txt
@@ -1038,24 +1038,24 @@ yt2mp4highdesc() {
 
 # https://askubuntu.com/a/965815
 yt2allwebm() {
-  youtube-dl -i --all-subs --embed-subs --embed-thumbnail --add-metadata --merge-output-format webm --format 'bestvideo[ext=webm]+bestaudio[ext=webm]' "$@"
-  TITLE=$(youtube-dl --get-title "$1")
-  DESC=$(youtube-dl --get-duration --get-description "$1")
+  yt-dlp -i --all-subs --embed-subs --embed-thumbnail --add-metadata --merge-output-format webm --format 'bestvideo[ext=webm]+bestaudio[ext=webm]' "$@"
+  TITLE=$(yt-dlp --get-title "$1")
+  DESC=$(yt-dlp --get-duration --get-description "$1")
     echo "$TITLE\n$1\n\n$DESC" >> "$TITLE".txt
 }
 ytbackup() {
   # cat urllist.txt | while read -r line; do echo "$line"
   cat urllist.txt | while read -r line; do 
-  youtube-dl -i --all-subs --embed-subs --embed-thumbnail --add-metadata --merge-output-format mp4 --format 'bestvideo[ext=mp4]+bestaudio[ext=m4a]' "$line"
-  TITLE=$(youtube-dl --get-title "$line")
-  DESC=$(youtube-dl --get-duration --get-description "$line")
+  yt-dlp -i --all-subs --embed-subs --embed-thumbnail --add-metadata --merge-output-format mp4 --format 'bestvideo[ext=mp4]+bestaudio[ext=m4a]' "$line"
+  TITLE=$(yt-dlp --get-title "$line")
+  DESC=$(yt-dlp --get-duration --get-description "$line")
     echo "$TITLE\n$1\n\n$DESC" >> "$TITLE".txt
   done
 }
 yt2allmp4() {
-  youtube-dl -i --all-subs --embed-subs --embed-thumbnail --add-metadata --merge-output-format mp4 --format 'bestvideo[ext=mp4]+bestaudio[ext=m4a]' "$@"
-  TITLE=$(youtube-dl --get-title "$1")
-  DESC=$(youtube-dl --get-duration --get-description "$1")
+  yt-dlp -i --all-subs --embed-subs --embed-thumbnail --add-metadata --merge-output-format mp4 --format 'bestvideo[ext=mp4]+bestaudio[ext=m4a]' "$@"
+  TITLE=$(yt-dlp --get-title "$1")
+  DESC=$(yt-dlp --get-duration --get-description "$1")
     echo "$TITLE\n$1\n\n$DESC" >> "$TITLE".txt
 }
 
