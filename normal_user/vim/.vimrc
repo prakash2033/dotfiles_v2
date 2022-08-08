@@ -4,8 +4,8 @@
 " \ V /| | | | | | | | | (__ 
 "  \_/ |_|_| |_| |_|_|  \___|
 "                            
-" gotbletu (@gmail|twitter|youtube|github|lbry)
-"     https://www.youtube.com/user/gotbletu
+" prakash2033 (@gmail|twitter|youtube|github|lbry)
+"     https://www.youtube.com/user/vickykits71
 "
 "-------- Settings {{{
 "------------------------------------------------------
