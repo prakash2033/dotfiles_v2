@@ -20,13 +20,13 @@ height=$(wattr h "$ROOT")
 # my_term=terminator
 # my_term=gnome-terminal
 
-# option 2: auto detect terminal emulator (note: make sure to only open one)
-my_term="urxvt|xterm|uxterm|termite|sakura|lxterminal|terminator|mate-terminal|pantheon-terminal|konsole|gnome-terminal|xfce4-terminal"
-
 # if !(ps aux | grep "$my_term" | grep -v grep > /dev/null)
 #   then
-#     exec "$my_term" #-maximized
+#     exec "$my_term" -maximized
 # fi
+
+# option 2: auto detect terminal emulator (note: make sure to only open one)
+my_term="urxvt|xterm|uxterm|termite|sakura|lxterminal|terminator|mate-terminal|pantheon-terminal|konsole|gnome-terminal|xfce4-terminal"
 
 # get terminal emulator pid ex: 44040485
 pid=$(xdotool search --class "$my_term" | tail -n1)
@@ -38,7 +38,7 @@ pid=$(xdotool search --class "$my_term" | tail -n1)
 wid=$(printf 0x%x "$pid")
 
 # maximize terminal emulator
-wrs "$width" "$height" "$wid"
+# wrs "$width" "$height" "$wid"
 
 # toggle show/hide terminal emulator
 mapw -t "$wid"
