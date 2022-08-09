@@ -703,6 +703,7 @@ Plug 'https://github.com/tomtom/tcomment_vim.git'
 Plug 'https://github.com/suan/vim-instant-markdown.git'
 " Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'https://github.com/altercation/vim-colors-solarized.git'
+Plug 'https://github.com/morhetz/gruvbox.git'
 Plug 'https://github.com/sirver/UltiSnips'    " snippet program only, no code snippet provided
 Plug 'https://github.com/honza/vim-snippets'  " code snippet of many programming language
 Plug 'https://github.com/tpope/vim-surround'  " :help surround
@@ -736,6 +737,13 @@ map <leader>md :InstantMarkdownPreview<CR>
 "------------------------------------------------------
 " https://github.com/altercation/vim-colors-solarized
 colorscheme solarized
+
+
+"}}}
+"-------- vim-colors-gruvbox - Gruvboc Theme {{{
+"------------------------------------------------------
+" https://github.com/morhetz/gruvbox
+" colorscheme gruvbox
 
 
 "}}}
