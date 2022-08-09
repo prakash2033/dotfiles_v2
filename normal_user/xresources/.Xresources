@@ -64,7 +64,7 @@ xterm*scaleHeight: 1.01
 ! XTerm*faceName: xft:monospace:size=16
 ! XTerm*faceNameDoublesize: xft:DejaVu Sans Mono:style=Regular
 
-XTerm.vt100.faceName: DejaVu Sans Mono:style=Book:antialias=false
+XTerm.vt100.faceName: JetBrains Mono:style=Regular:antialias=false
 ! XTerm*faceName: DejaVu Sans Mono:style=Book:antialias=false \
 !                 xft:JoyPixels:size=12, \
 !                 xft:Monospace:style=Medium:size=12   
@@ -156,7 +156,7 @@ XTerm.vt100.translations: #override \n\
 ! enable copy/paste hotkey to work (shift+insert = paste ; mouse highlight = copy)
 XTerm*selectToClipboard: true
 ! disable fullscreen hotkey alt+enter (hotkey conflicts with weechat, midnight commander ...etc)
-XTerm*fullscreen: never
+! XTerm*fullscreen: never
 ! enable alt key to work
 XTerm*metaSendsEscape: true
 ! Fix the backspace key (for Emacs)
