@@ -64,7 +64,7 @@ xterm*scaleHeight: 1.01
 ! XTerm*faceName: xft:monospace:size=16
 ! XTerm*faceNameDoublesize: xft:DejaVu Sans Mono:style=Regular
 
-XTerm.vt100.faceName: JetBrains Mono:style=Regular:antialias=false
+XTerm.vt100.faceName: DejaVu Sans Mono:style=Book:antialias=false
 ! XTerm*faceName: DejaVu Sans Mono:style=Book:antialias=false \
 !                 xft:JoyPixels:size=12, \
 !                 xft:Monospace:style=Medium:size=12   
@@ -156,7 +156,7 @@ XTerm.vt100.translations: #override \n\
 ! enable copy/paste hotkey to work (shift+insert = paste ; mouse highlight = copy)
 XTerm*selectToClipboard: true
 ! disable fullscreen hotkey alt+enter (hotkey conflicts with weechat, midnight commander ...etc)
-! XTerm*fullscreen: never
+XTerm*fullscreen: never
 ! enable alt key to work
 XTerm*metaSendsEscape: true
 ! Fix the backspace key (for Emacs)
@@ -391,38 +391,6 @@ URxvt.keysym.C-question:  resize-font:show
 
 ! }}}
 
-! -------- Theme: Gruvbox {{{
-!------------------------------------------------------
-! Source: https://github.com/morhetz/gruvbox-generalized
-! hard contrast: *background: #1d2021
-! *background: #282828
-! ! soft contrast: *background: #32302f
-! *foreground: #ebdbb2
-! ! Black + DarkGrey
-! *color0:  #282828
-! *color8:  #928374
-! ! DarkRed + Red
-! *color1:  #cc241d
-! *color9:  #fb4934
-! ! DarkGreen + Green
-! *color2:  #98971a
-! *color10: #b8bb26
-! ! DarkYellow + Yellow
-! *color3:  #d79921
-! *color11: #fabd2f
-! ! DarkBlue + Blue
-! *color4:  #458588
-! *color12: #83a598
-! ! DarkMagenta + Magenta
-! *color5:  #b16286
-! *color13: #d3869b
-! ! DarkCyan + Cyan
-! *color6:  #689d6a
-! *color14: #8ec07c
-! ! LightGrey + White
-! *color7:  #a89984
-! *color15: #ebdbb2
-! }}}
 
 ! !-------- EMPTY {{{
 ! !------------------------------------------------------
