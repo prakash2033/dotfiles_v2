@@ -34,5 +34,5 @@ super + c
 super + w
 	firefox
 
-super + backspace
-        sysact
+# super + backspace
+#         sysact

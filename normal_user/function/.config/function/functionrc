@@ -19,6 +19,7 @@
 [ -d "/usr/sbin" ] && PATH="/usr/sbin:$PATH"
 [ -d "$HOME/public/gitrepo/diff-so-fancy" ] && PATH="$HOME/public/gitrepo/diff-so-fancy:$PATH"
 [ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
+[ -d "$HOME/.local/bin/statusbar" ] && PATH="$HOME/.local/bin/statusbar:$PATH"
 [ -d "$HOME/.privatescripts" ] && PATH="$HOME/.privatescripts:$PATH"
 [ -d "$HOME/.binjutsu/x86_64" ] && PATH="$HOME/.binjutsu/x86_64:$PATH"
 
@@ -388,6 +389,7 @@ cfg-skippyxd() { $EDITOR ~/.skippy-xd.rc ;}
 cfg-slrnrc() { $EDITOR ~/.slrnrc ;}
 cfg-ssh-client() { sudo $EDITOR /etc/ssh/ssh_config ;}
 cfg-ssh-daemon() { sudo $EDITOR /etc/ssh/sshd_config ;}
+cfg-sxhkdrc() { $EDITOR ~/.config/sxhkd/sxhkdrc ;}
 cfg-stig() { $EDITOR ~/.config/stig/rc ;}
 cfg-streamlink() { $EDITOR ~/.streamlinkrc ;}
 cfg-sudoers() { sudo $EDITOR /etc/sudoers ;}
@@ -495,11 +497,11 @@ alias v='vim'
 alias visudo='sudo EDITOR="$EDITOR" visudo'
 
 alias h='cd $HOME && la'
-alias dox='cd ~/Documents'
-alias dl='cd ~/Downloads'
-alias px='cd ~/Pictures'
-alias mu='cd ~/Music'
-alias vv='cd ~/Videos'
+alias dox='cd ~/dox'
+alias dl='cd ~/dl'
+alias px='cd ~/pix'
+alias mu='cd ~/music'
+alias vv='cd ~/vids'
 alias sc='cd ~/.scripts'
 alias cfg='cd ~/.config'
 
