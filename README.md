@@ -50,8 +50,8 @@
     yay -S nvm
     yay -S ytfzf
     
-    mkdir -p ~/public/gitrepo 
-    cd ~/public/gitrepo
+    mkdir -p ~/Public/gitrepo 
+    cd ~/Public/gitrepo
     git clone https://github.com/prakash2033/dotfiles_v2.git
     git clone https://github.com/so-fancy/diff-so-fancy.git
     git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
@@ -61,7 +61,7 @@
     sudo python setup.py install
 
     ## symlink all folders (trailing slash */) in dotfiles dir to home dir
-    cd ~/public/gitrepo/dotfiles_v2/normal_user
+    cd ~/Public/gitrepo/dotfiles_v2/normal_user
     stow -v -t ~ */
 
     # change to zsh shell
@@ -74,13 +74,13 @@
 
     ## if new folder is added then:
     # redo link (-R)
-    cd ~/public/gitrepo/dotfiles_v2/normal_user
+    cd ~/Public/gitrepo/dotfiles_v2/normal_user
     stow -v -R -t ~ */
     stow -v -R -t ~ tmux
     
     ## if folder was deleted then:
     # delete (-D flag then -R to relink)
-    cd ~/public/gitrepo/dotfiles_v2/normal_user
+    cd ~/Public/gitrepo/dotfiles_v2/normal_user
     stow -v -D -t ~ */
     stow -v -R -t ~ */
 
