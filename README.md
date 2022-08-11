@@ -37,6 +37,10 @@
     sudo apt-get install vim-runtime
     sudo apt install vim-nox # works
     
+    ## bluetooth device to show in audio settings (pavucontrol)
+    printf '[General]
+    Enable=Control,Gateway,Headset,Media,Sink,Socket,Source' > /etc/bluetooth/audio.conf 
+    
     git clone https://github.com/pystardust/ytfzf
     cd ytfzf
     sudo make install doc
