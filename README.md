@@ -19,14 +19,17 @@
 
     # Debian/Ubuntu/Pop-OS
     sudo apt install xterm tmux zsh -y
-    sudo apt install git stow mpv coreutils xdotool sxiv cmus htop newsboat -y
-    sudo apt install jq fzf yt-dlp dmenu qpdfview task-spooler -y
+    sudo apt install git stow coreutils xdotool sxiv cmus htop newsboat -y
+    sudo apt install jq fzf dmenu qpdfview task-spooler -y
     sudo apt install xcb libxcb-util0-dev libxcb-cursor-dev -y
     sudo apt install python3-pip python-is-python3 -y
     sudo apt install w3m rtv feh -y
-    sudo apt install onedrive ranger -y
+    sudo apt install onedrive ranger imagemagick aptitude -y
     sudo apt install libxext-dev -y
     pip3 install ueberzug
+    
+    # install separately
+    yt-dlp mpv
     
     # specially for debian 11 bullseye
     sudo apt-get install vim-gui-common
