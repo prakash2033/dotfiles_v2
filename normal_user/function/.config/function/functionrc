@@ -17,7 +17,7 @@
 # Load more PATH
 [ -d "$HOME/.scripts" ] && PATH="$HOME/.scripts:$PATH"
 [ -d "/usr/sbin" ] && PATH="/usr/sbin:$PATH"
-[ -d "$HOME/Public/gitrepo/diff-so-fancy" ] && PATH="$HOME/Public/gitrepo/diff-so-fancy:$PATH"
+[ -d "$HOME/public/gitrepo/diff-so-fancy" ] && PATH="$HOME/public/gitrepo/diff-so-fancy:$PATH"
 [ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
 [ -d "$HOME/.privatescripts" ] && PATH="$HOME/.privatescripts:$PATH"
 [ -d "$HOME/.binjutsu/x86_64" ] && PATH="$HOME/.binjutsu/x86_64:$PATH"
@@ -503,10 +503,10 @@ alias vv='cd ~/Videos'
 alias sc='cd ~/.scripts'
 alias cfg='cd ~/.config'
 
-alias repo='cd ~/Public/gitrepo'
-alias dot='cd ~/Public/gitrepo/dotfiles_v2'
-alias notes='cd ~/Public/gitrepo/shownotes'
-alias wiki='cd ~/Public/gitrepo/wiki'
+alias repo='cd ~/public/gitrepo'
+alias dot='cd ~/public/gitrepo/dotfiles_v2'
+alias notes='cd ~/public/gitrepo/shownotes'
+alias wiki='cd ~/public/gitrepo/wiki'
 
 alias dev='cd $HOME/dev'
 alias code='cd $HOME/code'
@@ -1740,9 +1740,9 @@ FF_MIC_CH="2"
 # movie = video and audio
 # videotrack = video only
 # audiotrack = audio only
-FF_OUTPUT_MOVIE=~/Public/screencast/mm_movie_baking.mkv
-FF_OUTPUT_VIDEO=~/Public/screencast/vv_video_baking.mkv
-FF_OUTPUT_AUDIO=~/Public/screencast/aa_audio_baking.mp3
+FF_OUTPUT_MOVIE=~/public/screencast/mm_movie_baking.mkv
+FF_OUTPUT_VIDEO=~/public/screencast/vv_video_baking.mkv
+FF_OUTPUT_AUDIO=~/public/screencast/aa_audio_baking.mp3
 
 ffcast-fullscreen-movie() {
   $FF_RECORDER -thread_queue_size 512 -f alsa -ac $FF_MIC_CH -i $FF_MIC -async 1 -f x11grab -r 30 \
@@ -1790,7 +1790,7 @@ ffcast-window-videotrack() {
 
 # example references
 # worked well on ffmpeg 0.11.1
-# ffmpeg -f pulse -ac 1 -i hw:3,0 -async 1 -f x11grab -r 30 -s $(xwininfo -root | grep 'geometry' |awk '{print $2;}' | cut -d\+ -f1) -i :0.0 -vcodec libx264 -pix_fmt yuv444p -preset ultrafast -crf 0 -acodec libmp3lame -ab 128k -threads 0 -y ~/Public/screencast/aa_screencast_baking.mkv
+# ffmpeg -f pulse -ac 1 -i hw:3,0 -async 1 -f x11grab -r 30 -s $(xwininfo -root | grep 'geometry' |awk '{print $2;}' | cut -d\+ -f1) -i :0.0 -vcodec libx264 -pix_fmt yuv444p -preset ultrafast -crf 0 -acodec libmp3lame -ab 128k -threads 0 -y ~/public/screencast/aa_screencast_baking.mkv
 
 # }}}
 # #-------- PulseAudio Switcher CLI {{{
@@ -2900,7 +2900,7 @@ rdesktop-fedoramate64() {
 # native reso 1680x1050 -- > rmd reso 1080x1040, offset y axis -y 6
 # SOUND LAG? lower the freq; 45000, 44100, 22050
 # http://www.kkoncepts.net/blog/fixing-out-sync-audio-and-video-ffmpeg
-RMD_OUTPUT=~/Public/screencast/rr_movie_baking.ogv
+RMD_OUTPUT=~/public/screencast/rr_movie_baking.ogv
 
 # Frequency; lower to fix sound lag; 45000, 44100, 22050
 RMD_FREQ=22050
@@ -3614,9 +3614,9 @@ FFX_SOUNDSYS="pulse"
 FFX_RESO_FULL=$(xwininfo -root | grep 'geometry' |awk '{print $2;}' | cut -d\+ -f1)
 
 # output location
-FFX_OUTPUT_MOVIE=~/Public/screencast/mm_movie_baking.mkv
-FFX_OUTPUT_VIDEO=~/Public/screencast/vv_video_baking.mkv
-FFX_OUTPUT_AUDIO=~/Public/screencast/aa_audio_baking.mp3
+FFX_OUTPUT_MOVIE=~/public/screencast/mm_movie_baking.mkv
+FFX_OUTPUT_VIDEO=~/public/screencast/vv_video_baking.mkv
+FFX_OUTPUT_AUDIO=~/public/screencast/aa_audio_baking.mp3
 
 ffxcast_fullscreen_movie() {
   $FFX_RECORDER \
@@ -4638,7 +4638,7 @@ if [[ "$OS" == "Linux" ]]; then
   .x() { cd ~/.Blackbox && lst ;}
   .c() { cd ~/.Calibre && lst ;}
   .p() { cd ~/Pictures && lst ;}
-  .P() { cd ~/Public && lst ;}
+  .P() { cd ~/public && lst ;}
   .v() { cd ~/Videos && lst ;}
   .a() { cd ~/Audiobooks && lst ;}
   .g() { cd ~/Games && lst ;}

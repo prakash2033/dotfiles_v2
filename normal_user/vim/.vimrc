@@ -736,7 +736,7 @@ map <leader>md :InstantMarkdownPreview<CR>
 "-------- vim-colors-solarized - Solarized Theme {{{
 "------------------------------------------------------
 " https://github.com/altercation/vim-colors-solarized
-colorscheme solarized
+" colorscheme solarized
 
 
 "}}}

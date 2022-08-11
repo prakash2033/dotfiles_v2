@@ -4,17 +4,14 @@
 # documentation.  Do NOT add them all here, or you may end up with defunct
 # commands when upgrading ranger.
 
-# A simple command for demonstration purposes follows.
-# -----------------------------------------------------------------------------
+# You always need to import ranger.api.commands here to get the Command class:
+from ranger.api.commands import *
 
-from __future__ import (absolute_import, division, print_function)
+# A simple command for demonstration purposes follows.
+#------------------------------------------------------------------------------
 
 # You can import any python module as needed.
 import os
-
-# You always need to import ranger.api.commands here to get the Command class:
-from ranger.api.commands import Command
-
 
 # Any class that is a subclass of "Command" will be integrated into ranger as a
 # command.  Try typing ":my_edit<ENTER>" in ranger!
@@ -40,7 +37,7 @@ class my_edit(Command):
             # reference to the currently selected file.
             target_filename = self.fm.thisfile.path
 
-        # This is a generic function to print text in ranger.
+        # This is a generic function to print text in ranger.  
         self.fm.notify("Let's edit the file " + target_filename + "!")
 
         # Using bad=True in fm.notify allows you to print error messages:
@@ -55,36 +52,17 @@ class my_edit(Command):
 
     # The tab method is called when you press tab, and should return a list of
     # suggestions that the user will tab through.
-    # tabnum is 1 for <TAB> and -1 for <S-TAB> by default
-    def tab(self, tabnum):
+    def tab(self):
         # This is a generic tab-completion function that iterates through the
         # content of the current directory.
         return self._tab_directory_content()
 
-###### MY STUFF ##########
-# toggle flat
-class toggle_flat(Command):
-    """
-    :toggle_flat
 
-    Flattens or unflattens the directory view.
-    """
-
-    def execute(self):
-        if self.fm.thisdir.flat == 0:
-            self.fm.thisdir.unload()
-            self.fm.thisdir.flat = -1
-            self.fm.thisdir.load_content()
-        else:
-            self.fm.thisdir.unload()
-            self.fm.thisdir.flat = 0
-            self.fm.thisdir.load_content()
-
-# https://github.com/ranger/ranger/wiki/Commands
+# https://github.com/ranger/ranger/wiki/Integrating-File-Search-with-fzf
 # Now, simply bind this function to a key, by adding this to your ~/.config/ranger/rc.conf: map <C-f> fzf_select
-class fzf_find(Command):
+class fzf_select(Command):
     """
-    :fzf_find
+    :fzf_select
 
     Find a file using fzf.
 
@@ -110,42 +88,14 @@ class fzf_find(Command):
                 self.fm.cd(fzf_file)
             else:
                 self.fm.select_file(fzf_file)
-
-class fzf_test(Command):
-    """
-    :fzf_find
-
-    Find a file using fzf.
-
-    With a prefix argument select only directories.
-
-    See: https://github.com/junegunn/fzf
-    """
-    def execute(self):
-        import subprocess
-        if self.quantifier:
-            # match only directories
-            command="find -L . \( -name .git -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
-            -o -type d -print 2> /dev/null | sed 1d | cut -b3- | fzf +m"
-        else:
-            # match files and directories
-            command="find -L . \( -name .git -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
-            -o -print 2> /dev/null | sed 1d | cut -b3- | fzf +m"
-        fzf = self.fm.execute_command(command, stdout=subprocess.PIPE)
-        stdout, stderr = fzf.communicate()
-        if fzf.returncode == 0:
-            fzf_file = os.path.abspath(stdout.decode('utf-8').rstrip('\n'))
-            if os.path.isdir(fzf_file):
-                self.fm.cd(fzf_file)
-            else:
-                self.fm.select_file(fzf_file)
-
 # fzf_locate
 class fzf_locate(Command):
     """
     :fzf_locate
 
-    Locate a file using fzf.
+    Find a file using fzf.
+
+    With a prefix argument select only directories.
 
     See: https://github.com/junegunn/fzf
     """
@@ -164,20 +114,24 @@ class fzf_locate(Command):
             else:
                 self.fm.select_file(fzf_file)
 
-class fzf_gotomountpoint(Command):
+class fzf_bring(Command):
     """
-    :fzf_gotomountpoint
+    :fzf_bring
 
-    Go to mountpoint of mounted devices
+    Find a file using fzf and bring it to the current directory.
 
-    URL: https://github.com/junegunn/fzf
+    See: https://github.com/junegunn/fzf
     """
     def execute(self):
         import subprocess
         if self.quantifier:
-            command="df -hT | fzf -e -i | awk '{print $7}'"
+            # match only directories
+            command="find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
+            -o -type d -print 2> /dev/null | sed 1d | cut -b3- | fzf +m"
         else:
-            command="df -hT | fzf -e -i | awk '{print $7}'"
+            # match files and directories
+            command="find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
+            -o -print 2> /dev/null | sed 1d | cut -b3- | fzf +m"
         fzf = self.fm.execute_command(command, stdout=subprocess.PIPE)
         stdout, stderr = fzf.communicate()
         if fzf.returncode == 0:
@@ -187,63 +141,7 @@ class fzf_gotomountpoint(Command):
             else:
                 self.fm.select_file(fzf_file)
 
-# fzf_fasd - Fasd + Fzf + Ranger (Interactive Style)
-class fzf_fasd(Command):
-    """
-    :fzf_fasd
 
-    Jump to a file or folder using Fasd and fzf
-
-    URL: https://github.com/clvv/fasd
-    URL: https://github.com/junegunn/fzf
-    """
-    def execute(self):
-        import subprocess
-        if self.quantifier:
-            command="fasd | fzf -e -i --tac --no-sort | awk '{ print substr($0, index($0,$2)) }'"
-        else:
-            command="fasd | fzf -e -i --tac --no-sort | awk '{ print substr($0, index($0,$2)) }'"
-        fzf = self.fm.execute_command(command, stdout=subprocess.PIPE)
-        stdout, stderr = fzf.communicate()
-        if fzf.returncode == 0:
-            fzf_file = os.path.abspath(stdout.decode('utf-8').rstrip('\n'))
-            if os.path.isdir(fzf_file):
-                self.fm.cd(fzf_file)
-            else:
-                self.fm.select_file(fzf_file)
-
-# Fasd with ranger (Command Line Style)
-# https://github.com/ranger/ranger/wiki/Commands
-class fasd(Command):
-    """
-    :fasd
-
-    Jump to directory using fasd
-    URL: https://github.com/clvv/fasd
-    """
-    def execute(self):
-        import subprocess
-        arg = self.rest(1)
-        if arg:
-            directory = subprocess.check_output(["fasd", "-d"]+arg.split(), universal_newlines=True).strip()
-            self.fm.cd(directory)
-
-# File Tagger
-class tmsu_tag(Command):
-    """:tmsu_tag
-
-    Tags the current file with tmsu
-    """
-    def execute(self):
-        cf = self.fm.thisfile
-        self.fm.run("tmsu tag \"{0}\" {1}".format(cf.basename, self.rest(1)))
-
-# https://wiki.archlinux.org/index.php/Ranger
-
-
-# compression
-# https://github.com/ranger/ranger/issues/295
-# https://wiki.archlinux.org/index.php/Ranger#Compression
 import os
 from ranger.core.loader import CommandLoader
 
@@ -266,13 +164,53 @@ class compress(Command):
 
         descr = "compressing files in: " + os.path.basename(parts[1])
         obj = CommandLoader(args=['apack'] + au_flags + \
-                [os.path.relpath(f.path, cwd.path) for f in marked_files], descr=descr, read=True)
+                [os.path.relpath(f.path, cwd.path) for f in marked_files], descr=descr)
 
         obj.signal_bind('after', refresh)
         self.fm.loader.add(obj)
 
-    def tab(self, tabnum):
+    def tab(self):
         """ Complete with current folder name """
 
         extension = ['.zip', '.tar.gz', '.rar', '.7z']
         return ['compress ' + os.path.basename(self.fm.thisdir.path) + ext for ext in extension]
+
+
+
+
+import os
+from ranger.core.loader import CommandLoader
+
+class extracthere(Command):
+    def execute(self):
+        """ Extract copied files to current directory """
+        copied_files = tuple(self.fm.copy_buffer)
+
+        if not copied_files:
+            return
+
+        def refresh(_):
+            cwd = self.fm.get_directory(original_path)
+            cwd.load_content()
+
+        one_file = copied_files[0]
+        cwd = self.fm.thisdir
+        original_path = cwd.path
+        au_flags = ['-X', cwd.path]
+        au_flags += self.line.split()[1:]
+        au_flags += ['-e']
+
+        self.fm.copy_buffer.clear()
+        self.fm.cut_buffer = False
+        if len(copied_files) == 1:
+            descr = "extracting: " + os.path.basename(one_file.path)
+        else:
+            descr = "extracting files from: " + os.path.basename(one_file.dirname)
+        obj = CommandLoader(args=['aunpack'] + au_flags \
+                + [f.path for f in copied_files], descr=descr)
+
+        obj.signal_bind('after', refresh)
+        self.fm.loader.add(obj)
+
+
+

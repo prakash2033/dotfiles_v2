@@ -1,0 +1,38 @@
+# My Hotkeys
+
+Print
+	maim --select | tee ~/pix/ss/$(date +%s).jpg | xclip -sel c -t image/jpg
+
+super + Print 
+	maim | tee ~/pix/ss/$(date +%s).jpg | xclip -sel c -t image/jpg
+
+
+super + shift + s
+	maim --select | tee ~/pix/ss/$(date +%s).jpg | xclip -sel c -t image/jpg
+
+super + s
+	maim | tee ~/pix/ss/$(date +%s).jpg | xclip -sel c -t image/jpg
+
+XF86Audio{RaiseVolume,LowerVolume,Mute}
+	pamixer -{i,d,t} 2; kill -34 $(cat ~/.cache/pidofbar)
+
+XF86MonBrightness{Up,Down}
+	brightnessctl s {+2%,2%-}
+
+super + Escape
+	system_action
+
+super + r
+	st -e ranger
+
+super + a
+	st -e pulsemixer
+
+super + c
+	chromium
+
+super + w
+	firefox
+
+super + backspace
+        sysact
