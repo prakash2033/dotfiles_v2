@@ -25,6 +25,9 @@ super + Escape
 super + r
 	st -e ranger
 
+super + e
+	pcmanfm
+
 super + a
 	st -e pulsemixer
 
@@ -34,5 +37,5 @@ super + c
 super + w
 	firefox
 
-# super + backspace
-#         sysact
+super + backspace
+        sysact
