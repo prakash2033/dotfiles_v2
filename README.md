@@ -30,7 +30,10 @@
     pip3 install ueberzug
     
     # install separately
-    yt-dlp mpv
+    mpv
+    
+    sudo curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
+    sudo chmod a+rx /usr/local/bin/yt-dlp
     
     # specially for debian 11 bullseye
     sudo apt-get install vim-gui-common
