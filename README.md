@@ -27,6 +27,7 @@
     sudo apt install onedrive ranger imagemagick aptitude lynx -y
     sudo apt install bluez blueman -y
     sudo apt install libxext-dev -y
+    sudo apt install gvfs-backends -y # for sambha share support in thunar file manager
     pip3 install ueberzug
     
     # install separately
