@@ -16,6 +16,11 @@
     sudo dnf install w3m feh
     ## for wmutils core
     sudo dnf install libxcb-devel xcb-util-keysyms-devel xcb-util-devel xcb-util-wm-devel xcb-util-cursor-devel
+    
+    # Arch
+    sudo pacman -S git stow mpv coreutils xdotool sxiv cmus htop newsboat 
+    sudo pacman -S jq fzf yt-dlp dmenu ueberzug ytfzf qpdfview
+    yay -S task-spooler wmutils-git nvm ytfzf
 
     # Debian/Ubuntu/Pop-OS
     sudo apt install xterm tmux zsh -y
@@ -63,13 +68,7 @@
     sudo make
     sudo make install
     
-    # Arch
-    sudo pacman -S git stow mpv coreutils xdotool sxiv cmus htop newsboat 
-    sudo pacman -S jq fzf yt-dlp dmenu ueberzug ytfzf qpdfview
-    yay -S task-spooler
-    yay -S wmutils-git
-    yay -S nvm
-    yay -S ytfzf
+
     
     mkdir -p ~/Public/gitrepo 
     cd ~/Public/gitrepo
