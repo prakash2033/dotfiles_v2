@@ -37,6 +37,14 @@
     sudo curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
     sudo chmod a+rx /usr/local/bin/yt-dlp
     
+    ## youtube viewer
+    git clone https://github.com/trizen/youtube-viewer.git
+    cd youtube-viewer
+    cpan Module::Build 
+    perl Build.PL
+    sudo ./Build installdeps
+    sudo ./Build install
+    
     # specially for debian 11 bullseye
     sudo apt-get install vim-gui-common
     sudo apt-get install vim-runtime
