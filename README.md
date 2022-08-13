@@ -80,11 +80,7 @@
     git clone https://github.com/michael-lazar/rtv.git
     cd rtv
     sudo python setup.py install
-
-    ## symlink all folders (trailing slash */) in dotfiles dir to home dir
-    cd ~/Public/gitrepo/dotfiles_v2/normal_user
-    stow -v -t ~ */
-
+    
     # change to zsh shell
     sudo pacman -S zsh zsh-completions
     chsh -s /usr/bin/zsh
@@ -92,6 +88,10 @@
     # vim plug install. Run :PlugInstall inside vim
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+    ## symlink all folders (trailing slash */) in dotfiles dir to home dir
+    cd ~/Public/gitrepo/dotfiles_v2/normal_user
+    stow -v -t ~ */
 
     ## if new folder is added then:
     # redo link (-R)
