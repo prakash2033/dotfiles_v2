@@ -23,7 +23,7 @@
     sudo apt install jq fzf dmenu qpdfview task-spooler -y
     sudo apt install xcb libxcb-util0-dev libxcb-cursor-dev -y
     sudo apt install python3-pip python-is-python3 -y
-    sudo apt install w3m rtv feh -y
+    sudo apt install w3m surfraw rtv feh -y
     sudo apt install onedrive ranger imagemagick aptitude lynx -y
     sudo apt install bluez blueman -y
     sudo apt install libxext-dev -y
