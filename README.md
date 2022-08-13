@@ -15,7 +15,7 @@
     sudo dnf install jq fzf yt-dlp dmenu qpdfview task-spooler
     sudo dnf install w3m feh
     
-    sudo dnf install libX11-devel libXft-devel
+    sudo dnf install libX11-devel libXft-devel libXinerama-devel
     
     ## for wmutils core
     sudo dnf install libxcb-devel xcb-util-keysyms-devel xcb-util-devel xcb-util-wm-devel xcb-util-cursor-devel
