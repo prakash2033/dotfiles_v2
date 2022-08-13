@@ -28,6 +28,7 @@
     sudo apt install bluez blueman -y
     sudo apt install libxext-dev -y
     sudo apt install gvfs-backends -y # for sambha share support in thunar file manager
+    sudo apt install fortunes fortunes ## for random quotes
     pip3 install ueberzug
     
     # install separately
