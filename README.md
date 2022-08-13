@@ -68,8 +68,6 @@
     sudo make
     sudo make install
     
-
-    
     mkdir -p ~/Public/gitrepo 
     cd ~/Public/gitrepo
     git clone https://github.com/prakash2033/dotfiles_v2.git
