@@ -27,5 +27,11 @@ super + a
 super + c
 	chromium
 
+super + x
+        pkill xcompmgr
+
+super + shift + x
+        xcompmgr
+
 super + w
 	firefox
