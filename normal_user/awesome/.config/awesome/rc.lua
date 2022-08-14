@@ -52,7 +52,7 @@ end
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "xterm"
+terminal = "alacritty"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -315,7 +315,7 @@ globalkeys = gears.table.join(
 
     -- Prompt
     awful.key({ modkey },            "d",     function () awful.util.spawn_with_shell("dmenu_run")  end,
-              {description = "run prompt", group = "launcher"}),
+              {description = "dmenu prompt", group = "launcher"}),
 
     awful.key({ modkey }, "x",
               function ()
@@ -493,12 +493,12 @@ awful.rules.rules = {
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = true }
+      }, properties = { titlebars_enabled = false }
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { screen = 1, tag = "2" } },
+    { rule = { class = "Firefox" },
+      properties = { screen = 1, tag = "2" } },
 }
 -- }}}
 
@@ -567,11 +567,13 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- Gaps{{{
-beautiful.useless_gap=20
+beautiful.useless_gap=10
 --}}}
 
 -- Autostart {{{
 
-awful.spawn(picom)
+awful.spawn.with_shell("xcompmgr")
+awful.spawn.with_shell("nitrogen --restore")
+awful.spawn.with_shell("sxhkd")
 
 -- }}}

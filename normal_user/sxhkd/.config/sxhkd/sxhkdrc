@@ -10,8 +10,8 @@ super + Print
 super + shift + s
 	maim --select | tee ~/pix/ss/$(date +%s).jpg | xclip -sel c -t image/jpg
 
-super + s
-	maim | tee ~/pix/ss/$(date +%s).jpg | xclip -sel c -t image/jpg
+# super + s
+# 	maim | tee ~/pix/ss/$(date +%s).jpg | xclip -sel c -t image/jpg
 
 XF86Audio{RaiseVolume,LowerVolume,Mute}
 	pamixer -{i,d,t} 2; kill -34 $(cat ~/.cache/pidofbar)
@@ -23,19 +23,16 @@ super + Escape
 	system_action
 
 super + r
-	st -e ranger
+	alacritty -e ranger
 
 super + e
 	pcmanfm
 
 super + a
-	st -e pulsemixer
+	alacritty -e pulsemixer
 
 super + c
 	chromium
 
 super + w
 	firefox
-
-super + backspace
-        sysact
