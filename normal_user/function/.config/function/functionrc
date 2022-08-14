@@ -380,6 +380,7 @@ cfg-quvi() { $EDITOR ~/.config/quvi/quvirc ;}
 cfg-ranger() { $EDITOR ~/.config/ranger/rc.conf ;}
 cfg-ranger-rifle() { $EDITOR ~/.config/ranger/rifle.conf ;}
 cfg-ranger-commands() { $EDITOR ~/.config/ranger/commands.py ;}
+cfg-rclua() { $EDITOR ~/.config/awesome/rc.lua ;}
 cfg-redshift() { $EDITOR ~/.config/redshift/redshift.conf ;}
 cfg-retroarch() { $EDITOR ~/.config/retroarch/retroarch.cfg ;}
 cfg-rofibangs() { $EDITOR ~/.config/rofi/launchers/rofi-bangs ;}
