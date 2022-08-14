@@ -41,3 +41,6 @@ super + w
 
 super + b
 	brave-browser
+
+super + l
+        slock
