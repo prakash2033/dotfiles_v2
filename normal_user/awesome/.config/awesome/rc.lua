@@ -12,7 +12,6 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 -- Notification library
 local naughty = require("naughty")
-local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
@@ -97,13 +96,7 @@ else
     })
 end
 
-
--- Menubar configuration
-menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 -- }}}
-
--- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
@@ -209,7 +202,6 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            mykeyboardlayout,
             wibox.widget.systray(),
             mytextclock,
             s.mylayoutbox,
@@ -234,7 +226,7 @@ globalkeys = gears.table.join(
               {description = "view previous", group = "tag"}),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
               {description = "view next", group = "tag"}),
-    awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
+    awful.key({ modkey,           }, "Tab", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
 
     awful.key({ modkey,           }, "j",
@@ -261,7 +253,7 @@ globalkeys = gears.table.join(
               {description = "focus the previous screen", group = "screen"}),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
-    awful.key({ modkey,           }, "Tab",
+    awful.key({ "Mod1",           }, "Tab",
         function ()
             awful.client.focus.history.previous()
             if client.focus then
@@ -320,10 +312,7 @@ globalkeys = gears.table.join(
                     history_path = awful.util.get_cache_dir() .. "/history_eval"
                   }
               end,
-              {description = "lua execute prompt", group = "awesome"}),
-    -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+              {description = "lua execute prompt", group = "awesome"})
 )
 
 clientkeys = gears.table.join(
@@ -561,15 +550,21 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
--- Gaps{{{
-beautiful.useless_gap=10
+-- Appearance: Gaps, Opacity{{{
+beautiful.useless_gap = 10
+beautiful.notification_opacity = '100'
+beautiful.notification_icon_size = 80
+beautiful.notification_bg = '(0,0,0)'
+beautiful.notification_fg = '#d4be98'
 --}}}
 
 -- Autostart {{{
 
 awful.spawn.with_shell("xcompmgr")
-awful.spawn.with_shell("feh --bg-fill -r -z ~/Pictures/wall")
--- awful.spawn.with_shell("nitrogen --restore")
+awful.spawn.with_shell("dropbox")
+awful.spawn.with_shell("flameshot")
+awful.spawn.with_shell("blueman-applet")
+awful.spawn.with_shell("nm-applet")
 awful.spawn.with_shell("sxhkd")
-
+awful.spawn.with_shell("feh --bg-fill -r -z ~/Pictures/wall")
 -- }}}

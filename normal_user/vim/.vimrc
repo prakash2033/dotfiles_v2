@@ -524,12 +524,6 @@ set lbr
 
 "}}}
 
-
-
-
-
-
-
 " Block Colors
 " let g:blockcolor_state = 0
 " function! BlockColor() "
@@ -743,7 +737,7 @@ map <leader>md :InstantMarkdownPreview<CR>
 "-------- vim-colors-gruvbox - Gruvboc Theme {{{
 "------------------------------------------------------
 " https://github.com/morhetz/gruvbox
-" colorscheme gruvbox
+colorscheme gruvbox
 
 
 "}}}

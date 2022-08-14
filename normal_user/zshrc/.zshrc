@@ -8,8 +8,8 @@
 #-------- Prompt {{{
 #------------------------------------------------------
 # https://wiki.archlinux.org/index.php/Zsh#Prompts
-autoload -U promptinit && promptinit
-prompt fade magenta   # set prompt theme (for listing: $ prompt -p)
+# autoload -U promptinit && promptinit
+# prompt fade magenta   # set prompt theme (for listing: $ prompt -p)
 
 # Enable colors and change prompt:
 # autoload -U colors && colors # Load colors
@@ -17,6 +17,25 @@ prompt fade magenta   # set prompt theme (for listing: $ prompt -p)
 # Enable substitution in the prompt.
 # setopt prompt_subst
 # PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+
+
+
+# Prompt Settings
+declare -a PROMPTS
+PROMPTS=(
+"∮"
+"∯"
+"≎"
+""
+""
+""
+""
+""
+""
+)
+RANDOM=$$$(date +%s)
+ignition=${PROMPTS[$RANDOM % ${#RANDOM[*]}+1]}
+PROMPT='%F{yellow}%1~%f %F{green}$ignition%f '
 
 # }}}
 #-------- ZSH Modules {{{
