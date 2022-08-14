@@ -71,6 +71,9 @@
     sudo make
     sudo make install
     
+    ## For GUI Display managers. Add it in autostart to load Xresources
+    /usr/bin/xrdb /home/pvishwa1/.Xresources
+    
     mkdir -p ~/Public/gitrepo 
     cd ~/Public/gitrepo
     git clone https://github.com/prakash2033/dotfiles_v2.git
