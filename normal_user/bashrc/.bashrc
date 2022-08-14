@@ -177,3 +177,4 @@ if [ -d "$HOME/.config/function" ]; then
   done
 fi
 
+. "$HOME/.cargo/env"
