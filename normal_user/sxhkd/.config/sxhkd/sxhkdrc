@@ -33,5 +33,11 @@ super + x
 super + shift + x
         xcompmgr
 
+super + shift + t
+        teams
+
 super + w
 	firefox
+
+super + b
+	brave-browser
