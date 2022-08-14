@@ -732,13 +732,11 @@ map <leader>md :InstantMarkdownPreview<CR>
 " https://github.com/altercation/vim-colors-solarized
 " colorscheme solarized
 
-
 "}}}
 "-------- vim-colors-gruvbox - Gruvboc Theme {{{
 "------------------------------------------------------
 " https://github.com/morhetz/gruvbox
 colorscheme gruvbox
-
 
 "}}}
 "-------- ultisnips - The ultimate snippet solution for Vim {{{
