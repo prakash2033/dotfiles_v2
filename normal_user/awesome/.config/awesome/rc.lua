@@ -450,6 +450,8 @@ awful.rules.rules = {
           "Wpa_gui",
           "veromix",
           "mpv",
+          "Pavucontrol",
+          "Variety",
           "xtightvncviewer"},
 
         -- Note that the name property shown in xprop might be set slightly after creation of the client
@@ -554,6 +556,8 @@ awful.spawn.with_shell("dropbox")
 awful.spawn.with_shell("flameshot")
 awful.spawn.with_shell("blueman-applet")
 awful.spawn.with_shell("nm-applet")
+awful.spawn.with_shell("pnmixer")
+awful.spawn.with_shell("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)")
 awful.spawn.with_shell("sxhkd")
 awful.spawn.with_shell("feh --bg-fill -r -z ~/Pictures/wall")
 -- }}}
