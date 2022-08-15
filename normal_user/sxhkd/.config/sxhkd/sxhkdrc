@@ -19,7 +19,7 @@ super + r
 	alacritty -e ranger
 
 super + e
-	pcmanfm
+	nautilus
 
 super + a
 	alacritty -e pulsemixer
