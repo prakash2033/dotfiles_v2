@@ -560,7 +560,8 @@ beautiful.notification_fg = '#d4be98'
 
 awful.spawn.with_shell("xcompmgr")
 awful.spawn.with_shell("/home/pvishwa1/.screenlayout/home.sh")
-awful.spawn.with_shell("fcitx -d")
+-- awful.spawn.with_shell("fcitx -d")
+awful.spawn.with_shell("setxkbmap -layout 'us,se'")
 awful.spawn.with_shell("dropbox")
 awful.spawn.with_shell("flameshot")
 awful.spawn.with_shell("blueman-applet")
@@ -569,5 +570,6 @@ awful.spawn.with_shell("pnmixer")
 awful.spawn.with_shell("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)")
 awful.spawn.with_shell("sxhkd")
 awful.spawn.with_shell("feh --bg-fill -r -z ~/Pictures/wall")
+awful.spawn.with_shell("/usr/bin/variety")
 
 -- }}}
