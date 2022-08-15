@@ -292,6 +292,13 @@ local globalKeys =
       _G.exit_screen_show()
     end,
     {description = 'toggle mute', group = 'hotkeys'}
+  ),
+  -- Screen management
+  awful.key(
+    {modkey},
+    'o',
+    awful.client.movetoscreen,
+    {description = 'move window to next screen', group = 'client'}
   )
 )
 
