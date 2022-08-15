@@ -549,7 +549,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- Appearance: Gaps, Opacity{{{
-beautiful.useless_gap = 10
+beautiful.useless_gap = 5
 beautiful.notification_opacity = '100'
 beautiful.notification_icon_size = 80
 beautiful.notification_bg = '(0,0,0)'
