@@ -44,3 +44,6 @@ super + b
 
 ctrl + alt + l
         slock
+
+alt + space
+        rofi -show run
