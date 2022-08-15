@@ -28,10 +28,10 @@ super + c
 	chromium
 
 super + x
-        pkill xcompmgr
+        toggleprogram xcompmgr
 
 super + shift + x
-        xcompmgr
+        toggleprogram sxhkd
 
 super + shift + t
         teams
@@ -43,10 +43,10 @@ super + b
 	brave-browser
 
 ctrl + alt + l
-        slock
+        betterlockscreen -l
 
 alt + space
         rofi -show run
 
 F1
-        /home/pvishwa1/.scripts/any-term-dropdown
+        any-term-dropdown
