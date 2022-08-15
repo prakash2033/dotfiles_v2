@@ -64,7 +64,8 @@ modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    awful.layout.suit.tile
+    awful.layout.suit.tile,
+    awful.layout.suit.floating,
 }
 -- }}}
 
@@ -566,7 +567,9 @@ awful.spawn.with_shell("dropbox")
 awful.spawn.with_shell("flameshot")
 awful.spawn.with_shell("blueman-applet")
 awful.spawn.with_shell("nm-applet")
-awful.spawn.with_shell("pnmixer")
+-- awful.spawn.with_shell("pnmixer")
+awful.spawn.with_shell("pkill pasystray")
+awful.spawn.with_shell("pasystray")
 awful.spawn.with_shell("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)")
 awful.spawn.with_shell("sxhkd")
 awful.spawn.with_shell("feh --bg-fill -r -z ~/Pictures/wall")
