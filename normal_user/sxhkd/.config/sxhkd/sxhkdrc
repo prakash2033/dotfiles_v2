@@ -47,3 +47,6 @@ ctrl + alt + l
 
 alt + space
         rofi -show run
+
+F1
+        /home/pvishwa1/.scripts/any-term-dropdown
