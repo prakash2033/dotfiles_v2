@@ -64,7 +64,7 @@ xterm*scaleHeight: 1.01
 ! XTerm*faceName: xft:monospace:size=16
 ! XTerm*faceNameDoublesize: xft:DejaVu Sans Mono:style=Regular
 
-XTerm.vt100.faceName: DejaVu Sans Mono:style=Book:antialias=false
+XTerm.vt100.faceName: Hack Nerd Font Mono:style=Book:antialias=false
 ! XTerm*faceName: DejaVu Sans Mono:style=Book:antialias=false \
 !                 xft:JoyPixels:size=12, \
 !                 xft:Monospace:style=Medium:size=12   

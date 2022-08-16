@@ -19,8 +19,10 @@ return {
   -- List of apps to start once on start-up
   run_on_start_up = {
     'xcompmgr',
-    -- '/home/pvishwa1/.screenlayout/home.sh',
+    '/usr/bin/autorandr -c --default default',
+    'dropbox start -i',
     -- 'blueberry-tray', -- Bluetooth tray icon
+    -- '/usr/bin/xrdb /home/pvishwa1/.Xresources', -- Load xresource for xterm colors
     'xfce4-power-manager', -- Power manager
     '/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)', -- credential manager
     'setxkbmap -layout "us,se"',
@@ -31,6 +33,6 @@ return {
     'xfce4-clipman',
     'pasystray',
     'feh --bg-fill -r -z ~/Pictures/wall',
-    '/usr/bin/variety'
+    '/usr/bin/variety --profile /home/pvishwa1/.config/variety/'
   }
 }
