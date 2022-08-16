@@ -26,6 +26,12 @@ local month_calendar = awful.widget.calendar_popup.month({
 })
 month_calendar:attach(textclock)
 
+-- Keyboard map indicator and switcher{{{
+
+mykeyboardlayout = awful.widget.keyboardlayout()
+
+--}}}
+
 local clock_widget = wibox.container.margin(textclock, dpi(13), dpi(13), dpi(8), dpi(8))
 
 local add_button = mat_icon_button(mat_icon(icons.plus, dpi(24)))
@@ -127,6 +133,7 @@ local TopPanel = function(s, offset)
     nil,
     {
       layout = wibox.layout.fixed.horizontal,
+      mykeyboardlayout,
       -- Clock
       clock_widget,
       -- Layout box
