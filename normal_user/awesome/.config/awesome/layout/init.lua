@@ -8,7 +8,7 @@ awful.screen.connect_for_each_screen(
       -- Create the left_panel
       s.left_panel = left_panel(s)
       -- Create the Top bar
-      s.top_panel = top_panel(s, false)
+      s.top_panel = top_panel(s, true)
   end
 )
 
