@@ -6,7 +6,7 @@ local tags = {
   {
     icon = icons.chrome,
     type = 'chrome',
-    defaultApp = 'google-chrome-beta',
+    defaultApp = 'brave-browser',
     screen = 1
   },
   {
