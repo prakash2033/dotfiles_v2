@@ -18,17 +18,16 @@ return {
   },
   -- List of apps to start once on start-up
   run_on_start_up = {
-    'xcompmgr',
+    'picom --config ' .. filesystem.get_configuration_dir() .. '/configuration/picom.conf',
     '/usr/bin/autorandr -c --default default',
     'dropbox start -i',
-    -- 'blueberry-tray', -- Bluetooth tray icon
-    -- '/usr/bin/xrdb /home/pvishwa1/.Xresources', -- Load xresource for xterm colors
-    'xfce4-power-manager', -- Power manager
-    '/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)', -- credential manager
+    'xfce4-power-manager',
+    '/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)',
     'setxkbmap -layout "us,se"',
     'flameshot',
+    'geary --hidden',
     'blueman-applet',
-    'nm-applet',
+    'nm-applet --indicator',
     'redshift-gtk -l 57.708870:11.974560 -t 6500:3400',
     'xfce4-clipman',
     'pasystray',
