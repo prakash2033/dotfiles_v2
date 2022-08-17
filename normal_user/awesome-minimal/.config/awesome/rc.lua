@@ -538,7 +538,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 awful.spawn.with_shell("pkill xfce4-clipman")
 awful.spawn.with_shell("pkill redshift-gtk")
 awful.spawn.with_shell("pkill pnmixer")
-awful.spawn.with_shell("xcompmgr")
+awful.spawn.with_shell("picom -b --experimental-backends")
 awful.spawn.with_shell("xfce4-power-manager")
 awful.spawn.with_shell("autorandr --load homedock")
 awful.spawn.with_shell("setxkbmap -layout 'us,se'")
