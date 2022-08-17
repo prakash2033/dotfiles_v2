@@ -18,24 +18,22 @@
 # setopt prompt_subst
 # PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
-
-
-# Prompt Settings
-declare -a PROMPTS
-PROMPTS=(
-"∮"
-"∯"
-"≎"
-""
-""
-""
-""
-""
-""
-)
-RANDOM=$$$(date +%s)
-ignition=${PROMPTS[$RANDOM % ${#RANDOM[*]}+1]}
-PROMPT='%F{yellow}%1~%f %F{green}$ignition%f '
+# # Prompt Settings
+# declare -a PROMPTS
+# PROMPTS=(
+# "∮"
+# "∯"
+# "≎"
+# ""
+# ""
+# ""
+# ""
+# ""
+# ""
+# )
+# RANDOM=$$$(date +%s)
+# ignition=${PROMPTS[$RANDOM % ${#RANDOM[*]}+1]}
+# PROMPT='%F{yellow}%1~%f %F{green}$ignition%f '
 
 # }}}
 #-------- ZSH Modules {{{
@@ -133,7 +131,8 @@ KEYTIMEOUT=1
 # show vim status
 # http://zshwiki.org/home/examples/zlewidgets
 function zle-line-init zle-keymap-select {
-    RPS1="$vcs_info_msg_0_ ${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
+    # RPS1="$vcs_info_msg_0_ ${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
+    RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
     RPS2=$RPS1
     zle reset-prompt
 }
@@ -791,3 +790,8 @@ PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
 
 # }}}
+fpath=($fpath "/home/pvishwa1/.zfunctions")
+
+# Set Spaceship ZSH as a prompt
+autoload -U promptinit; promptinit
+prompt spaceship
