@@ -38,8 +38,7 @@ SPACESHIP_CHAR_SUFFIX=" "
 SPACESHIP_VI_MODE_SHOW=false
 # SPACESHIP_JOBS_SHOW=false
 
-fpath=($fpath "/home/pvishwa1/.zfunctions")
-fpath=($fpath "/home/prakash/.zfunctions")
+fpath=( "${ZDOTDIR:-$HOME}/.zfunctions" $fpath )
 
 # Set Spaceship ZSH as a prompt
 autoload -U promptinit; promptinit
