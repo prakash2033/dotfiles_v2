@@ -532,9 +532,9 @@ alias uhaul='mv -iv --'                 # mv prompt confirmation
 # tutorial video: http://www.youtube.com/watch?v=RbVCzxnKJL4
 if [ -x /usr/bin/dircolors ]; then
     eval "`dircolors -b`"
-    alias ls='ls --color=auto'
-    alias la='ls -a --color=auto'
-    alias ll='ls -la --color=auto'
+    alias ls='lsd'
+    alias la='lsd -a'
+    alias ll='lsd -la'
     alias dir='dir --color=auto'
     alias vdir='vdir --color=auto'
     alias grep='grep --color=auto'
