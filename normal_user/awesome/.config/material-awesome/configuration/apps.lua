@@ -18,7 +18,11 @@ return {
   },
   -- List of apps to start once on start-up
   run_on_start_up = {
-    'xcompmgr',
+    --'xcompmgr',
+    'compton --config ' .. filesystem.get_configuration_dir() .. '/configuration/compton.conf',
+    'ibus-daemon --xim --daemonize', -- Ibus daemon for keyboard
+    --'scream-start', -- scream audio sink
+    'numlockx on', -- enable numlock
     'autorandr --load homedock',
     'dropbox start -i',
     'xfce4-power-manager',
