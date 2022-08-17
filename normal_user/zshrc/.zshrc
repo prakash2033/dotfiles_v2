@@ -668,9 +668,6 @@ setopt AUTO_PUSHD        # This makes cd=pushd
 
 # }}}
 
-
-
-
 # #{{{ Completion Stuff
 #
 # bindkey -M viins '\C-i' complete-word
@@ -785,10 +782,6 @@ setopt AUTO_PUSHD        # This makes cd=pushd
 # https://www.reddit.com/r/commandline/comments/4fjpb0/question_how_to_copy_the_command_to_clipboard/
 zle -N copyx; copyx() { echo -E $BUFFER | xsel -ib }; bindkey '^X' copyx
 
-
-
-
-
 # # ALT-I - Paste the selected entry from locate output into the command line
 # fzf-locate-widget() {
 #   local selected
@@ -799,7 +792,6 @@ zle -N copyx; copyx() { echo -E $BUFFER | xsel -ib }; bindkey '^X' copyx
 # }
 # zle     -N    fzf-locate-widget
 # bindkey '\ei' fzf-locate-widget
-
 
 vvv() {
   local file
