@@ -64,8 +64,8 @@ modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    awful.layout.suit.tile,
-    awful.layout.suit.floating,
+    awful.layout.suit.max,
+    awful.layout.suit.tile
 }
 -- }}}
 
@@ -107,7 +107,8 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock()
+--mytextclock = wibox.widget.textclock()
+mytextclock = wibox.widget.textclock(" %a %b %d, %I:%M ")
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -563,14 +564,15 @@ awful.spawn.with_shell("pkill xfce4-clipman")
 awful.spawn.with_shell("pkill redshift-gtk")
 awful.spawn.with_shell("pkill pasystray")
 awful.spawn.with_shell("xcompmgr")
--- awful.spawn.with_shell("xfce4-power-manager")
+awful.spawn.with_shell("xfce4-power-manager")
 awful.spawn.with_shell("/home/pvishwa1/.screenlayout/home.sh")
 awful.spawn.with_shell("setxkbmap -layout 'us,se'")
 awful.spawn.with_shell("dropbox")
 awful.spawn.with_shell("flameshot")
 awful.spawn.with_shell("blueman-applet")
 awful.spawn.with_shell("nm-applet")
-awful.spawn.with_shell("redshift-gtk -l 57.708870:11.974560 -t 5700:3600 -g 0.8 -m randr -v")
+--awful.spawn.with_shell("redshift-gtk -l 57.708870:11.974560 -t 5700:3600 -g 0.8 -m randr -v")
+awful.spawn.with_shell("redshift-gtk -l 57.708870:11.974560 -t 6500:3600 -m randr -v")
 awful.spawn.with_shell("xfce4-clipman")
 awful.spawn.with_shell("pasystray")
 awful.spawn.with_shell("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)")
