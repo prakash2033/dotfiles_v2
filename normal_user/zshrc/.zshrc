@@ -7,6 +7,43 @@
 
 #-------- Prompt {{{
 #------------------------------------------------------
+# -- Install spaceship prompt with npm install -g spaceship-prompt
+SPACESHIP_PROMPT_ADD_NEWLINE=false
+SPACESHIP_PROMPT_SEPARATE_LINE=false
+SPACESHIP_CHAR_SYMBOL=❯
+SPACESHIP_CHAR_SUFFIX=" "
+SPACESHIP_HG_SHOW=false
+SPACESHIP_PACKAGE_SHOW=false
+SPACESHIP_NODE_SHOW=false
+SPACESHIP_RUBY_SHOW=false
+SPACESHIP_ELM_SHOW=false
+SPACESHIP_ELIXIR_SHOW=false
+SPACESHIP_XCODE_SHOW_LOCAL=false
+SPACESHIP_SWIFT_SHOW_LOCAL=false
+SPACESHIP_GOLANG_SHOW=false
+SPACESHIP_PHP_SHOW=false
+SPACESHIP_RUST_SHOW=false
+SPACESHIP_JULIA_SHOW=false
+SPACESHIP_DOCKER_SHOW=false
+SPACESHIP_DOCKER_CONTEXT_SHOW=false
+SPACESHIP_AWS_SHOW=false
+SPACESHIP_CONDA_SHOW=false
+SPACESHIP_VENV_SHOW=false
+SPACESHIP_PYENV_SHOW=false
+SPACESHIP_DOTNET_SHOW=false
+SPACESHIP_EMBER_SHOW=false
+SPACESHIP_KUBECONTEXT_SHOW=false
+SPACESHIP_TERRAFORM_SHOW=false
+SPACESHIP_TERRAFORM_SHOW=false
+SPACESHIP_VI_MODE_SHOW=false
+SPACESHIP_JOBS_SHOW=false
+
+fpath=($fpath "/home/pvishwa1/.zfunctions")
+
+# Set Spaceship ZSH as a prompt
+autoload -U promptinit; promptinit
+prompt spaceship
+
 # https://wiki.archlinux.org/index.php/Zsh#Prompts
 # autoload -U promptinit && promptinit
 # prompt fade magenta   # set prompt theme (for listing: $ prompt -p)
@@ -74,43 +111,43 @@ cfg-history() { $EDITOR $HISTFILE ;}
 
 #
 # }}}
-# -------- Git Status {{{
-
-# https://www.themoderncoder.com/add-git-branch-information-to-your-zsh-prompt/
-# https://arjanvandergaag.nl/blog/customize-zsh-prompt-with-vcs-info.html
-# https://stackoverflow.com/questions/49744179/zsh-vcs-info-how-to-indicate-if-there-are-untracked-files-in-git
-
-# Load version control information
-autoload -Uz vcs_info
-precmd() { vcs_info }
-
-# Format the vcs_info_msg_0_ variable
-zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' unstagedstr '!'
-zstyle ':vcs_info:*' stagedstr '+'
-zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
-# zstyle ':vcs_info:git:*' formats "on branch %s  %r/%S %b %m%u%c"
-# zstyle ':vcs_info:git:*' actionformats "on branch %s  %r/%S %b %m%u%c"
-zstyle ':vcs_info:*' formats " (%s)-[%b%Q]%m%u%c"
-# zstyle ':vcs_info:*' actionformats " (%s)-[%b%Q|%a]%c"
-
-
-+vi-git-untracked(){
-    if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
-        git status --porcelain | grep '??' &> /dev/null ; then
-        # This will show the marker if there are any untracked files in repo.
-        # If instead you want to show the marker only if there are untracked
-        # files in $PWD, use:
-        #[[ -n $(git ls-files --others --exclude-standard) ]] ; then
-        hook_com[staged]+='T'
-    fi
-}
-
-# Set up the prompt (with git branch name)
-setopt PROMPT_SUBST
-
-# }}}
+# # -------- Git Status {{{
+#
+# # https://www.themoderncoder.com/add-git-branch-information-to-your-zsh-prompt/
+# # https://arjanvandergaag.nl/blog/customize-zsh-prompt-with-vcs-info.html
+# # https://stackoverflow.com/questions/49744179/zsh-vcs-info-how-to-indicate-if-there-are-untracked-files-in-git
+#
+# # Load version control information
+# autoload -Uz vcs_info
+# precmd() { vcs_info }
+#
+# # Format the vcs_info_msg_0_ variable
+# zstyle ':vcs_info:*' enable git
+# zstyle ':vcs_info:*' check-for-changes true
+# zstyle ':vcs_info:*' unstagedstr '!'
+# zstyle ':vcs_info:*' stagedstr '+'
+# zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
+# # zstyle ':vcs_info:git:*' formats "on branch %s  %r/%S %b %m%u%c"
+# # zstyle ':vcs_info:git:*' actionformats "on branch %s  %r/%S %b %m%u%c"
+# zstyle ':vcs_info:*' formats " (%s)-[%b%Q]%m%u%c"
+# # zstyle ':vcs_info:*' actionformats " (%s)-[%b%Q|%a]%c"
+#
+#
+# +vi-git-untracked(){
+#     if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
+#         git status --porcelain | grep '??' &> /dev/null ; then
+#         # This will show the marker if there are any untracked files in repo.
+#         # If instead you want to show the marker only if there are untracked
+#         # files in $PWD, use:
+#         #[[ -n $(git ls-files --others --exclude-standard) ]] ; then
+#         hook_com[staged]+='T'
+#     fi
+# }
+#
+# # Set up the prompt (with git branch name)
+# setopt PROMPT_SUBST
+#
+# # }}}
 #-------- Vim Mode {{{
 #------------------------------------------------------
 # enable vim mode on commmand line
@@ -790,8 +827,3 @@ PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
 
 # }}}
-fpath=($fpath "/home/pvishwa1/.zfunctions")
-
-# Set Spaceship ZSH as a prompt
-autoload -U promptinit; promptinit
-prompt spaceship
