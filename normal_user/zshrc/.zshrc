@@ -39,6 +39,7 @@ SPACESHIP_VI_MODE_SHOW=false
 # SPACESHIP_JOBS_SHOW=false
 
 fpath=($fpath "/home/pvishwa1/.zfunctions")
+fpath=($fpath "/home/prakash/.zfunctions")
 
 # Set Spaceship ZSH as a prompt
 autoload -U promptinit; promptinit
@@ -819,4 +820,3 @@ PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
 
 # }}}
-fpath=($fpath "/home/prakash/.zfunctions")
