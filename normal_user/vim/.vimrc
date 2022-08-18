@@ -674,7 +674,7 @@ let g:UltiSnipsEditSplit="vertical"
 " -------- Skeet Skeet CLI {{{
 map <F8> :exec '!nohup mpv --autofit=900x600 --geometry=-15+60 --screen=0 ' . shellescape(getline('.'), 1) . ' >/dev/null 2>&1&'<CR><CR>
 "  }}}
-
-" Sorting words on the same line
+"-------- Sorting words on the same line{{{
 " https://stackoverflow.com/questions/1327978/sorting-words-not-lines-in-vim/1329899#1329899
 vnoremap <F10> d:execute 'normal i' . join(sort(split(getreg('"'))), ' ')<CR>
+" }}}
