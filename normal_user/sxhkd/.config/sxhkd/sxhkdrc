@@ -27,12 +27,6 @@ super + a
 super + c
 	chromium
 
-super + x
-        toggleprogram xcompmgr
-
-super + shift + x
-        toggleprogram sxhkd
-
 super + shift + t
         teams
 
