@@ -192,78 +192,6 @@ alias -s zip="unzip -l"
 
 
 # }}}
-#-------- Global Alias {{{
-#------------------------------------------------------
-# Automatically Expanding Global Aliases (Space key to expand)
-# references: http://blog.patshead.com/2012/11/automatically-expaning-zsh-global-aliases---simplified.html
-globalias() {
-  if [[ $LBUFFER =~ '[A-Z0-9]+$' ]]; then
-    zle _expand_alias
-    zle expand-word
-  fi
-  zle self-insert
-}
-zle -N globalias
-bindkey " " globalias                 # space key to expand globalalias
-# bindkey "^ " magic-space            # control-space to bypass completion
-bindkey "^[[Z" magic-space            # shift-tab to bypass completion
-bindkey -M isearch " " magic-space    # normal space during searches
-
-
-alias -g BELL='&& sleep 2 && echo -e "\a"'
-
-# http://www.zzapper.co.uk/zshtips.html
-alias -g ND='*(/om[1])'         # newest directory
-alias -g NF='*(.om[1])'         # newest file
-# alias -g V='| vim -R -'
-alias -g V='| vless'
-alias -g L='| less -N'
-alias -g W='| w3m'
-alias -g G='| grep -i '
-alias -g AWK="awk -F';' '/cheat/ {print $1}'"
-alias -g CUT="cut -d' ' -f2-"
-alias -g SED="sed 's@@@g'"
-alias -g WC='| wc -l'
-alias -g WR='| while read line ; do echo "$line" ; done'
-alias -g WRA='| while read -r line ; do aria2c "$line" ; done'
-alias -g WRW='| while read -r line ; do aria2c "$line" ; done'
-
-
-
-#alias -g NE='2>|/dev/null'
-alias -g NO='&>|/dev/null'
-alias -g PP='2>&1 | $PAGER'
-alias -g HH='| head'
-alias -g TT='| tail'
-alias -g LL="2>&1 | less"
-alias -g CA="2>&1 | cat -A"
-alias -g NE="2> /dev/null"
-alias -g NUL="> /dev/null 2>&1"
-# some global aliases for redirection
-alias -g NN="&>/dev/null"
-alias -g 1N="1>/dev/null"
-alias -g 2N="2>/dev/null"
-alias -g DN="/dev/null"
-alias -g PI="|"
-# Paging with less / head / tail
-alias -g LS='| less -S'
-alias -g EL='|& less'
-alias -g ELS='|& less -S'
-alias -g TRIM='| cut -c 1-$COLUMNS'
-alias -g HL='| head -n $(( +LINES ? LINES - 4 : 20 ))'
-alias -g EH='|& head'
-alias -g EHL='|& head -n $(( +LINES ? LINES - 4 : 20 ))'
-alias -g TL='| tail -n $(( +LINES ? LINES - 4 : 20 ))'
-alias -g ET='|& tail'
-alias -g ETL='|& tail -n $(( +LINES ? LINES - 4 : 20 ))'
-# Sorting / counting
-alias -g CC='| wc -l'
-alias -g SS='| sort'
-alias -g Su='| sort -u'
-alias -g Sn='| sort -n'
-alias -g Snr='| sort -nr'
-
-#}}}
 # -------- Source External Files {{{
 #------------------------------------------------------
 # source all files in function directory
@@ -308,67 +236,7 @@ bindkey '^R' fzf-history-widget
 
 
 #}}}
-#-------- ZMV {{{
-#------------------------------------------------------
-# http://onethingwell.org/post/24608988305/zmv
-autoload zmv
-
-# }}}
-#-------- Fuzzy Finder {{{
-#------------------------------------------------------
-#
-
-# function bind to a hotkey
-fzf_history() { zle -I; eval $(history | fzf +s | sed 's/ *[0-9]* *//') ; }; zle -N fzf_history; bindkey '^F' fzf_history
-
-fzf_killps() { zle -I; ps -ef | sed 1d | fzf -m | awk '{print $2}' | xargs kill -${1:-9} ; }; zle -N fzf_killps; bindkey '^Q' fzf_killps
-
-fzf_cd() { zle -I; DIR=$(find ${1:-*} -path '*/\.*' -prune -o -type d -print 2> /dev/null | fzf) && cd "$DIR" ; }; zle -N fzf_cd; bindkey '^E' fzf_cd
-# }}}
-#-------- Autocomplete Custom {{{
-#------------------------------------------------------
-# autocomplete surfraw bookmarks
-# usage: srb <bookmark_name>
-_cmpl_surfraw() { reply=($(awk 'NF != 0 && !/^#/ {print $1}' ~/.config/surfraw/bookmarks | grep -v '^-' | grep -v '^}' | grep -v '^/' | sort -n)) ;}
-compctl -K _cmpl_surfraw srb srg
-alias srb='surfraw -browser=$BROWSERCLI'          # use for surfraw bookmarks (CLI)
-alias srg='surfraw -browser=$BROWSER'             # use for surfraw bookmarks (GUI)
-
-
-_cmpl_redpill() {
-    reply=($(ls -1 ~/.config/redpill))
-}
-compctl -K _cmpl_redpill redpill
-
-# bleachbitcli
-_cmpl_bleachbit() {
-  reply=($(bleachbit -l | cut -d' ' -f1))
-}
-compctl -K _cmpl_bleachbit bleachbit
-
-# playonlinux
-_cmpl_playonlinux() {
-  myarray=($(ls ~/.PlayOnLinux/shortcuts | sed 's:\ :\\\ :g'))
-  reply=(printf "%s\n" ${myarray[@]})
-  # reply=(${myarray[@]})
-}
-compctl -K _cmpl_playonlinux playonlinux
-
-
-# fzf_surfraw() { zle -I; surfraw $(cat ~/.config/surfraw/bookmarks | fzf | awk 'NF != 0 && !/^#/ {print $1}' ) ; }; zle -N fzf_surfraw; bindkey '^W' fzf_surfraw
-
-# add sudo in front of current command
-# https://www.reddit.com/r/zsh/comments/4b2lyj/send_a_simulated_keypress_from_zle_script_to/
-sudo_ (){
-    BUFFER="sudo $BUFFER"
-    CURSOR=$#BUFFER
-}
-zle -N sudo_
-bindkey "^f" sudo_
-
-
-# }}}
-#--------- Fzf Dmenu {{{
+#-------- Fzf Dmenu {{{
 bindkey -s '^O' "fzf-dmenu\n"
 
 fzf-dmenu() { 
@@ -377,8 +245,7 @@ fzf-dmenu() {
         nohup `grep '^Exec' "/usr/share/applications/$selected" | tail -1 | sed 's/^Exec=//' | sed 's/%.//'` >/dev/null 2>&1&
 }
 # }}}
-# #-------- Options {{{
-# #------------------------------------------------------
+#-------- Options {{{
 # # http://linux.die.net/man/1/zshoptions
 #
 # # Options
@@ -390,17 +257,6 @@ setopt AUTO_PUSHD        # This makes cd=pushd
 # setopt AUTO_NAME_DIRS    # This will use named dirs when possible
 
 # # }}}
-# copy current command to clipboard (Ctrl+X){{{
-# https://www.reddit.com/r/commandline/comments/4fjpb0/question_how_to_copy_the_command_to_clipboard/
-zle -N copyx; copyx() { echo -E $BUFFER | xsel -ib }; bindkey '^X' copyx
-
-# }}}
-#-------- vvv{{{
-vvv() {
-  local file
-  file="$(fasd -Rfl "$1" | fzf -1 -0 --no-sort +m)" && vi "${file}" || return 1
-}
-# }}}
 #-------- For youtube-dl playback {{{
 unsetopt nomatch
 # }}}

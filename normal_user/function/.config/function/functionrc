@@ -1,15 +1,15 @@
-#             _   _     _      _                 _ _
-#  __ _  ___ | |_| |__ | | ___| |_ _   _    __ _| (_) __ _ ___
-# / _` |/ _ \| __| '_ \| |/ _ \ __| | | |  / _` | | |/ _` / __|
-#| (_| | (_) | |_| |_) | |  __/ |_| |_| | | (_| | | | (_| \__ \
-# \__, |\___/ \__|_.__/|_|\___|\__|\__,_|  \__,_|_|_|\__,_|___/
-# |___/
+#                  _             _     ____   ___ __________
+#  _ __  _ __ __ _| | ____ _ ___| |__ |___ \ / _ \___ /___ /
+# | '_ \| '__/ _` | |/ / _` / __| '_ \  __) | | | ||_ \ |_ \
+# | |_) | | | (_| |   < (_| \__ \ | | |/ __/| |_| |__) |__) |
+# | .__/|_|  \__,_|_|\_\__,_|___/_| |_|_____|\___/____/____/
+# |_|
 #
 #       DESC: ZSH/BASH Compatible Alias/Functions
 #
-#       http://www.youtube.com/user/gotbletu
-#       https://twitter.com/gotbletu
-#       https://github.com/gotbletu
+#       http://www.youtube.com/user/vickykits71
+#       https://twitter.com/prakash2033
+#       https://github.com/prakash2033
 
 #-------- Load PATHS{{{
 
@@ -19,9 +19,7 @@
 [ -d "/usr/sbin" ] && PATH="/usr/sbin:$PATH"
 [ -d "$HOME/Public/gitrepo/diff-so-fancy" ] && PATH="$HOME/Public/gitrepo/diff-so-fancy:$PATH"
 [ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
-[ -d "$HOME/.screenlayout" ] && PATH="$HOME/.screenlayout:$PATH"
 [ -d "$HOME/.dotnet" ] && PATH="$HOME/.dotnet:$PATH"
-[ -d "$HOME/.local/bin/statusbar" ] && PATH="$HOME/.local/bin/statusbar:$PATH"
 [ -d "$HOME/.privatescripts" ] && PATH="$HOME/.privatescripts:$PATH"
 [ -d "$HOME/.binjutsu/x86_64" ] && PATH="$HOME/.binjutsu/x86_64:$PATH"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -305,59 +303,11 @@ alias trash='trash-put -v'
 # alias vless="vim --not-a-term -c 'set nomod nolist noma' -"
 alias vless="vim --not-a-term -c 'set nomod nolist' -"
 # }}}
-#-------- Functions (Oneliner) {{{
-#------------------------------------------------------
-
-down4me() { curl -s "http://downforeveryoneorjustme.com/$1" | sed '/just you/!d;s/<[^>]*>//g' ;}   # check if a website is down
-# killall-zombies() { kill -HUP $(ps -A -ostat,ppid | grep -e '[zZ]'| awk '{ print $2 }') ;}  # kill zombie process
-# zombie-process() { ps aux | awk '{ print $8 " " $2 }' | grep -w Z ;}
-mkcd() { mkdir -p -- "$1"; cd "$_" ;}             # create folder then cd into it
-open() { "$OPENER" "$@" > /dev/null 2>&1 ;}        # open with default GUI program
-
-# }}}
-#-------- Functions (Good List) {{{
-#------------------------------------------------------
-# DESC: custom functions
-
-update-grub() { sudo grub-mkconfig -o /boot/grub/grub.cfg ;}
-grub-update() { sudo grub-mkconfig -o /boot/grub/grub.cfg ;}
-grub-list() {
-  RED='\033[0;31m'
-  sudo grep "menuentry '" /boot/grub/grub.cfg | less -N
-  echo -e "${RED} REMINDER: GRUB number starts at zero not one"
-}
-
-# DESC: color the manpages
-# DEMO: http://www.youtube.com/watch?v=9BFaLAa428k
-# LINK: https://wiki.archlinux.org/index.php/Man_page#Colored_man_pages
-# man() {
-#   env LESS_TERMCAP_mb=$'\E[01;31m' \
-#   LESS_TERMCAP_md=$'\E[01;31m' \
-#   LESS_TERMCAP_me=$'\E[0m' \
-#   LESS_TERMCAP_se=$'\E[0m' \
-#   LESS_TERMCAP_so=$'\E[01;44;33m' \
-#   LESS_TERMCAP_ue=$'\E[0m' \
-#   LESS_TERMCAP_us=$'\E[01;32m' \
-#   man "$@"
-# }
-
-
-
-
-# }}}
 #-------- System Information {{{
 #------------------------------------------------------
 m-sound() { arecord -L && arecord -l && cat /proc/asound/pcm ;} #List audio capture card/mic
 
 #}}}
-#-------- FFF File Manager {{{
-#------------------------------------------------------
-# DESC: cd using a file manager
-# REFF: https://github.com/dylanaraps/fff/issues/18#issuecomment-451689405
-export FFF_CD_FILE=/tmp/.fff_d
-ff() { fff "$@"; cd "$(< $FFF_CD_FILE)"; }
-
-# }}}
 # -------- Git {{{
 alias ga='git add .'
 alias gc='git commit'
@@ -397,548 +347,220 @@ glog() {  # search for commit with preview and copy hash
 ##### INTERNET #####
 ####################
 
-#-------- Yt-dlp (Stream|Download|RipAudio) {{{
-#------------------------------------------------------
-# DEMO: https://www.youtube.com/watch?v=MFxlwVhwayg
-# DESC: download/stream media from many online sites
-yt-dl-stream() { yt-dlp -o - "$1" | $PLAYER - ;}
-
-
-yt-dl-best() { yt-dlp --restrict-filenames -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio" -o "%(title)s.%(ext)s" "$@" ;}
-alias yt-dl-thumbnail='yt-dl --write-thumbnail --skip-download '
-alias yt-dl-480='yt-dlp -f "bestvideo[height<=480][ext=mp4]+bestaudio[ext=m4a]" '
-alias yt-dl-720='yt-dlp -f "bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]" '
-alias yt-dl-4k='echo -e "This will transcode the video from webm to h264 which could take a long time\n\n"; yt-dlp -f "bestvideo[ext=webm]+bestaudio[ext=m4a]" --recode-video mp4 '
-# alias yt-dl-mp3='yt-dlp --extract-audio -f bestaudio[ext=mp3] --no-playlist '
-alias yt-dl-mp3='yt-dlp --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 160K --output "%(title)s.%(ext)s"'
-
-
-# DESC: convert youtube to audio (youtube.com only)
-# -f 171 = webm audio (vorbis)
-# -f 140 = m4a (aac)
-yt2ogg() { yt-dlp --restrict-filenames -x --audio-format vorbis -o "%(title)s.%(ext)s" "$@" ;}
-yt2wav() { yt-dlp --restrict-filenames -x --audio-format wav -o "%(title)s.%(ext)s" "$@" ;}
-yt2mp3() { yt-dlp --restrict-filenames -x --audio-format mp3 -o "%(title)s.%(ext)s" "$@" ;}
-yt2webmaudio() { yt-dlp --restrict-filenames -o "%(title)s.%(ext)s" -f 171 "$@" ;}
-yt2m4a() { yt-dlp --restrict-filenames -o "%(title)s.%(ext)s" -f 140 "$@" ;}
-yt2webm() { yt-dlp --restrict-filenames -o '%(title)s.%(ext)s' -f 248+251 "$@" ;}
-yt2webmhighdesc() {
-  GET_FORMAT=$(yt-dlp -F "$@" )
-  VIDEO_ID=$(echo "$GET_FORMAT" | awk '/webm/ && /video only/ {print $1}' | tail -1)
-  AUDIO_ID=$(echo "$GET_FORMAT" | awk '/webm/ && /audio only/ {print $1}' | tail -1)
-
-  # yt-dlp -c --restrict-filenames -o '%(title)s.%(ext)s' -f 248+251 "$@" 
-  yt-dlp -c --restrict-filenames -o '%(title)s.%(ext)s' -f "$VIDEO_ID"+"$AUDIO_ID" "$@" 
-  TITLE=$(yt-dlp --get-title "$@")
-  DURATION=$(yt-dlp --get-duration "$@")
-  DESC=$(yt-dlp --get-description "$@")
-  echo "$TITLE" >> "$TITLE".txt
-  echo "$1" >> "$TITLE".txt
-  echo "$DURATION" >> "$TITLE".txt
-  echo "$DESC" >> "$TITLE".txt
-
-}
-yt2mp4highdesc() {
-  GET_FORMAT=$(yt-dlp -F "$@" )
-  VIDEO_ID=$(echo "$GET_FORMAT" | awk '/mp4/ && /video only/ {print $1}' | tail -1)
-  AUDIO_ID=$(echo "$GET_FORMAT" | awk '/m4a/ && /audio only/ {print $1}' | tail -1)
-
-  # yt-dlp -c --restrict-filenames -o '%(title)s.%(ext)s' -f 137+140 "$@" 
-  yt-dlp -c --restrict-filenames -o '%(title)s.%(ext)s' -f "$VIDEO_ID"+"$AUDIO_ID" "$@" 
-  TITLE=$(yt-dlp --get-title "$@")
-  DURATION=$(yt-dlp --get-duration "$@")
-  DESC=$(yt-dlp --get-description "$@")
-  echo "$TITLE" >> "$TITLE".txt
-  echo "$1" >> "$TITLE".txt
-  echo "$DURATION" >> "$TITLE".txt
-  echo "$DESC" >> "$TITLE".txt
-
-}
-
-# https://askubuntu.com/a/965815
-yt2allwebm() {
-  yt-dlp -i --all-subs --embed-subs --embed-thumbnail --add-metadata --merge-output-format webm --format 'bestvideo[ext=webm]+bestaudio[ext=webm]' "$@"
-  TITLE=$(yt-dlp --get-title "$1")
-  DESC=$(yt-dlp --get-duration --get-description "$1")
-    echo "$TITLE\n$1\n\n$DESC" >> "$TITLE".txt
-}
-ytbackup() {
-  # cat urllist.txt | while read -r line; do echo "$line"
-  cat urllist.txt | while read -r line; do 
-  yt-dlp -i --all-subs --embed-subs --embed-thumbnail --add-metadata --merge-output-format mp4 --format 'bestvideo[ext=mp4]+bestaudio[ext=m4a]' "$line"
-  TITLE=$(yt-dlp --get-title "$line")
-  DESC=$(yt-dlp --get-duration --get-description "$line")
-    echo "$TITLE\n$1\n\n$DESC" >> "$TITLE".txt
-  done
-}
-yt2allmp4() {
-  yt-dlp -i --all-subs --embed-subs --embed-thumbnail --add-metadata --merge-output-format mp4 --format 'bestvideo[ext=mp4]+bestaudio[ext=m4a]' "$@"
-  TITLE=$(yt-dlp --get-title "$1")
-  DESC=$(yt-dlp --get-duration --get-description "$1")
-    echo "$TITLE\n$1\n\n$DESC" >> "$TITLE".txt
-}
-
-# }}}
-#-------- Wget (Retrieve Files From The Web) {{{
-#------------------------------------------------------
-# http://stackoverflow.com/a/18709707
-wget-extension() {
-  if [ $# -lt 2 ]; then
-    echo -e "Download all files with specific extension on a webpage"
-    echo -e "\nUsage: $0 <file_extension> <url>"
-    echo -e "\nExample:\n$0 mp4 http://example.com/files/"
-    echo -e "$0 mp3,ogg,wma http://samples.com/files/"
-    echo -e "\nGoogle: http://lmgtfy.com/?q=intitle%3Aindex.of+mp3+-html+-htm+-php+-asp+-txt+-pls+madonna"
-    return 1
-  fi
-
-  # savepath=~/Downloads
-  # outputdir_name=$(echo "$2" | rev | cut -d\/ -f2 | rev)
-  # mkdir -pv "$savepath/$outputdir_name"
-  # cd "$savepath/$outputdir_name" && wget -r -l1 -H -t1 -nd -N -np -A "$1" -erobots=off "$2"
-
-  outputdir_name=$(echo "$2" | rev | cut -d\/ -f2 | rev)
-  mkdir -pv "$outputdir_name"
-  # cd "$outputdir_name" && wget -r -l1 -H -t1 -nd -N -np -A "$1" -e robots=off "$2"
-  cd "$outputdir_name" && wget -r -l1 -H -t1 -N -np -A "$1" -e robots=off "$2"
-}
-
-wget-recursively() {
-  if [ $# -lt 1 ]; then
-    echo -e "Download all files with specific extension on a webpage"
-    echo -e "\nUsage: $0 <file_extension> <url>"
-    echo -e "\nExample:\n$0 mp4 http://example.com/files/"
-    echo -e "$0 mp3,ogg,wma http://samples.com/files/"
-    echo -e "\nGoogle: http://lmgtfy.com/?q=intitle%3Aindex.of+mp3+-html+-htm+-php+-asp+-txt+-pls+madonna"
-    return 1
-  fi
-
-  outputdir_name=$(echo "$1" | rev | cut -d\/ -f2 | rev)
-  mkdir -pv "$outputdir_name"
-  cd "$outputdir_name" && wget -r -H -t1 -nd -N -np --reject index.html -e robots=off "$1"
-}
-# }}}
-# #-------- Skeet Skeet CLI {{{
+# #-------- Yt-dlp (Stream|Download|RipAudio) {{{
 # #------------------------------------------------------
-# # requirements:
-# #     1. install nohup mpv vim youtube-dl
-# #     2. add this to your ~/.vimrc
-# #        map <F8> :exec '!nohup mpv ' . shellescape(getline('.'), 1) . ' >/dev/null 2>&1&'<CR><CR>
-# #
-# # how to use:
-# #     1. fap-xvideos ashlynn brooke
-# #     2. hit F8 on the link you want to play
-# #     3. hit ZZ or ZQ to quit vim
-
-fap-youporn() {
-  grepmatch=$(echo "$@" | sed 's/ /.*/g')
-  keyword="$(echo "http://www.youporn.com/search?query=$@&type=straight" | sed 's/ /\+/g')"
-  pagenum=3
-  pagenum_to_url=$(for num in $(seq 1 "$pagenum"); do echo "$keyword&page=$num"; done )
-  videourl=$(echo "$pagenum_to_url" | while read line; do lynx -dump "$line" \
-  | awk '/watch/ {print $2}' | cut -d\/ -f1-6 | grep -iE $grepmatch | awk '!x[$0]++' ; done)
-  echo $videourl | sed 's/\ /\n/g' | awk '!x[$0]++' | vim -R -
-}
-
-fap-youjizz() {
-  keyword="$(echo "http://www.youjizz.com/search/$@" | sed 's/ /\-/g')"
-  pagenum=5
-  pagenum_to_url=$(for num in $(seq 1 "$pagenum"); do echo "$keyword-$num".html""; done )
-  videourl=$(echo "$pagenum_to_url" | while read line; do lynx -dump "$line" \
-  | awk '/\.com\/videos/ {print $2}' | awk '!x[$0]++' ; done)
-
-  echo $videourl | sed 's/\ /\n/g' | awk '!x[$0]++' | vim -R -
-}
-
-fap-pornhub() {
-  keyword="$(echo "https://www.pornhub.com/video/search?search=$@" | sed 's/ /\+/g')"
-  pagenum=3
-  pagenum_to_url=$(for num in $(seq 1 "$pagenum"); do echo "$keyword&page=$num"; done )
-  videourl=$(echo "$pagenum_to_url" | while read line; do lynx -dump "$line" \
-  | awk '/view_video/ {print $2}' | cut -d\" -f 2 |  awk '!x[$0]++' ; done)
-
-  echo $videourl | sed 's/\ /\n/g' | awk '!x[$0]++' | vim -R -
-}
-
-fap-pornotube() {
-  keyword="$(echo "http://www.pornotube.com/search.php?q=$@" | sed 's/ /\+/g')"
-  pagenum=3
-  pagenum_to_url=$(for num in $(seq 1 "$pagenum"); do echo "$keyword&page=$num"; done )
-  videourl=$(echo "$pagenum_to_url" | while read line; do curl -s "$line" \
-  | awk '/pornotube.com\/m/ && !/class/' | cut -d\" -f 2 | awk '!x[$0]++' ; done)
-
-  echo $videourl | sed 's/\ /\n/g' | awk '!x[$0]++' | vim -R -
-}
-
-fap-xvideos() {
-  keyword="$(echo "http://www.xvideos.com/?k=$@" | sed 's/ /\+/g')"
-  pagenum=5
-  pagenum_to_url=$(for num in $(seq 1 "$pagenum"); do echo "$keyword&p=$num"; done )
-  videourl=$(echo "$pagenum_to_url" | while read line; do lynx -dump "$line" \
-  | awk '/xvideos\.com\/video/ {print $2}' | awk '!x[$0]++' ; done)
-
-  echo $videourl | sed 's/\ /\n/g' | awk '!x[$0]++' | vim -R -
-}
-
-fap-jizzhut() {
-  keyword="$(echo "http://www.jizzhut.com/search/$@" | sed 's/ /\-/g')"
-  pagenum=3
-  pagenum_to_url=$(for num in $(seq 1 "$pagenum"); do echo "$keyword-$num.html"; done )
-  videourl=$(echo "$pagenum_to_url" | while read line; do lynx -dump "$line" \
-  | awk '/jizzhut\.com\/videos/ {print $2}' | awk '!x[$0]++' ; done)
-
-  echo $videourl | awk '!x[$0]++' | vim -R -
-}
-
-fap-redtube() {
-  keyword="$(echo "http://www.redtube.com/?search=$@" | sed 's/ /\+/g')"
-  pagenum=3
-  pagenum_to_url=$(for num in $(seq 1 "$pagenum"); do echo "$keyword&page=$num"; done )
-  videourl=$(echo "$pagenum_to_url" | while read line; do lynx -source "$line" \
-  | awk -F\" '/class="s"/ {print $4, "http://redtube.com"$2}' | awk '!x[$0]++' ; done)
-
-  echo $videourl | awk '!x[$0]++' | vim -R -
-}
-
-fap-spankwire() {
-  keyword="$(echo "http://www.spankwire.com/search/straight/keyword/$@" | sed 's/ /\%20/g')"
-  pagenum=5
-  pagenum_to_url=$(for num in $(seq 1 "$pagenum"); do echo "$keyword?Sort=Relevance&Page=$num"; done )
-  videourl=$(echo "$pagenum_to_url" | while read line; do lynx -dump "$line" \
-  | awk '/www\.spankwire\.com/ && /video/ {print $2}' | awk '!x[$0]++' ; done)
-
-  echo $videourl | sed 's/\ /\n/g' | vim -R -
-}
-
-# quvi not supported anymore
-fap-tnaflix() {
-  keyword="$(echo "&what=$@&category=&sb=relevance&su=anytime&sd=all&dir=desc" | sed 's/ /\%20/g')"
-  pagenum=3
-  pagenum_to_url=$(for num in $(seq 1 "$pagenum"); do echo \
-      "http://www.tnaflix.com/search.php?page=$num$keyword"; done )
-  videourl=$(echo "$pagenum_to_url" | while read line; do lynx -dump "$line" \
-  | awk '/video[0-9]/ {print $2}' | awk '!x[$0]++' ; done)
-
-  echo $videourl | sed 's/\ /\n/g' | vim -R -
-}
-fap-empflix() {
-  keyword="$(echo "&what=$@&category=&sb=relevance&su=anytime&sd=all&dir=desc" | sed 's/ /\%20/g')"
-  pagenum=3
-  pagenum_to_url=$(for num in $(seq 1 "$pagenum"); do echo \
-      "http://www.empflix.com/search.php?page=$num$keyword"; done )
-  videourl=$(echo "$pagenum_to_url" | while read line; do lynx -dump "$line" \
-  | awk '/empflix\.com\/videos/ {print $2}' | awk '!x[$0]++' ; done)
-
-  echo $videourl | sed 's/\ /\n/g' | vim -R -
-}
-
-# #}}}
-#-------- Youtube-Viewer Channels {{{
-#------------------------------------------------------
-# tutorial video: http://www.youtube.com/watch?v=FnJ67oAxVQ4
-# watch/login/comment/search/download...etc video on youtube, all from cli
-# https://github.com/trizen/youtube-viewer
-yt-listen() { youtube-viewer -n $@ ;}   # no video, music/audio only
-# yt-music() { youtube-viewer -n --category=Music --top ;}  # show top music list
-yt-music() { youtube-viewer -n --category=10 ;}   # show top music list
-yts-movie-movieclipstrailer() { youtube-viewer -u UCi8e0iOVk1fEOogdfu4YgfA ;}
-yts-movie-reviews() { youtube-viewer -u UCeiAKuJGZrIjYvaq0nMwbJg ;}
-yts-tmkoc() { youtube-viewer -u UC54_ux4BnaJwkVFn5M391XQ ;}
-
-## }}}
-
-####################
-#### MULTIMEDIA ####
-####################
-
-#-------- FFMPEG X11GRAB Screencasting v2 (Mic + Speakers) {{{
-#------------------------------------------------------
-# DEMO: http://www.youtube.com/watch?v=mNz5Lrc06_s
-# DESC: record desktop using ffmpeg (capture multiple source aka mic/speaker/others...etc)
-# REFF: https://ask.fedoraproject.org/en/question/65662/recording-audio-from-mic-and-speakers-from-commandline/
-#       https://www.youtube.com/watch?v=mEV2O8C272g (MrWhat record mic & speakers)
-#       https://www.youtube.com/watch?v=Xbzh-T2kfJk (MrWhat keep audio synced)
-#       https://www.youtube.com/watch?v=ynjFXmcpExE (MrWhat framedrop)
-
-# ffmpeg location
-# FFX_RECORDER=/usr/bin/ffmpeg
-FFX_RECORDER=~/.bin/compile/ffmpeg-2.1.3/bin/ffmpeg
-
-# [OUTPUT_DEVICE] speakers audio source (PC speakers or Headphones)
-# note: using headphones since pc speakers will have audio feedback to mic
-FFX_SPEAKER="alsa_output.pci-0000_00_14.2.analog-stereo.monitor"
-FFX_SPEAKER_CH="2"
-FFX_SPEAKER_FREQ="44100"
-# FFX_SPEAKER="alsa_output.usb-NA_Lenovo_Wireless_Headset_W770-00.analog-stereo.monitor"
-# FFX_SPEAKER_CH="2"
-# FFX_SPEAKER_FREQ="32000"
-
-# [INPUT_DEVICE] mic audio source
-# note: when routed to pulseaudio the mic is very low
-# so open pavucontrol > input device > [name of mic]
-# then slide volume all the way to the right
-# example: http://i.imgur.com/GFkifqB.png
-# FFX_MIC="alsa_input.usb-BLUE_MICROPHONES_Blue_Snowball-00.analog-mono"
-# FFX_MIC_CH="1"
-# FFX_MIC_FREQ="44100"
-FFX_MIC="alsa_input.usb-NA_Lenovo_Wireless_Headset_W770-00.analog-mono"
-FFX_MIC_CH="2"
-FFX_MIC_FREQ="44100"
-
-# sound system
-FFX_SOUNDSYS="pulse"
-# FFX_SOUNDSYS="alsa"
-
-# resolution
-FFX_RESO_FULL=$(xwininfo -root | grep 'geometry' |awk '{print $2;}' | cut -d\+ -f1)
-
-# output location
-FFX_OUTPUT_MOVIE=~/Public/screencast/mm_movie_baking.mkv
-FFX_OUTPUT_VIDEO=~/Public/screencast/vv_video_baking.mkv
-FFX_OUTPUT_AUDIO=~/Public/screencast/aa_audio_baking.mp3
-
-ffxcast_fullscreen_movie() {
-  $FFX_RECORDER \
-  -f $FFX_SOUNDSYS -ac $FFX_SPEAKER_CH -ar $FFX_SPEAKER_FREQ -i $FFX_SPEAKER \
-  -f $FFX_SOUNDSYS -ac $FFX_MIC_CH -ar $FFX_MIC_FREQ -i $FFX_MIC \
-  -f x11grab -r 30 -s $FFX_RESO_FULL -i :0.0 \
-  -filter_complex "[0]asyncts[spkr],[1]asyncts[mic],[spkr][mic]amix=inputs=2" \
-  -c:v libx264 -pix_fmt yuv420p -preset ultrafast -crf 0 \
-  -c:a libmp3lame -ac 2 -ar 44100 -b:a 320k \
-  -y $FFX_OUTPUT_MOVIE
-}
-
-
-# }}}
-#-------- Webcam {{{
-#------------------------------------------------------
-# DEMO: https://www.youtube.com/watch?v=oYTE3docGLA
-# DESC: using external player to display webcam
-
-# mplayer to display webcam
-# hit 's' to take screenshot, will save in current folder
-# hit 'S' to take series of screenshot, will save in current folder
-# hit 'f' to toggle fullscreen
-# hit 'T' to toggle stay-on-top
-# hit 'q' or 'Esc' to quit
-# https://wiki.archlinux.org/index.php/Webcam_Setup#MPlayer
-webcam-list() { v4l2-ctl --list-formats-ext && v4l2-ctl --list-devices ;}
-webcam-mplayer() { mplayer tv:// -tv driver=v4l2:width=640:height=360:device=/dev/video0 -fps 30 -vf screenshot -ontop -geometry "99%:95%" ;}
-webcam-mplayer-noborder() { mplayer tv:// -tv driver=v4l2:width=640:height=360:device=/dev/video0 -fps 30 -vf screenshot -geometry "98%:98%" -ontop -noborder ;}
-webcam-mplayer-screenshot() { mplayer tv:// -tv driver=v4l2:width=1920:height=1080:device=/dev/video0 -fps 30 -vf screenshot -ontop ;}
-webcam-mpv() { mpv --demuxer-lavf-format video4linux2 --demuxer-lavf-o-set input_format=mjpeg av://v4l2:/dev/video0 ;}
-webcam-mpv-noborder() { mpv --ontop --no-border --force-window --autofit=500x280 --geometry=-15-60 --demuxer-lavf-format video4linux2 --demuxer-lavf-o-set input_format=mjpeg av://v4l2:/dev/video0 ;}
-
-
-# DESC: use webcam to scan for barcode/qrcode
-zbarcam-v4l() {
-  # barcode/qrcode reader using webcam
-  # this is for webcam that was not supported by default
-  # https://fitzcarraldoblog.wordpress.com/2012/10/05/installing-and-using-zbar-in-linux-to-scan-bar-codes-with-your-webcam/
-  # requires: v4l-utils
-  LD_PRELOAD=/usr/lib/libv4l/v4l1compat.so zbarcam /dev/video0
-}
-# }}}
+# # DEMO: https://www.youtube.com/watch?v=MFxlwVhwayg
+# # DESC: download/stream media from many online sites
+# yt-dl-stream() { yt-dlp -o - "$1" | $PLAYER - ;}
+#
+#
+# yt-dl-best() { yt-dlp --restrict-filenames -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio" -o "%(title)s.%(ext)s" "$@" ;}
+# alias yt-dl-thumbnail='yt-dl --write-thumbnail --skip-download '
+# alias yt-dl-480='yt-dlp -f "bestvideo[height<=480][ext=mp4]+bestaudio[ext=m4a]" '
+# alias yt-dl-720='yt-dlp -f "bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]" '
+# alias yt-dl-4k='echo -e "This will transcode the video from webm to h264 which could take a long time\n\n"; yt-dlp -f "bestvideo[ext=webm]+bestaudio[ext=m4a]" --recode-video mp4 '
+# # alias yt-dl-mp3='yt-dlp --extract-audio -f bestaudio[ext=mp3] --no-playlist '
+# alias yt-dl-mp3='yt-dlp --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 160K --output "%(title)s.%(ext)s"'
+#
+#
+# # DESC: convert youtube to audio (youtube.com only)
+# # -f 171 = webm audio (vorbis)
+# # -f 140 = m4a (aac)
+# yt2ogg() { yt-dlp --restrict-filenames -x --audio-format vorbis -o "%(title)s.%(ext)s" "$@" ;}
+# yt2wav() { yt-dlp --restrict-filenames -x --audio-format wav -o "%(title)s.%(ext)s" "$@" ;}
+# yt2mp3() { yt-dlp --restrict-filenames -x --audio-format mp3 -o "%(title)s.%(ext)s" "$@" ;}
+# yt2webmaudio() { yt-dlp --restrict-filenames -o "%(title)s.%(ext)s" -f 171 "$@" ;}
+# yt2m4a() { yt-dlp --restrict-filenames -o "%(title)s.%(ext)s" -f 140 "$@" ;}
+# yt2webm() { yt-dlp --restrict-filenames -o '%(title)s.%(ext)s' -f 248+251 "$@" ;}
+# yt2webmhighdesc() {
+#   GET_FORMAT=$(yt-dlp -F "$@" )
+#   VIDEO_ID=$(echo "$GET_FORMAT" | awk '/webm/ && /video only/ {print $1}' | tail -1)
+#   AUDIO_ID=$(echo "$GET_FORMAT" | awk '/webm/ && /audio only/ {print $1}' | tail -1)
+#
+#   # yt-dlp -c --restrict-filenames -o '%(title)s.%(ext)s' -f 248+251 "$@" 
+#   yt-dlp -c --restrict-filenames -o '%(title)s.%(ext)s' -f "$VIDEO_ID"+"$AUDIO_ID" "$@" 
+#   TITLE=$(yt-dlp --get-title "$@")
+#   DURATION=$(yt-dlp --get-duration "$@")
+#   DESC=$(yt-dlp --get-description "$@")
+#   echo "$TITLE" >> "$TITLE".txt
+#   echo "$1" >> "$TITLE".txt
+#   echo "$DURATION" >> "$TITLE".txt
+#   echo "$DESC" >> "$TITLE".txt
+#
+# }
+# yt2mp4highdesc() {
+#   GET_FORMAT=$(yt-dlp -F "$@" )
+#   VIDEO_ID=$(echo "$GET_FORMAT" | awk '/mp4/ && /video only/ {print $1}' | tail -1)
+#   AUDIO_ID=$(echo "$GET_FORMAT" | awk '/m4a/ && /audio only/ {print $1}' | tail -1)
+#
+#   # yt-dlp -c --restrict-filenames -o '%(title)s.%(ext)s' -f 137+140 "$@" 
+#   yt-dlp -c --restrict-filenames -o '%(title)s.%(ext)s' -f "$VIDEO_ID"+"$AUDIO_ID" "$@" 
+#   TITLE=$(yt-dlp --get-title "$@")
+#   DURATION=$(yt-dlp --get-duration "$@")
+#   DESC=$(yt-dlp --get-description "$@")
+#   echo "$TITLE" >> "$TITLE".txt
+#   echo "$1" >> "$TITLE".txt
+#   echo "$DURATION" >> "$TITLE".txt
+#   echo "$DESC" >> "$TITLE".txt
+#
+# }
+#
+# # https://askubuntu.com/a/965815
+# yt2allwebm() {
+#   yt-dlp -i --all-subs --embed-subs --embed-thumbnail --add-metadata --merge-output-format webm --format 'bestvideo[ext=webm]+bestaudio[ext=webm]' "$@"
+#   TITLE=$(yt-dlp --get-title "$1")
+#   DESC=$(yt-dlp --get-duration --get-description "$1")
+#     echo "$TITLE\n$1\n\n$DESC" >> "$TITLE".txt
+# }
+# ytbackup() {
+#   # cat urllist.txt | while read -r line; do echo "$line"
+#   cat urllist.txt | while read -r line; do 
+#   yt-dlp -i --all-subs --embed-subs --embed-thumbnail --add-metadata --merge-output-format mp4 --format 'bestvideo[ext=mp4]+bestaudio[ext=m4a]' "$line"
+#   TITLE=$(yt-dlp --get-title "$line")
+#   DESC=$(yt-dlp --get-duration --get-description "$line")
+#     echo "$TITLE\n$1\n\n$DESC" >> "$TITLE".txt
+#   done
+# }
+# yt2allmp4() {
+#   yt-dlp -i --all-subs --embed-subs --embed-thumbnail --add-metadata --merge-output-format mp4 --format 'bestvideo[ext=mp4]+bestaudio[ext=m4a]' "$@"
+#   TITLE=$(yt-dlp --get-title "$1")
+#   DESC=$(yt-dlp --get-duration --get-description "$1")
+#     echo "$TITLE\n$1\n\n$DESC" >> "$TITLE".txt
+# }
+#
+# # }}}
+# #-------- Skeet Skeet CLI {{{
+# # #------------------------------------------------------
+# # # requirements:
+# # #     1. install nohup mpv vim youtube-dl
+# # #     2. add this to your ~/.vimrc
+# # #        map <F8> :exec '!nohup mpv ' . shellescape(getline('.'), 1) . ' >/dev/null 2>&1&'<CR><CR>
+# # #
+# # # how to use:
+# # #     1. fap-xvideos ashlynn brooke
+# # #     2. hit F8 on the link you want to play
+# # #     3. hit ZZ or ZQ to quit vim
+#
+# fap-youporn() {
+#   grepmatch=$(echo "$@" | sed 's/ /.*/g')
+#   keyword="$(echo "http://www.youporn.com/search?query=$@&type=straight" | sed 's/ /\+/g')"
+#   pagenum=3
+#   pagenum_to_url=$(for num in $(seq 1 "$pagenum"); do echo "$keyword&page=$num"; done )
+#   videourl=$(echo "$pagenum_to_url" | while read line; do lynx -dump "$line" \
+#   | awk '/watch/ {print $2}' | cut -d\/ -f1-6 | grep -iE $grepmatch | awk '!x[$0]++' ; done)
+#   echo $videourl | sed 's/\ /\n/g' | awk '!x[$0]++' | vim -R -
+# }
+#
+# fap-youjizz() {
+#   keyword="$(echo "http://www.youjizz.com/search/$@" | sed 's/ /\-/g')"
+#   pagenum=5
+#   pagenum_to_url=$(for num in $(seq 1 "$pagenum"); do echo "$keyword-$num".html""; done )
+#   videourl=$(echo "$pagenum_to_url" | while read line; do lynx -dump "$line" \
+#   | awk '/\.com\/videos/ {print $2}' | awk '!x[$0]++' ; done)
+#
+#   echo $videourl | sed 's/\ /\n/g' | awk '!x[$0]++' | vim -R -
+# }
+#
+# fap-pornhub() {
+#   keyword="$(echo "https://www.pornhub.com/video/search?search=$@" | sed 's/ /\+/g')"
+#   pagenum=3
+#   pagenum_to_url=$(for num in $(seq 1 "$pagenum"); do echo "$keyword&page=$num"; done )
+#   videourl=$(echo "$pagenum_to_url" | while read line; do lynx -dump "$line" \
+#   | awk '/view_video/ {print $2}' | cut -d\" -f 2 |  awk '!x[$0]++' ; done)
+#
+#   echo $videourl | sed 's/\ /\n/g' | awk '!x[$0]++' | vim -R -
+# }
+#
+# fap-pornotube() {
+#   keyword="$(echo "http://www.pornotube.com/search.php?q=$@" | sed 's/ /\+/g')"
+#   pagenum=3
+#   pagenum_to_url=$(for num in $(seq 1 "$pagenum"); do echo "$keyword&page=$num"; done )
+#   videourl=$(echo "$pagenum_to_url" | while read line; do curl -s "$line" \
+#   | awk '/pornotube.com\/m/ && !/class/' | cut -d\" -f 2 | awk '!x[$0]++' ; done)
+#
+#   echo $videourl | sed 's/\ /\n/g' | awk '!x[$0]++' | vim -R -
+# }
+#
+# fap-xvideos() {
+#   keyword="$(echo "http://www.xvideos.com/?k=$@" | sed 's/ /\+/g')"
+#   pagenum=5
+#   pagenum_to_url=$(for num in $(seq 1 "$pagenum"); do echo "$keyword&p=$num"; done )
+#   videourl=$(echo "$pagenum_to_url" | while read line; do lynx -dump "$line" \
+#   | awk '/xvideos\.com\/video/ {print $2}' | awk '!x[$0]++' ; done)
+#
+#   echo $videourl | sed 's/\ /\n/g' | awk '!x[$0]++' | vim -R -
+# }
+#
+# fap-jizzhut() {
+#   keyword="$(echo "http://www.jizzhut.com/search/$@" | sed 's/ /\-/g')"
+#   pagenum=3
+#   pagenum_to_url=$(for num in $(seq 1 "$pagenum"); do echo "$keyword-$num.html"; done )
+#   videourl=$(echo "$pagenum_to_url" | while read line; do lynx -dump "$line" \
+#   | awk '/jizzhut\.com\/videos/ {print $2}' | awk '!x[$0]++' ; done)
+#
+#   echo $videourl | awk '!x[$0]++' | vim -R -
+# }
+#
+# fap-redtube() {
+#   keyword="$(echo "http://www.redtube.com/?search=$@" | sed 's/ /\+/g')"
+#   pagenum=3
+#   pagenum_to_url=$(for num in $(seq 1 "$pagenum"); do echo "$keyword&page=$num"; done )
+#   videourl=$(echo "$pagenum_to_url" | while read line; do lynx -source "$line" \
+#   | awk -F\" '/class="s"/ {print $4, "http://redtube.com"$2}' | awk '!x[$0]++' ; done)
+#
+#   echo $videourl | awk '!x[$0]++' | vim -R -
+# }
+#
+# fap-spankwire() {
+#   keyword="$(echo "http://www.spankwire.com/search/straight/keyword/$@" | sed 's/ /\%20/g')"
+#   pagenum=5
+#   pagenum_to_url=$(for num in $(seq 1 "$pagenum"); do echo "$keyword?Sort=Relevance&Page=$num"; done )
+#   videourl=$(echo "$pagenum_to_url" | while read line; do lynx -dump "$line" \
+#   | awk '/www\.spankwire\.com/ && /video/ {print $2}' | awk '!x[$0]++' ; done)
+#
+#   echo $videourl | sed 's/\ /\n/g' | vim -R -
+# }
+#
+# # quvi not supported anymore
+# fap-tnaflix() {
+#   keyword="$(echo "&what=$@&category=&sb=relevance&su=anytime&sd=all&dir=desc" | sed 's/ /\%20/g')"
+#   pagenum=3
+#   pagenum_to_url=$(for num in $(seq 1 "$pagenum"); do echo \
+#       "http://www.tnaflix.com/search.php?page=$num$keyword"; done )
+#   videourl=$(echo "$pagenum_to_url" | while read line; do lynx -dump "$line" \
+#   | awk '/video[0-9]/ {print $2}' | awk '!x[$0]++' ; done)
+#
+#   echo $videourl | sed 's/\ /\n/g' | vim -R -
+# }
+# fap-empflix() {
+#   keyword="$(echo "&what=$@&category=&sb=relevance&su=anytime&sd=all&dir=desc" | sed 's/ /\%20/g')"
+#   pagenum=3
+#   pagenum_to_url=$(for num in $(seq 1 "$pagenum"); do echo \
+#       "http://www.empflix.com/search.php?page=$num$keyword"; done )
+#   videourl=$(echo "$pagenum_to_url" | while read line; do lynx -dump "$line" \
+#   | awk '/empflix\.com\/videos/ {print $2}' | awk '!x[$0]++' ; done)
+#
+#   echo $videourl | sed 's/\ /\n/g' | vim -R -
+# }
+#
+# # #}}}
+# #-------- Youtube-Viewer Channels {{{
+# #------------------------------------------------------
+# # tutorial video: http://www.youtube.com/watch?v=FnJ67oAxVQ4
+# # watch/login/comment/search/download...etc video on youtube, all from cli
+# # https://github.com/trizen/youtube-viewer
+# yt-listen() { youtube-viewer -n $@ ;}   # no video, music/audio only
+# # yt-music() { youtube-viewer -n --category=Music --top ;}  # show top music list
+# yt-music() { youtube-viewer -n --category=10 ;}   # show top music list
+# yts-movie-movieclipstrailer() { youtube-viewer -u UCi8e0iOVk1fEOogdfu4YgfA ;}
+# yts-movie-reviews() { youtube-viewer -u UCeiAKuJGZrIjYvaq0nMwbJg ;}
+# yts-tmkoc() { youtube-viewer -u UC54_ux4BnaJwkVFn5M391XQ ;}
+#
+# ## }}}
 
 ####################
 ##### TESTING ######
 ####################
-#-------- Utility Functions {{{
-
-se(){
-  find . | fzf -i | xargs -r xdg-open
-}
-
-date-global() {
-# use tzselect to find timezone listing
-    local SHOWTIMEZONE="$(
-    alias date='date +"%a %D %l:%M %p"'
-    echo "Current Location:" "$(date)"
-    echo "USA LosAngeles:" "$(TZ='America/Los_Angeles' date)"
-    echo "INDIA Kolkata:" "$(TZ='Asia/Kolkata' date)"
-    echo "Canada Alberta:" "$(TZ='America/Edmonton' date)"
-    echo "USA NewYork:" "$(TZ='America/New_York' date)"
-    echo "EU London:" "$(TZ='Europe/London' date)"
-    echo "Bangladesh Dhaka:" "$(TZ='Asia/Dhaka' date)"
-    echo "China Xinjiang:" "$(TZ='Asia/Urumqi' date)"
-    echo "Vietnam Saigon:" "$(TZ='Asia/Ho_Chi_Minh' date)"
-    echo "China Beijing:" "$(TZ='Asia/Shanghai' date)"
-    echo "HK HongKong:" "$(TZ='Asia/Hong_Kong' date)"
-    echo "Japan Tokyo:" "$(TZ='Asia/Tokyo' date)"
-    )"
-    echo "$SHOWTIMEZONE" | column -t
-}
-
-mp3cut() {
-
-    # example: cut from 5s to 10s; mpgtx -s file.mp3 "[00:05-00:10]" -b file-output
-    mpgtx -s "$1" "["$2":"$3"-"$4":"$5"]" -b "${1%.*}"-output."${1##*.}"
-
-    }
-
-#audiobooks
-mpv-saveposition() { mpv --save-position-on-quit "$@" ;}
-mplayer-createplaylist() { ls --ignore="*.m3u" --ignore="*.pos" | grep -i "$1" | sort -u > "$1".m3u ;}
-mpv-pip() { tsp mpv --ontop --no-border --autofit=500x280 --geometry=99%:99% "$@" ;}
-
-
-#mplayer playlist
-mplist(){ mplayer -playlist <(tree -aif "$1" | awk '/\.(mp3|wav|ogg|avi|mpg|iso)$/'); }
-#mplist(){ mplayer -playlist <(find "$1" -regex '.*\.\(mp3\|wav\|ogg\|avi\|mpg\|iso\)' | sort); }
-
-
-normalizeaudio()       { sox --norm "$1" "${1%.*}"."$0"."${1##*.}" ;}
-# usage: combine-zip file.zip -- join splited zip (z01, z02 ..etc)
-# unsplit-zip-z01() { zip -s- "$1" -O "${1%.*}"-unsplited.zip ;}
-
-
-web2png() { CutyCapt --url="$1" --out=web2png_output.png ;}
-# url shortener
-tiny-isgd() { wget -qO - "http://is.gd/create.php?format=simple&url=$1" ;}
-
-# Run a command x times
-# http://www.stefanoforenza.com/how-to-repeat-a-shell-command-n-times/
-runx() {
-    n=$1
-    shift
-    while [ $(( n -= 1 )) -ge 0 ]
-    do
-        "$@"
-    done
-}
-
-# Shortcut to change directory and list contents
-cdls() {
-    if [ -d "$1" ]; then
-        cd "$1"
-        ls
-    else
-        echo "bash: cl: '$1': Directory not found"
-    fi
-}
-
-
-# mutt background fix
-COLORFGBG="default;default"
-
-date-global() {
-# use tzselect to find timezone listing
-    local SHOWTIMEZONE="$(
-    alias date='date +"%a %D %l:%M %p"'
-    echo "Current Location:" "$(date)"
-    echo "USA LosAngeles:" "$(TZ='America/Los_Angeles' date)"
-    echo "Canada Alberta:" "$(TZ='America/Edmonton' date)"
-    echo "USA NewYork:" "$(TZ='America/New_York' date)"
-    echo "EU London:" "$(TZ='Europe/London' date)"
-    echo "Bangladesh Dhaka:" "$(TZ='Asia/Dhaka' date)"
-    echo "China Xinjiang:" "$(TZ='Asia/Urumqi' date)"
-    echo "Vietnam Saigon:" "$(TZ='Asia/Ho_Chi_Minh' date)"
-    echo "China Beijing:" "$(TZ='Asia/Shanghai' date)"
-    echo "HK HongKong:" "$(TZ='Asia/Hong_Kong' date)"
-    echo "Japan Tokyo:" "$(TZ='Asia/Tokyo' date)"
-    )"
-    echo "$SHOWTIMEZONE" | column -t
-}
-
-
-mp3cut() {
-
-    # example: cut from 5s to 10s; mpgtx -s file.mp3 "[00:05-00:10]" -b file-output
-    mpgtx -s "$1" "["$2":"$3"-"$4":"$5"]" -b "${1%.*}"-output."${1##*.}"
-
-    }
-
-#audiobooks
-mpv-saveposition() { mpv --save-position-on-quit "$@" ;}
-mplayer-createplaylist() { ls --ignore="*.m3u" --ignore="*.pos" | grep -i "$1" | sort -u > "$1".m3u ;}
-
-# Shortcut to change directory and list contents
-cdls() {
-    if [ -d "$1" ]; then
-        cd "$1"
-        ls
-    else
-        echo "bash: cl: '$1': Directory not found"
-    fi
-}
-
-
-# convert video to gif animation
-# http://superuser.com/a/730389
-# http://superuser.com/a/841379
-convert_to_gifv() {
-    if [ $# -lt 1 ]
-    then
-        echo -e "convert video to animated gif"
-        echo -e "\nUsage:\n$0 <file> <resolution>"
-        echo -e "\nexample:\n$0 file.mkv \n"
-        echo -e "$0 file.mkv 320\n"
-        echo -e "$0 file.mkv 720\n"
-        echo -e "$0 file.mkv 1080\n"
-        echo -e "Note: animated gif size are usually x2 or x3 the size of the original video file"
-
-        return 1
-    fi
-
-    # get video resolution (height)
-    eval $(ffprobe -v error -of flat=s=_ -select_streams v:0 -show_entries stream=height,width "$1")
-    size=${streams_stream_0_height}
-
-    ffmpeg -i "$1" -vf scale="${2:-$size}":-1 -r 10 -f image2pipe -vcodec ppm - | convert -delay 5 -loop 0 - "${1%.*}"-gifvid"$2".gif
-}
-
-tmux-locate-pane() {
-  tempfile=/tmp/tmux-locate-pane.txt
-  echo "@locate " > "$tempfile"; $EDITOR "$tempfile"; source "$tempfile"
-}
-
-tmux-discover-pane() {
-  tempfile=/tmp/tmux-discover-pane.txt
-  # echo "@discover " > "$tempfile"; $EDITOR -c 'startinsert!' "$tempfile"; source "$tempfile"
-  echo "@discover" > "$tempfile"; vim -c 'normal! A ' -c 'startinsert!' "$tempfile"; source "$tempfile"
-
-}
-# }}}
-#-------- Search for Files {{{
-#------------------------------------------------------
-
-@find() {
-  if [ $# -lt 1 ]
-    then
-    echo -e "find files recursively starting from current folder"
-    echo -e "\nUsage:     $0 <keywords>"
-    echo -e "Example:     $0 dragon ball z"
-    echo -e "OR Operator: $0 '(naruto|bleach)'"
-    echo -e "             $0 '(naruto|bleach) (mkv|mp4)'"
-    echo -e "Extension:   $0 naruto mkv$"
-    echo -e "             $0 '(naruto|bleach) (mkv|mp4)$'"
-    echo -e "\nQuit vim:\nShift+ZZ or Shift+ZQ"
-    return 1
-  fi
-    keyword=$(echo "$@" |  sed -e 's/ /.*/g' -e 's:|:\\|:g' -e 's:(:\\(:g' -e 's:):\\):g')
-    find . -print | grep -i "$keyword" | vim -R -
-}
-
-@locate() {
-  if [ $# -lt 1 ]
-  then
-    echo -e "search for files using updatedb"
-    echo -e "\nUsage:     $0 <keywords>"
-    echo -e "Example:     $0 dragon ball z"
-    echo -e "OR Operator: $0 '(naruto|bleach)'"
-    echo -e "             $0 '(naruto|bleach) (mkv|mp4)'"
-    echo -e "Extension:   $0 naruto mkv$"
-    echo -e "             $0 '(naruto|bleach) (mkv|mp4)$'"
-    echo -e "\nUpdate Database: sudo updatedb"
-    echo -e "\nQuit vim:\nShift+ZZ or Shift+ZQ"
-    return 1
-  fi
-    # escape spaces, pipe and parentheses
-    keyword=$(echo "$@" |  sed -e 's/ /.*/g' -e 's:|:\\|:g' -e 's:(:\\(:g' -e 's:):\\):g')
-    locate -ir "$keyword" | vim -R -
-}
-
-#}}}
 #-------- Tmux Attach{{{
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ] && [ ${UID} != 0 ]; then tmux new-session -A -s main; else tmux attach ; fi &> /dev/null
