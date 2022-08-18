@@ -420,14 +420,6 @@ set t_Co=256  " enable 256color support
 scriptencoding utf-8
 set encoding=utf-8
 "set listchars=trail:Â·,precedes:Â«,extends:Â»,eol:â²,tab:â¸\}}}
-"-------- Themes {{{
-"------------------------------------------------------
-syntax enable
-" set background=light
-" set background=dark
-
-
-"}}}
 "-------- Indent Guides {{{
 
 let g:indentguides_state = 0
@@ -650,6 +642,13 @@ let g:instant_markdown_autostart = 0	" disable autostart
 
 " start instant markdown preview manually
 map <leader>md :InstantMarkdownPreview<CR>
+
+"}}}
+"-------- Themes {{{
+"------------------------------------------------------
+syntax enable
+" set background=light
+set background=dark
 
 "}}}
 "-------- Colorschemes {{{
