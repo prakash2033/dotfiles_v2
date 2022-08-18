@@ -12,72 +12,13 @@ SPACESHIP_PROMPT_ADD_NEWLINE=false
 SPACESHIP_PROMPT_SEPARATE_LINE=false
 SPACESHIP_CHAR_SYMBOL=❯
 SPACESHIP_CHAR_SUFFIX=" "
-# SPACESHIP_HG_SHOW=false
-# SPACESHIP_PACKAGE_SHOW=false
-# SPACESHIP_NODE_SHOW=false
-# SPACESHIP_RUBY_SHOW=false
-# SPACESHIP_ELM_SHOW=false
-# SPACESHIP_ELIXIR_SHOW=false
-# SPACESHIP_XCODE_SHOW_LOCAL=false
-# SPACESHIP_SWIFT_SHOW_LOCAL=false
-# SPACESHIP_GOLANG_SHOW=false
-# SPACESHIP_PHP_SHOW=false
-# SPACESHIP_RUST_SHOW=false
-# SPACESHIP_JULIA_SHOW=false
-# SPACESHIP_DOCKER_SHOW=false
-# SPACESHIP_DOCKER_CONTEXT_SHOW=false
-# SPACESHIP_AWS_SHOW=false
-# SPACESHIP_CONDA_SHOW=false
-# SPACESHIP_VENV_SHOW=false
-# SPACESHIP_PYENV_SHOW=false
-# SPACESHIP_DOTNET_SHOW=false
-# SPACESHIP_EMBER_SHOW=false
-# SPACESHIP_KUBECONTEXT_SHOW=false
-# SPACESHIP_TERRAFORM_SHOW=false
-# SPACESHIP_TERRAFORM_SHOW=false
 SPACESHIP_VI_MODE_SHOW=false
-# SPACESHIP_JOBS_SHOW=false
 
 fpath=( "${ZDOTDIR:-$HOME}/.zfunctions" $fpath )
 
 # Set Spaceship ZSH as a prompt
 autoload -U promptinit; promptinit
 prompt spaceship
-
-# https://wiki.archlinux.org/index.php/Zsh#Prompts
-# autoload -U promptinit && promptinit
-# prompt fade magenta   # set prompt theme (for listing: $ prompt -p)
-
-# Enable colors and change prompt:
-# autoload -U colors && colors # Load colors
-
-# Enable substitution in the prompt.
-# setopt prompt_subst
-# PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
-
-# # Prompt Settings
-# declare -a PROMPTS
-# PROMPTS=(
-# "∮"
-# "∯"
-# "≎"
-# ""
-# ""
-# ""
-# ""
-# ""
-# ""
-# )
-# RANDOM=$$$(date +%s)
-# ignition=${PROMPTS[$RANDOM % ${#RANDOM[*]}+1]}
-# PROMPT='%F{yellow}%1~%f %F{green}$ignition%f '
-
-# }}}
-#-------- ZSH Modules {{{
-#------------------------------------------------------
-
-# autoload -U zcalc zsh-mime-setup
-# zsh-mime-setup
 
 # }}}
 #-------- Globbing {{{
@@ -111,43 +52,6 @@ cfg-history() { $EDITOR $HISTFILE ;}
 
 #
 # }}}
-# # -------- Git Status {{{
-#
-# # https://www.themoderncoder.com/add-git-branch-information-to-your-zsh-prompt/
-# # https://arjanvandergaag.nl/blog/customize-zsh-prompt-with-vcs-info.html
-# # https://stackoverflow.com/questions/49744179/zsh-vcs-info-how-to-indicate-if-there-are-untracked-files-in-git
-#
-# # Load version control information
-# autoload -Uz vcs_info
-# precmd() { vcs_info }
-#
-# # Format the vcs_info_msg_0_ variable
-# zstyle ':vcs_info:*' enable git
-# zstyle ':vcs_info:*' check-for-changes true
-# zstyle ':vcs_info:*' unstagedstr '!'
-# zstyle ':vcs_info:*' stagedstr '+'
-# zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
-# # zstyle ':vcs_info:git:*' formats "on branch %s  %r/%S %b %m%u%c"
-# # zstyle ':vcs_info:git:*' actionformats "on branch %s  %r/%S %b %m%u%c"
-# zstyle ':vcs_info:*' formats " (%s)-[%b%Q]%m%u%c"
-# # zstyle ':vcs_info:*' actionformats " (%s)-[%b%Q|%a]%c"
-#
-#
-# +vi-git-untracked(){
-#     if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
-#         git status --porcelain | grep '??' &> /dev/null ; then
-#         # This will show the marker if there are any untracked files in repo.
-#         # If instead you want to show the marker only if there are untracked
-#         # files in $PWD, use:
-#         #[[ -n $(git ls-files --others --exclude-standard) ]] ; then
-#         hook_com[staged]+='T'
-#     fi
-# }
-#
-# # Set up the prompt (with git branch name)
-# setopt PROMPT_SUBST
-#
-# # }}}
 #-------- Vim Mode {{{
 #------------------------------------------------------
 # enable vim mode on commmand line
@@ -188,34 +92,6 @@ bindkey '^?' backward-delete-char #backspace
 # http://zshwiki.org./home/zle/bindkeys#why_isn_t_control-r_working_anymore
 bindkey -M viins '^r' history-incremental-search-backward
 bindkey -M vicmd '^r' history-incremental-search-backward
-
-# use cursor blinker color as indicator of vi mode
-# http://andreasbwagner.tumblr.com/post/804629866/zsh-cursor-color-vi-mode
-# http://reza.jelveh.me/2011/09/18/zsh-tmux-vi-mode-cursor
-
-# bug; 112 ascii randomly showing up
-
-# zle-keymap-select () {
-#  if [ $KEYMAP = vicmd ]; then
-#    if [[ $TMUX = '' ]]; then
-#      echo -ne "\033]12;Red\007"
-#    else
-#      printf '\033Ptmux;\033\033]12;red\007\033\\'
-#    fi
-#  else
-#    if [[ $TMUX = '' ]]; then
-#      echo -ne "\033]12;Grey\007"
-#    else
-#      printf '\033Ptmux;\033\033]12;grey\007\033\\'
-#    fi
-#  fi
-#}
-#zle-line-init () {
-#  zle -K viins
-#  echo -ne "\033]12;Grey\007"
-#}
-#zle -N zle-keymap-select
-#zle -N zle-line-init
 
 # }}}
 #-------- Autocomplete {{{
@@ -397,14 +273,7 @@ if [ -d "$HOME/.config/function" ]; then
   done
 fi
 
-# for file in * ; do
-#   if [ -f "$file" ] ; then
-#     . "$file"
-#   fi
-# done
-
 #}}}
-
 #-------- Keybinding {{{
 #------------------------------------------------------
 # manpages for keybindings: $man zshzle
@@ -424,12 +293,6 @@ bindkey -s '\e4' "!:0-3 \t"      # last command + 1st-3rd argument
 bindkey -s '\e5' "!:0-4 \t"      # last command + 1st-4th argument
 bindkey -s '\e`' "!:0- \t"       # all but the last argument
 bindkey -s '\e9' "!:0 !:2* \t"   # all but the 1st argument (aka 2nd word)
-
-# history search fzf
-# references: https://github.com/junegunn/fzf/wiki/examples#command-history
-# fzf-history-zsh() { print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac --height 10% | sed 's/ *[0-9]* *//') ;}
-# bindkey -s '^R' "fzf-history-zsh\n"
-
 
 # history search fzf widget
 # references: https://github.com/junegunn/fzf/wiki/examples#locate
@@ -451,7 +314,6 @@ bindkey '^R' fzf-history-widget
 autoload zmv
 
 # }}}
-
 #-------- Fuzzy Finder {{{
 #------------------------------------------------------
 #
@@ -463,30 +325,6 @@ fzf_killps() { zle -I; ps -ef | sed 1d | fzf -m | awk '{print $2}' | xargs kill 
 
 fzf_cd() { zle -I; DIR=$(find ${1:-*} -path '*/\.*' -prune -o -type d -print 2> /dev/null | fzf) && cd "$DIR" ; }; zle -N fzf_cd; bindkey '^E' fzf_cd
 # }}}
-#-------- Emacs Mode {{{
-#------------------------------------------------------
-# enable emacs mode on commmand line
-# bindkey -e
-
-# use text editor to edit commands
-# autoload -U edit-command-line
-# zle -N edit-command-line
-# bindkey '\C-x\C-e' edit-command-line
-
-# }}}
-#-------- Empty {{{
-#------------------------------------------------------
-#
-
-
-# }}}
-#-------- Empty {{{
-#------------------------------------------------------
-#
-
-
-# }}}
-
 #-------- Autocomplete Custom {{{
 #------------------------------------------------------
 # autocomplete surfraw bookmarks
@@ -530,36 +368,7 @@ bindkey "^f" sudo_
 
 
 # }}}
-#--------------------------------------------------------------------------
-#http://jaredforsyth.com/blog/2010/may/30/easy-zsh-auto-completion/
-## http://zshwiki.org/home/examples/compctl
-
-# ZSH completions# {{{
-# compdef _pids cpulimit
-# setopt completealiases
-
-# calibredb
-# _cmpl_calibredb() {
-# alias -g search="list -s"
-#
-#     reply=(add remove search)
-# }
-# compctl -K _cmpl_calibredb cmx-comic cmx-dojinshi cmx-eurotica cmx-hanime cmx-normal cmx-textbook $@
-
-# fzf_playonlinux_run() { zle -I; playonlinux --run $(ls -1 ~/.PlayOnLinux/shortcuts | fzf) ; }; zle -N fzf_playonlinux_run; bindkey '^P' fzf_playonlinux_run
-
-# fzf_hotkey_playonlinux() { zle -I; @dmenu ; }; zle -N fzf_hotkey_playonlinux; bindkey '^ ' fzf_hotkey_playonlinux
-
-# fzf_surfraw() { zle -I; surfraw $(awk 'NF > 0' ~/.config/surfraw/bookmarks | fzf | awk 'NF != 0 && !/^#/ {print $1}' ) ; }; zle -N fzf_surfraw; bindkey '^W' fzf_surfraw
-
-  # reply=($(awk 'NF != 0 && !/^#/ {print $1}' ~/.config/surfraw/bookmarks | sort -n))
-# }}}
-
-# hp: you define a function, you make a widget out of it with zle -N funcname, then you  bind that
-# slmenukey() { zle -I; xe ; }; zle -N slmenukey; bindkey '^F' slmenukey
-#hw() { zle -I; echo hello world; }; zle -N hw; bindkey '^[[4~' hw
-#bindkey -s '^[[4~' 'echo hello\n'
-
+#--------- Fzf Dmenu {{{
 bindkey -s '^O' "fzf-dmenu\n"
 
 fzf-dmenu() { 
@@ -567,17 +376,7 @@ fzf-dmenu() {
         selected="$(ls /usr/share/applications | fzf -e)"
         nohup `grep '^Exec' "/usr/share/applications/$selected" | tail -1 | sed 's/^Exec=//' | sed 's/%.//'` >/dev/null 2>&1&
 }
-
-# disable zsh autocorrect
-# https://coderwall.com/p/jaoypq
-# unsetopt correct_all
-
-# ----------------------------
-
-# Autoload screen if we aren't in it.  (Thanks Fjord!)
-# if [[ $STY = '' ]] then screen -xR; fi
-
-
+# }}}
 # #-------- Options {{{
 # #------------------------------------------------------
 # # http://linux.die.net/man/1/zshoptions
@@ -589,227 +388,22 @@ setopt AUTO_CD           # instead of 'cd folder' if you could just type 'folder
 # setopt CORRECT           # spell check commands!  (Sometimes annoying)
 setopt AUTO_PUSHD        # This makes cd=pushd
 # setopt AUTO_NAME_DIRS    # This will use named dirs when possible
-#
-# # If we have a glob this will expand it
-# setopt GLOB_COMPLETE
-# setopt PUSHD_MINUS
-#
-# # No more annoying pushd messages...
-# # setopt PUSHD_SILENT
-#
-# # blank pushd goes to home
-# setopt PUSHD_TO_HOME
-#
-# # this will ignore multiple directories for the stack.  Useful?  I dunno.
-# setopt PUSHD_IGNORE_DUPS
-#
-# # 10 second wait if you do something that will delete everything.  I wish I'd had this before...
-# setopt RM_STAR_WAIT
-#
-# # use magic (this is default, but it can't hurt!)
-# setopt ZLE
-#
-# setopt NO_HUP
-#
-# setopt VI
-#
-# # only fools wouldn't do this ;-)
-# export EDITOR="vi"
-#
-#
-# setopt IGNORE_EOF
-#
-# # If I could disable Ctrl-s completely I would!
-# setopt NO_FLOW_CONTROL
-#
-# # beeps are annoying
-# setopt NO_BEEP
-#
-# # Keep echo "station" > station from clobbering station
-# setopt NO_CLOBBER
-#
-# # Case insensitive globbing
-# setopt NO_CASE_GLOB
-#
-# # Be Reasonable!
-# setopt NUMERIC_GLOB_SORT
-#
-# # I don't know why I never set this before.
-# setopt EXTENDED_GLOB
-#
-# # hows about arrays be awesome?  (that is, frew${cool}frew has frew surrounding all the variables, not just first and last
-# setopt RC_EXPAND_PARAM
-#
-# #
-#
+
 # # }}}
-#-------- Empty {{{
-#------------------------------------------------------
-#
-
-
-# }}}
-#-------- Empty {{{
-#------------------------------------------------------
-#
-
-
-# }}}
-#-------- Empty {{{
-#------------------------------------------------------
-#
-
-
-# }}}
-#-------- Empty {{{
-#------------------------------------------------------
-#
-
-
-# }}}
-
-# #{{{ Completion Stuff
-#
-# bindkey -M viins '\C-i' complete-word
-#
-# # Faster! (?)
-# zstyle ':completion::complete:*' use-cache 1
-#
-# # case insensitive completion
-# zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-#
-# zstyle ':completion:*' verbose yes
-# zstyle ':completion:*:descriptions' format '%B%d%b'
-# zstyle ':completion:*:messages' format '%d'
-# zstyle ':completion:*:warnings' format 'No matches for: %d'
-# zstyle ':completion:*' group-name ''
-# #zstyle ':completion:*' completer _oldlist _expand _force_rehash _complete
-# zstyle ':completion:*' completer _expand _force_rehash _complete _approximate _ignored
-#
-# # generate descriptions with magic.
-# zstyle ':completion:*' auto-description 'specify: %d'
-#
-# # Don't prompt for a huge list, page it!
-# zstyle ':completion:*:default' list-prompt '%S%M matches%s'
-#
-# # Don't prompt for a huge list, menu it!
-# zstyle ':completion:*:default' menu 'select=0'
-#
-# # Have the newer files last so I see them first
-# zstyle ':completion:*' file-sort modification reverse
-#
-# # color code completion!!!!  Wohoo!
-# zstyle ':completion:*' list-colors "=(#b) #([0-9]#)*=36=31"
-#
-# unsetopt LIST_AMBIGUOUS
-# setopt  COMPLETE_IN_WORD
-#
-# # Separate man page sections.  Neat.
-# zstyle ':completion:*:manuals' separate-sections true
-#
-# # Egomaniac!
-# zstyle ':completion:*' list-separator 'fREW'
-#
-# # complete with a menu for xwindow ids
-# zstyle ':completion:*:windows' menu on=0
-# zstyle ':completion:*:expand:*' tag-order all-expansions
-#
-# # more errors allowed for large words and fewer for small words
-# zstyle ':completion:*:approximate:*' max-errors 'reply=(  $((  ($#PREFIX+$#SUFFIX)/3  ))  )'
-#
-# # Errors format
-# zstyle ':completion:*:corrections' format '%B%d (errors %e)%b'
-#
-# # Don't complete stuff already on the line
-# zstyle ':completion::*:(rm|vi):*' ignore-line true
-#
-# # Don't complete directory we are already in (../here)
-# zstyle ':completion:*' ignore-parents parent pwd
-#
-# zstyle ':completion::approximate*:*' prefix-needed false
-#
-# #}}}
-
-# #{{{ Key bindings
-#
-# # Who doesn't want home and end to work?
-# bindkey '\e[1~' beginning-of-line
-# bindkey '\e[4~' end-of-line
-#
-# # Incremental search is elite!
-# bindkey -M vicmd "/" history-incremental-search-backward
-# bindkey -M vicmd "?" history-incremental-search-forward
-#
-# # Search based on what you typed in already
-# bindkey -M vicmd "//" history-beginning-search-backward
-# bindkey -M vicmd "??" history-beginning-search-forward
-#
-# bindkey "\eOP" run-help
-#
-# # oh wow!  This is killer...  try it!
-# bindkey -M vicmd "q" push-line
-#
-# # Ensure that arrow keys work as they should
-# bindkey '\e[A' up-line-or-history
-# bindkey '\e[B' down-line-or-history
-#
-# bindkey '\eOA' up-line-or-history
-# bindkey '\eOB' down-line-or-history
-#
-# bindkey '\e[C' forward-char
-# bindkey '\e[D' backward-char
-#
-# bindkey '\eOC' forward-char
-# bindkey '\eOD' backward-char
-#
-# bindkey -M viins 'jj' vi-cmd-mode
-# bindkey -M vicmd 'u' undo
-#
-# # Rebind the insert key.  I really can't stand what it currently does.
-# bindkey '\e[2~' overwrite-mode
-#
-# # Rebind the delete key. Again, useless.
-# bindkey '\e[3~' delete-char
-#
-# bindkey -M vicmd '!' edit-command-output
-#
-# # it's like, space AND completion.  Gnarlbot.
-# bindkey -M viins ' ' magic-space
-#
-# #}}}
-
-# copy current command to clipboard (Ctrl+X)
+# copy current command to clipboard (Ctrl+X){{{
 # https://www.reddit.com/r/commandline/comments/4fjpb0/question_how_to_copy_the_command_to_clipboard/
 zle -N copyx; copyx() { echo -E $BUFFER | xsel -ib }; bindkey '^X' copyx
 
-# # ALT-I - Paste the selected entry from locate output into the command line
-# fzf-locate-widget() {
-#   local selected
-#   if selected=$(fasd -d | fzf -q "$LBUFFER"); then
-#     LBUFFER=$selected
-#   fi
-#   zle redisplay
-# }
-# zle     -N    fzf-locate-widget
-# bindkey '\ei' fzf-locate-widget
-
+# }}}
+#-------- vvv{{{
 vvv() {
   local file
   file="$(fasd -Rfl "$1" | fzf -1 -0 --no-sort +m)" && vi "${file}" || return 1
 }
-
-# Set up Node Version Manager
-#source /usr/share/nvm/init-nvm.sh
-
+# }}}
+#-------- For youtube-dl playback {{{
 unsetopt nomatch
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# ----- Zsh Autosuggestions
-#source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#708289"
+# }}}
 # -------- Perl for YouTube-Viewer {{{
 
 PATH="$HOME/perl5/bin${PATH:+:${PATH}}"; export PATH;
