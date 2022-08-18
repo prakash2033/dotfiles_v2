@@ -282,11 +282,8 @@ noremap <expr> gM (virtcol('$') / 2) . '<Bar>'
 " autocmd InsertEnter * :set number norelativenumber
 " autocmd InsertLeave * :set nonumber relativenumber
 
-
 "}}}
-
-
-""" Prevent lag when hitting escape
+"-------- Prevent lag when hitting escape"{{{
 set ttimeoutlen=0
 set timeoutlen=1000
 au InsertEnter * set timeout
@@ -312,6 +309,7 @@ map <leader>sudo :w !sudo tee % <CR><CR>
 " jump the the last / of a line
 nmap <leader>/ $F/
 
+"}}}
 "-------- important {{{
 "------------------------------------------------------
 " watch for changes then auto source vimrc
@@ -416,17 +414,12 @@ augroup line_return
 augroup END
 
 "}}}
-
-
-"------------------------------------------////
-"	    VIM CONFIGURATION
-"------------------------------------------////
+"-------- VIM CONFIGURATION{{{
 set t_Co=256  " enable 256color support
 
 scriptencoding utf-8
 set encoding=utf-8
-"set listchars=trail:Â·,precedes:Â«,extends:Â»,eol:â²,tab:â¸\
-
+"set listchars=trail:Â·,precedes:Â«,extends:Â»,eol:â²,tab:â¸\}}}
 "-------- Themes {{{
 "------------------------------------------------------
 syntax enable
@@ -435,35 +428,7 @@ syntax enable
 
 
 "}}}
-"-------- New Shit {{{
-"------------------------------------------------------
-" http://blog.bodhizazen.net/linux/command-line-spell-checking/
-" Show matching [] and {}
-"	set showmatch
-"
-"	" Spell check on
-"	set spell spelllang=en_us
-"	setlocal spell spelllang=en_us
-"
-"	" Toggle spelling with the F7 key
-"	nn <F7> :setlocal spell! spelllang=en_us<CR>
-"	imap <F7> <C-o>:setlocal spell! spelllang=en_us<CR>
-"
-"	" Spelling
-"	highlight clear SpellBad
-"	highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
-"	highlight clear SpellCap
-"	highlight SpellCap term=underline cterm=underline
-"	highlight clear SpellRare
-"	highlight SpellRare term=underline cterm=underline
-"	highlight clear SpellLocal
-"	highlight SpellLocal term=underline cterm=underline
-"
-"	" where it should get the dictionary files
-"	let g:spellfile_URL = 'http://ftp.vim.org/vim/runtime/spell'
-
-"}}}
-" Indent Guides {{{
+"-------- Indent Guides {{{
 
 let g:indentguides_state = 0
 function! IndentGuides() " {{{
@@ -479,12 +444,6 @@ hi def IndentGuides guibg=#303030
 nnoremap <leader>I :call IndentGuides()<cr>
 
 " }}}
-
-" Send visual selection to gist.github.com as a private, filetyped Gist
-" Requires the gist command line too (brew install gist)
-" vnoremap <leader>G :w !gist -p -t %:e \| pbcopy<cr>
-" vnoremap <leader>UG :w !gist -p \| pbcopy<cr>
-
 " Visual Mode */# from Scrooloose {{{
 
 function! s:VSetSearch()
@@ -498,9 +457,7 @@ vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR><c-o>
 vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR><c-o>
 
 " }}}
-
-
-" Word Processor Mode
+" Word Processor Mode{{{
 " http://jasonheppler.org/2012/12/05/word-processor-mode-in-vim/
 " http://robots.thoughtbot.com/wrap-existing-text-at-80-characters-in-vim
 func! WordProcessorMode()
@@ -512,39 +469,16 @@ func! WordProcessorMode()
     setlocal spell spelllang=en_us
     setlocal noexpandtab
 endfu
-com! WP call WordProcessorMode()
-
+com! WP call WordProcessorMode()"}}}
+"{{{ Word Wrapping
 " http://robots.thoughtbot.com/wrap-existing-text-at-80-characters-in-vim
 " http://www.drbunsen.org/writing-in-vim/
-
-"{{{ Word Wrapping
 " better word wrapping: breaks at spaces or hyphens
 set formatoptions=l
 set lbr
 
 "}}}
-
-" Block Colors
-" let g:blockcolor_state = 0
-" function! BlockColor() "
-"     if g:blockcolor_state
-"         let g:blockcolor_state = 0
-"         call matchdelete(77881)
-"         call matchdelete(77882)
-"         call matchdelete(77883)
-"         call matchdelete(77884)
-"         call matchdelete(77885)
-"     else
-"         let g:blockcolor_state = 1
-"         call matchadd("BlockColor1", '^ \{4}.*', 1, 77881)
-"         call matchadd("BlockColor2", '^ \{8}.*', 2, 77882)
-"         call matchadd("BlockColor3", '^ \{12}.*', 3, 77883)
-"         call matchadd("BlockColor4", '^ \{16}.*', 4, 77884)
-"         call matchadd("BlockColor5", '^ \{20}.*', 5, 77885)
-"     endif
-" endfunction "
-
-" Ranger as a drop-in replacement for the vim file selector
+" Ranger as a drop-in replacement for the vim file selector{{{
 " source: https://www.reddit.com/r/vim/comments/2va2og/ranger_the_cli_file_manager_xpost_from/cog2ley/
 function! RangerChooser()
     let temp = tempname()
@@ -570,18 +504,9 @@ function! RangerChooser()
 endfunction
 
 command! RangerChooser :call RangerChooser()
-nnoremap <leader>rr :<C-U>RangerChooser<CR>
-
-" vim statusline bar color
-hi StatusLine ctermbg=white ctermfg=black
-
-
-" move visual selection
-" https://www.youtube.com/watch?v=X5IAdaN6IwM
-" xnoremap <silent> K :call wincent#mappings#visual#move_up()<CR>
-" xnoremap <silent> J :call wincent#mappings#visual#move_down()<CR>
-
-
+nnoremap <leader>rr :<C-U>RangerChooser<CR>"}}}
+" vim statusline bar color{{{
+hi StatusLine ctermbg=white ctermfg=black"}}}
 "-------- Macros {{{
 "------------------------------------------------------
 " references: https://stackoverflow.com/a/2024537
@@ -681,8 +606,6 @@ nmap <leader>fr :%s///<Left>
 "------------------------------------------------------
 
 "}}}
-
-
 "-------- vim-plug - Minimalist Vim Plugin Manager {{{
 "------------------------------------------------------
 " https://github.com/junegunn/vim-plug
