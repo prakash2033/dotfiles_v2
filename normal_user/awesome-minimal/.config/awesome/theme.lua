@@ -27,7 +27,7 @@ theme.fg_minimize   = "#ffffff"
 theme.useless_gap   = dpi(0)
 theme.border_width  = dpi(2)
 theme.border_normal = "#000000"
-theme.border_focus  = "#999999" --"#327bd1" --changed blue color border to white color
+theme.border_focus  = "#999999" 
 theme.border_marked = "#91231c"
 
 -- There are other variable sets

@@ -439,6 +439,8 @@ awful.rules.rules = {
         class = {
           "Arandr",
           "Blueman-manager",
+          "Blueman-services",
+          "Nm-connection-editor",
           "Gpick",
           "Kruler",
           "MessageWin",  -- kalarm.

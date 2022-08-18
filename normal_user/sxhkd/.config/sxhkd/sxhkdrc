@@ -43,7 +43,7 @@ super + b
 	brave-browser
 
 ctrl + alt + l
-        betterlockscreen -l
+        i3lock-fancy & systemctl suspend
 
 alt + space
         rofi -show run
