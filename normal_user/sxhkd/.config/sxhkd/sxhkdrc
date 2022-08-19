@@ -37,7 +37,8 @@ super + b
 	brave-browser
 
 ctrl + alt + l
-        i3lock-fancy & systemctl suspend
+        dm-tool lock
+        # i3lock-fancy & systemctl suspend
 
 alt + space
         rofi -show run
