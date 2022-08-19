@@ -549,6 +549,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 awful.spawn.with_shell("pkill xfce4-clipman")
 awful.spawn.with_shell("pkill redshift-gtk")
 awful.spawn.with_shell("pkill pnmixer")
+awful.spawn.with_shell("pkill variety")
 awful.spawn.with_shell("picom -b --experimental-backends")
 awful.spawn.with_shell("xfce4-power-manager")
 awful.spawn.with_shell("autorandr --load homedock")
@@ -564,6 +565,6 @@ awful.spawn.with_shell("pnmixer")
 awful.spawn.with_shell("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)")
 awful.spawn.with_shell("sxhkd")
 awful.spawn.with_shell("feh --bg-fill -r -z ~/Pictures/wall")
-awful.spawn.with_shell("/usr/bin/variety --profile ~/.config/variety/")
+awful.spawn.with_shell("variety --profile ~/.config/variety/")
 
 -- }}}
