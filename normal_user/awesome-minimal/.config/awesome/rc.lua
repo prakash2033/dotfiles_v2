@@ -96,6 +96,15 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
 
+
+-- Create a calendar widget for clock hover/click
+local month_calendar = awful.widget.calendar_popup.month({
+  screen = s,
+  start_sunday = false,
+  week_numbers = true
+})
+month_calendar:attach( mytextclock, "tr" )
+
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
                     awful.button({ }, 1, function(t) t:view_only() end),
