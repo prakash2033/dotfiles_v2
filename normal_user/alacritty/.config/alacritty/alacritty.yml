@@ -1,7 +1,7 @@
 # Window Customization{{{
 
 window:
-  opacity: 0.95
+  opacity: 0.8
   dimensions:
     columns: 140
     lines: 38
@@ -213,5 +213,7 @@ key_bindings:
 
 # }}}
 
+# Selection to clipboard {{{
 selection:
     save_to_clipboard: true
+# }}}

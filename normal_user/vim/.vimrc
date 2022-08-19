@@ -654,9 +654,14 @@ set background=dark
 "-------- Colorschemes {{{
 "------------------------------------------------------
 " colorscheme solarized
-" colorscheme gruvbox
-colorscheme nord
+colorscheme gruvbox
+" colorscheme nord
 
+"}}}
+"-------- Vim Transparency{{{
+highlight Normal     ctermbg=NONE guibg=NONE
+highlight LineNr     ctermbg=NONE guibg=NONE
+highlight SignColumn ctermbg=NONE guibg=NONE
 "}}}
 "-------- ultisnips - The ultimate snippet solution for Vim {{{
 "------------------------------------------------------
