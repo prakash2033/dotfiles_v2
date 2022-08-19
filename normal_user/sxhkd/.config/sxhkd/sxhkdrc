@@ -40,6 +40,9 @@ ctrl + alt + l
         dm-tool lock
         # i3lock-fancy & systemctl suspend
 
+super + x
+        kill -9 -1
+
 alt + space
         rofi -show run
 
