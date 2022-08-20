@@ -231,8 +231,8 @@ globalkeys = gears.table.join(
               {description = "view previous", group = "tag"}),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
               {description = "view next", group = "tag"}),
-    awful.key({ modkey,           }, "Tab", awful.tag.history.restore,
-              {description = "go back", group = "tag"}),
+    -- awful.key({ Mod1,           }, "Tab", awful.tag.history.restore,
+    --           {description = "go back", group = "tag"}),
 
     awful.key({ modkey,           }, "j",
         function ()
@@ -258,7 +258,7 @@ globalkeys = gears.table.join(
               {description = "focus the previous screen", group = "screen"}),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
-    awful.key({ "Mod1",           }, "Tab",
+    awful.key({ "Mod4",           }, "Tab",
         function ()
             awful.client.focus.history.previous()
             if client.focus then

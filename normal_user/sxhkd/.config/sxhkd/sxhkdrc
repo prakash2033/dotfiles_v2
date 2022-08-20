@@ -44,7 +44,11 @@ super + x
         kill -9 -1
 
 alt + space
-        rofi -show run
+        rofi -show drun
+
+
+alt + Tab
+	rofi -show window
 
 F1
         any-term-dropdown
