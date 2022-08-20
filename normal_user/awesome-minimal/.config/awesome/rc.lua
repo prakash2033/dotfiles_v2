@@ -482,7 +482,7 @@ awful.rules.rules = {
     -- Set mpv to be in floating and stick on all tags
     {
       rule = { class = "mpv" },
-      properties = { floating = true, sticky = true, skip_taskbar = true, screen = 1, ontop = true, position = "top" }
+      properties = { floating = true, sticky = true, skip_taskbar = true, screen = awful.screen.focused, ontop = true, position = "top" }
     },
     
     -- Set Gimp to always map on the tag named "9" on screen 1.
@@ -547,6 +547,15 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+-- }}}
+
+
+-- Mpv always on top {{{
+client.connect_signal("property::ontop", function(c)
+   if c.class == "mpv" then
+      c.ontop = true
+   end
+end)
 -- }}}
 
 -- Autostart {{{
