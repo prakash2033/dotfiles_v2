@@ -482,7 +482,7 @@ awful.rules.rules = {
     -- Set mpv to be in floating and stick on all tags
     {
       rule = { class = "mpv" },
-      properties = { floating = true, sticky = true, skip_taskbar = true, screen = 1, ontop = true }
+      properties = { floating = true, sticky = true, skip_taskbar = true, screen = 1, ontop = true, position = "top" }
     },
     
     -- Set Gimp to always map on the tag named "9" on screen 1.
