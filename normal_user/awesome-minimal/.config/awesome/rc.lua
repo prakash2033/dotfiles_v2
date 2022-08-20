@@ -564,7 +564,7 @@ awful.spawn.with_shell("xfce4-clipman")
 awful.spawn.with_shell("pnmixer")
 awful.spawn.with_shell("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)")
 awful.spawn.with_shell("sxhkd")
-awful.spawn.with_shell("feh --bg-fill -r -z ~/Pictures/wall")
+-- awful.spawn.with_shell("feh --bg-fill -r -z ~/Pictures/wall")
 awful.spawn.with_shell("variety --profile ~/.config/variety/")
 
 -- }}}
