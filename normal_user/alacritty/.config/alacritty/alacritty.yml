@@ -197,8 +197,10 @@ colors:
     - { index: 21, color: '0xe8e8e8' }
 
   selection:
-    text: '0x000000'
-    background: '0xC3B70C'
+    # text: '0x000000'
+    # background: '0xC3B70C' # cyan on selection
+    text: '0xffffff'
+    background: '0xdc3232' # red on selection
     white:   '0xffffff'
 
 cursor:
