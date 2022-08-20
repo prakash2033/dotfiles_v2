@@ -98,7 +98,7 @@ export ROOTER=$(find_alt gksudo kdesudo )
 export MANPAGER="/bin/sh -c \"col -b | vim --not-a-term -c 'set ft=man ts=8 nomod nolist noma' -\""
 # export MANPAGER="nvim +set\ filetype=man -"
 # export MANWIDTH='100'
-export URLPORTAL=~/.scripts/urlportal
+export URLPORTAL=~/.scripts/myurlportal
 # export RTV_BROWSER=~/.scripts/urlportal.sh
 export RTV_BROWSER=$URLPORTAL
 export IMAGEVIEWER=$(find_alt sxiv feh ristretto display eog $OPENER )

@@ -27,7 +27,7 @@ notify-beep yes
 # article-sort-order  date-desc
 # feed-sort-order firsttag
 confirm-exit yes
-browser ~/.scripts/urlportal
+browser ~/.scripts/myurlportal
 # download-full-page yes    # for feeds with link only then dl full page
 download-retries 4
 download-timeout 120
