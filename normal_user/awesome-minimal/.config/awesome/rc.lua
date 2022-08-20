@@ -231,8 +231,8 @@ globalkeys = gears.table.join(
               {description = "view previous", group = "tag"}),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
               {description = "view next", group = "tag"}),
-    -- awful.key({ Mod1,           }, "Tab", awful.tag.history.restore,
-    --           {description = "go back", group = "tag"}),
+    awful.key({ "Mod1",           }, "Tab", awful.tag.history.restore,
+               {description = "go back", group = "tag"}),
 
     awful.key({ modkey,           }, "j",
         function ()
@@ -258,7 +258,7 @@ globalkeys = gears.table.join(
               {description = "focus the previous screen", group = "screen"}),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
-    awful.key({ "Mod4",           }, "Tab",
+    awful.key({ modkey,           }, "Tab",
         function ()
             awful.client.focus.history.previous()
             if client.focus then
@@ -564,7 +564,6 @@ awful.spawn.with_shell("xfce4-clipman")
 awful.spawn.with_shell("pnmixer")
 awful.spawn.with_shell("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)")
 awful.spawn.with_shell("sxhkd")
--- awful.spawn.with_shell("feh --bg-fill -r -z ~/Pictures/wall")
 awful.spawn.with_shell("variety --profile ~/.config/variety/")
 
 -- }}}

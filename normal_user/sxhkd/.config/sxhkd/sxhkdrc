@@ -47,9 +47,5 @@ super + x
 alt + space
         rofi -show drun
 
-
-alt + Tab
-	rofi -show window
-
 F1
-        any-term-dropdown
+        ~/.scripts/any-term-dropdown
