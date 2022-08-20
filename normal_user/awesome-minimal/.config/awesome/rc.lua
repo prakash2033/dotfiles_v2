@@ -457,7 +457,7 @@ awful.rules.rules = {
           "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
           "Wpa_gui",
           "veromix",
-          "mpv",
+          "feh",
           "Pavucontrol",
           "Variety",
           "xtightvncviewer"},
@@ -475,9 +475,14 @@ awful.rules.rules = {
       }, properties = { floating = true }},
 
     -- Remove titlebars to normal clients and dialogs
-    { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = false }
+    { rule_any = {type = { "normal", "dialog" }}, 
+      properties = { titlebars_enabled = false }
+    },
 
+    -- Set mpv to be in floating and stick on all tags
+    {
+      rule = { class = "mpv" },
+      properties = { floating = true, sticky = true, skip_taskbar = true }
     },
     
     -- Set Gimp to always map on the tag named "2" on screen 1.
