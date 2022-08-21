@@ -54,6 +54,9 @@ awesome.set_preferred_icon_size(32)
 beautiful.useless_gap = 3
 beautiful.gap_single_client = true
 
+-- Notification configuration
+beautiful.notification_icon_size = 80
+
 -- Fix window snapping
 awful.mouse.snap.edge_enabled = false
 
