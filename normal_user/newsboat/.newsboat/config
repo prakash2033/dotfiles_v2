@@ -354,7 +354,7 @@ color info               default   black
 color article            default   default
 
 # highlights
-highlight article "^(Title):.*$" blue default
+highlight article "^(Title):.*$" green default bold
 highlight article "https?://[^ ]+" red default
 highlight article "\\[image\\ [0-9]+\\]" green default
 
