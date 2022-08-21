@@ -171,6 +171,7 @@ cfg-transmission-daemon() { $EDITOR ~/.config/transmission-daemon/settings.json 
 cfg-transmission-ncurse() { $EDITOR ~/.config/transmission-remote-cli/settings.cfg ;}
 cfg-transmission-tremc() { $EDITOR ~/.config/tremc/settings.cfg ;}
 cfg-urlportal() { $EDITOR ~/.scripts/urlportal ;}
+cfg-myurlportal() { $EDITOR ~/.scripts/myurlportal ;}
 cfg-urlview() { $EDITOR ~/.urlview ;}
 cfg-vifmrc() { $EDITOR ~/.config/vifm/vifmrc ;}
 cfg-vimrc() { $EDITOR ~/.vimrc ;}
