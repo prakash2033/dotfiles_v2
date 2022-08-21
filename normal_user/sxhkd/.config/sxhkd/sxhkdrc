@@ -27,6 +27,9 @@ super + a
 super + c
 	chromium
 
+super + shift + n
+        alacritty -e newsboat
+
 super + shift + t
         teams
 
@@ -38,11 +41,9 @@ super + b
 
 ctrl + alt + l
         dm-tool lock
-        # i3lock-fancy & systemctl suspend
 
 super + x
         /home/pvishwa1/.config/rofi/powermenu/powermenu.sh
-        # kill -9 -1
 
 alt + space
         rofi -show drun
