@@ -19,7 +19,7 @@ auto-reload yes                     # auto reload or use crontab instead ( 0 */2
 reload-time 45                      # update all feeds every x minutes
 reload-threads 4                    # parallel
 reload-only-visible-feeds yes       # manually reloading all feeds will only reload the currently visible feeds
-suppress-first-reload no           # do not reload feeds on first startup
+suppress-first-reload yes           # do not reload feeds on first startup
 scrolloff 10                        # keep cursor above and below set line
 mark-as-read-on-hover yes
 notify-beep yes
@@ -27,7 +27,7 @@ notify-beep yes
 # article-sort-order  date-desc
 # feed-sort-order firsttag
 confirm-exit yes
-browser ~/.scripts/myurlportal
+browser ~/.scripts/urlportal
 # download-full-page yes    # for feeds with link only then dl full page
 download-retries 4
 download-timeout 120
