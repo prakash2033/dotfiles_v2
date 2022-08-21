@@ -147,6 +147,7 @@ cfg-nvim() { $EDITOR ~/.config/nvim/init.vim ;}
 cfg-pacman() { sudo $EDITOR /etc/pacman.conf ;}
 cfg-pacman-mirrorlist() { sudo $EDITOR /etc/pacman.d/mirrorlist ;}
 cfg-pastebinit() { $EDITOR ~/.pastebinit.xml ;}
+cfg-picom() { $EDITOR ~/.config/picom.conf ;}
 cfg-privatekeyrc() { $EDITOR ~/.config/privatekey/privatekeyrc ;}
 cfg-profile() { $EDITOR ~/.profile ;}
 cfg-pulseaudio() { sudo $EDITOR /etc/pulse/default.pa ;}
