@@ -1,5 +1,10 @@
 {
-  "Custom Directory" : "Advanced",
+  "Ansi 5 Color" : {
+    "Red Component" : 0.82745098039215681,
+    "Color Space" : "sRGB",
+    "Blue Component" : 0.50980392156862742,
+    "Green Component" : 0.21176470588235294
+  },
   "Working Directory" : "\/Users\/pvishwa1",
   "Prompt Before Closing 2" : false,
   "Selected Text Color" : {
@@ -74,7 +79,7 @@
     "Green Component" : 0.53725490196078429
   },
   "Shortcut" : "",
-  "Use Non-ASCII Font" : false,
+  "Use Non-ASCII Font" : true,
   "Link Color" : {
     "Red Component" : 0,
     "Color Space" : "sRGB",
@@ -289,7 +294,7 @@
     "Blue Component" : 0.58823529411764708,
     "Green Component" : 0.58039215686274515
   },
-  "Window Type" : 15,
+  "Window Type" : 0,
   "Allow Title Reporting" : false,
   "Use Bright Bold" : false,
   "Has Hotkey" : true,
@@ -347,7 +352,7 @@
   },
   "AWDS Pane Directory" : "",
   "Left Option Key Changeable" : true,
-  "Normal Font" : "JetBrainsMono-Regular 16",
+  "Normal Font" : "JetBrainsMono-Regular 20",
   "Vertical Spacing" : 1,
   "Blur" : false,
   "Ansi 7 Color" : {
@@ -397,7 +402,7 @@
   "Bound Hosts" : [
 
   ],
-  "Non Ascii Font" : "Monaco 12",
+  "Non Ascii Font" : "HackNerdFontCompleteM-Regular 20",
   "Ansi 13 Color" : {
     "Red Component" : 0.42352941176470588,
     "Color Space" : "sRGB",
@@ -417,11 +422,6 @@
   "Visual Bell" : false,
   "Use Tab Color" : false,
   "ASCII Ligatures" : false,
-  "Thin Strokes" : 4,
-  "Ansi 5 Color" : {
-    "Red Component" : 0.82745098039215681,
-    "Color Space" : "sRGB",
-    "Blue Component" : 0.50980392156862742,
-    "Green Component" : 0.21176470588235294
-  }
+  "Custom Directory" : "Advanced",
+  "Thin Strokes" : 4
 }
