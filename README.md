@@ -77,6 +77,7 @@
     
     ## Install cargo for alacritty
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    sudo snap install cmake --classic
     cargo install alacritty
     
     ## For GUI Display managers. Add it in autostart to load Xresources
