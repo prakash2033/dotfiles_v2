@@ -75,6 +75,10 @@
     sudo make
     sudo make install
     
+    ## Install cargo for alacritty
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    cargo install alacritty
+    
     ## For GUI Display managers. Add it in autostart to load Xresources
     /usr/bin/xrdb /home/pvishwa1/.Xresources
     
