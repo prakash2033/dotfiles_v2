@@ -1,0 +1,36 @@
+[user]
+        email = pvishwa1@volvocars.com
+        name = Prakash Vishwakarma
+[pull]
+rebase = false
+[alias]
+  patch = !git --no-pager diff --no-color
+[core]
+        editor = vim
+        pager = diff-so-fancy | less --tabs=2 -RFXS --pattern '^(Date|added|deleted|modified): '
+[github]
+        user = prakash2033
+[hub]
+        protocol = https
+[color]
+        ui = true
+[color "diff-highlight"]
+        oldHighlight = red bold 52
+        newNormal = green bold
+        newHighlight = green bold 22
+        oldNormal = red bold
+[color "diff"]
+        meta = 11 bold
+        frag = magenta bold
+        commit = yellow bold
+        old = red bold
+        new = green bold
+        whitespace = red reverse
+[diff-so-fancy]
+        changeHunkIndicators = false
+        stripLeadingSymbols = false
+        markEmptyLines = false
+        rulerWidth =
+  useUnicodeRuler = false
+[credential "https://github.com"]
+        helper = !gh auth git-credential
