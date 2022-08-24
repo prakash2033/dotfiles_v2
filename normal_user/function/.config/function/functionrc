@@ -246,6 +246,7 @@ alias yt='ytfzf -t -l'
 alias u='urlportal'
 alias v='vim'
 alias visudo='sudo EDITOR="$EDITOR" visudo'
+alias wikimd="$EDITOR ~/.vimwiki/wikimd/index.md"
 
 alias h='cd $HOME && la'
 alias dox='cd ~/Documents'

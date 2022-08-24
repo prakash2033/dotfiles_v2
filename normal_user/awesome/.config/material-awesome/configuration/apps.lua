@@ -18,24 +18,19 @@ return {
   },
   -- List of apps to start once on start-up
   run_on_start_up = {
-    --'xcompmgr',
-    'compton --config ' .. filesystem.get_configuration_dir() .. '/configuration/compton.conf',
+    'picom -b --experimental-backends',
     'ibus-daemon --xim --daemonize', -- Ibus daemon for keyboard
-    --'scream-start', -- scream audio sink
     'numlockx on', -- enable numlock
-    'autorandr --load homedock',
-    'dropbox start -i',
     'xfce4-power-manager',
     '/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)',
-    'setxkbmap -layout "us,se"',
     'flameshot',
+    'sxhkd',
     'geary --hidden',
     'blueman-applet',
     'nm-applet --indicator',
     'redshift-gtk -l 57.708870:11.974560 -t 6500:3600 -g 0.8 -m randr -v',
     'xfce4-clipman',
-    'pnmixer',
-    'feh --bg-fill -r -z ~/Pictures/wall',
+    'volumeicon',
     '/usr/bin/variety --profile ~/.config/variety/',
     '~/.config/awesome/configuration/awspawn'
   }
