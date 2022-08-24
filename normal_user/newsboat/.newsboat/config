@@ -49,7 +49,7 @@ articlelist-format  "%4i %f %D  %?T?|%-17T|  ?%t"
 datetime-format "%b %d %Y" # date example: Mar 01 2017
 
 show-read-feeds yes
-show-read-articles yes
+show-read-articles no
 
 #notify-program      "/usr/bin/notify-send"
 #goto-next-feed no
