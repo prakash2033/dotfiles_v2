@@ -68,17 +68,17 @@ decode_cte 0
 auto_uncompress 0
 preserve_timestamp 1
 keymap_file keymap
-document_root /media/Suiton/Downloads
-personal_document_root /media/Suiton/Downloads
-cgi_bin /usr/lib/w3m/cgi-bin:/home/heoyea-ant/.w3m/cgi-bin
-index_file /media/Suiton/Downloads
+document_root $HOME/Downloads
+personal_document_root $HOME/Downloads
+cgi_bin /usr/lib/w3m/cgi-bin:$HOME/.w3m/cgi-bin
+index_file $HOME/Downloads
 mime_types ~/.mime.types, /usr/etc/mime.types
 mailcap ~/.w3m/mailcap, /usr/etc/w3m/mailcap
 urimethodmap ~/.w3m/urimethodmap, /usr/etc/w3m/urimethodmap
 editor $EDITOR
 mailto_options 1
 mailer /usr/bin/mail
-extbrowser ~/.scripts/ninjutsu/urlportal
+extbrowser ~/.scripts/myurlportal
 extbrowser2
 extbrowser3
 extbrowser4
