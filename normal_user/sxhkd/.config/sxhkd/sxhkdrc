@@ -46,7 +46,8 @@ ctrl + alt + l
         dm-tool lock
 
 super + x
-        /home/pvishwa1/.config/rofi/powermenu/powermenu.sh
+        betterlockscreen -l blur
+        # /home/pvishwa1/.config/rofi/powermenu/powermenu.sh
 
 alt + space
         rofi -show drun
