@@ -14,7 +14,7 @@ XF86AudioMute
 
 # Install: https://github.com/natnat-mc/brightnessctl
 XF86MonBrightness{Up,Down}
-	brightnessctl {+5,-5}
+	brightnessctl {+5,-5} & notify-send -t 500 "Brightness" "$(brightnessctl)%"
 
 super + p
 	arandr
