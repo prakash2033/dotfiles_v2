@@ -6,11 +6,15 @@
 # |_|
 # simple hot key demon
 
-XF86Audio{RaiseVolume,LowerVolume,Mute}
-	pamixer -{i,d,t} 2; kill -34 $(cat ~/.cache/pidofbar)
+XF86Audio{RaiseVolume,LowerVolume}
+        pactl -- set-sink-volume @DEFAULT_SINK@ {+5%,-5%}
 
+XF86AudioMute
+        pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# Install: https://github.com/natnat-mc/brightnessctl
 XF86MonBrightness{Up,Down}
-	brightnessctl s {+2%,2%-}
+	brightnessctl {+5,-5}
 
 super + p
 	arandr
