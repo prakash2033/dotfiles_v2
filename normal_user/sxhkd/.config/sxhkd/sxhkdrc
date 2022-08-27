@@ -43,11 +43,13 @@ super + b
 	brave-browser
 
 ctrl + alt + l
-        dm-tool lock
+        betterlockscreen -l
+
+super + shift + x
+        toggleprogram picom -b --experimental-backends
 
 super + x
-        betterlockscreen -l blur
-        # /home/pvishwa1/.config/rofi/powermenu/powermenu.sh
+        /home/pvishwa1/.config/rofi/powermenu/powermenu.sh
 
 alt + space
         rofi -show drun
