@@ -35,7 +35,7 @@ super + shift + n
         alacritty -e newsboat
 
 super + shift + t
-        teams
+        alacritty -e watch tsp
 
 super + shift + w
         alacritty -e vim ~/.vimwiki/wikimd/index.md
@@ -49,7 +49,7 @@ super + b
 ctrl + alt + l
         betterlockscreen -l
 
-super + shift + x
+super + shift + p
         toggleprogram picom -b --experimental-backends
 
 super + x
