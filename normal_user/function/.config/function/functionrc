@@ -15,6 +15,7 @@
 
 [ -f "$HOME/.config/privatekey/privatekeyrc" ] && source "$HOME/.config/privatekey/privatekeyrc"
 [ -d "$HOME/.scripts" ] && PATH="$HOME/.scripts:$PATH"
+[ -d "$HOME/.scripts/statusbar" ] && PATH="$HOME/.scripts/statusbar:$PATH"
 [ -d "$HOME/.cargo/env" ] && PATH="$HOME/.cargo/env:$PATH"
 [ -d "/usr/sbin" ] && PATH="/usr/sbin:$PATH"
 [ -d "$HOME/Public/gitrepo/diff-so-fancy" ] && PATH="$HOME/Public/gitrepo/diff-so-fancy:$PATH"
@@ -162,6 +163,7 @@ cfg-rclua() { $EDITOR ~/.config/awesome/rc.lua ;}
 cfg-redshift() { $EDITOR ~/.config/redshift/redshift.conf ;}
 cfg-rtv() { $EDITOR ~/.config/rtv/rtv.cfg ;}
 cfg-samba() { sudo $EDITOR /etc/samba/smb.conf ;}
+cfg-setwallpaper() { $EDITOR ~/.config/variety/scripts/set_wallpaper ;}
 cfg-sxhkdrc() { $EDITOR ~/.config/sxhkd/sxhkdrc ;}
 cfg-sudoers() { sudo $EDITOR /etc/sudoers ;}
 cfg-bookmarks() { $EDITOR ~/.config/surfraw/bookmarks ;}
