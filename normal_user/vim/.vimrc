@@ -10,7 +10,7 @@
 "-------- Settings {{{
 "------------------------------------------------------
 """ General options
-"set modeline
+" set modeline
 " set ls=2			" display jilename statusbar
 " set title			" show title in console title bar
 "set mouse-=a			" disable mouse automatically entering visual mode
@@ -27,12 +27,16 @@ set expandtab                        " Insert spaces instead of tabs
 set softtabstop=2                    " ... and insert two spaces
 set shiftwidth=2                     " Indent with two spaces
 set incsearch			     " Increamental search, find as you type word
-set hlsearch                         " Highlight search results
+set nohlsearch                       " Highlight search results
 set cursorline                       " Highligt the cursor line
 " set cursorcolumn                     " Highlight the column line
 set showmatch                        " When a bracket is inserted, briefly jump to the matching one
 set matchtime=3                      " ... during this time
 set virtualedit=onemore              " Allow the cursor to move just past the end of the line
+set noswapfile
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
 set history=100                      " Keep 100 undo
 set wildmenu                         " Better command-line completion
 set scrolloff=10                     " Always keep 10 lines after or before when scrolling
@@ -53,7 +57,6 @@ set encoding=utf-8                   " The encoding displayed.
 set fileencoding=utf-8               " The encoding written to file.
 set synmaxcol=300                    " Don't try to highlight long lines
 " set guioptions-=T                    " Don't show toolbar in Gvim
-set noswapfile
 
 " Open all cmd args in new tabs
 execute ":silent :tab all"
