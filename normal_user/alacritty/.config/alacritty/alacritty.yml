@@ -207,7 +207,7 @@ colors:
 cursor:
   style:
     shape: Beam
-    blinking: off
+    blinking: on
     blink-interval: 750
     unfocused_hollow: true
 
