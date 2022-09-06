@@ -60,3 +60,6 @@ alt + space
 
 F1
         ~/.scripts/any-term-dropdown
+
+ctrl + alt + Delete
+        alacritty -e htop
