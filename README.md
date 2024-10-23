@@ -22,7 +22,7 @@
     
     # Arch
     sudo pacman -S git stow mpv coreutils xdotool sxiv cmus htop newsboat 
-    sudo pacman -S jq fzf yt-dlp dmenu ueberzug ytfzf qpdfview
+    sudo pacman -S jq fzf yt-dlp dmenu ueberzug ytfzf
     yay -S task-spooler wmutils-git nvm ytfzf
 
     # Debian/Ubuntu/Pop-OS
